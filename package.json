@@ -1,0 +1,32 @@
+{
+  "name": "airline-booking-e2e",
+  "version": "1.0.0",
+  "description": "Data-driven E2E testing framework for airline booking system",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:smoke": "playwright test --grep @smoke",
+    "test:regression": "playwright test --grep @regression",
+    "test:all": "playwright test --grep .*",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:ui": "playwright test --ui",
+    "install:browsers": "playwright install",
+    "report": "playwright show-report"
+  },
+  "keywords": ["playwright", "typescript", "e2e", "airline", "booking"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "xlsx": "^0.18.5",
+    "csv-parse": "^5.5.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

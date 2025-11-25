@@ -1,0 +1,144 @@
+{
+  "config": {
+    "configFile": "C:\\Users\\2451487\\workspace\\UI_Automation_SingleBase\\playwright.config.ts",
+    "rootDir": "C:/Users/2451487/workspace/UI_Automation_SingleBase/tests",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "html",
+        {
+          "outputFolder": "playwright-report"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "test-results/junit.xml"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "C:/Users/2451487/workspace/UI_Automation_SingleBase/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "setup",
+        "name": "setup",
+        "testDir": "C:/Users/2451487/workspace/UI_Automation_SingleBase/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "/.*\\.setup\\.ts/"
+        ],
+        "timeout": 60000
+      },
+      {
+        "outputDir": "C:/Users/2451487/workspace/UI_Automation_SingleBase/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/2451487/workspace/UI_Automation_SingleBase/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.56.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "comprehensive-e2e.spec.ts",
+      "file": "comprehensive-e2e.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Debug - Application Access Check",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 14,
+                  "error": {
+                    "message": "Error: Error reading storage state from ./test-results/auth.json:\nENOENT: no such file or directory, open 'C:\\Users\\2451487\\workspace\\UI_Automation_SingleBase\\test-results\\auth.json'",
+                    "stack": "Error: Error reading storage state from ./test-results/auth.json:\nENOENT: no such file or directory, open 'C:\\Users\\2451487\\workspace\\UI_Automation_SingleBase\\test-results\\auth.json'"
+                  },
+                  "errors": [
+                    {
+                      "message": "Error: Error reading storage state from ./test-results/auth.json:\nENOENT: no such file or directory, open 'C:\\Users\\2451487\\workspace\\UI_Automation_SingleBase\\test-results\\auth.json'"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2025-11-25T09:57:44.425Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "ceae8d42728a3fcdf4bb-690e0df73028bc088e8a",
+          "file": "comprehensive-e2e.spec.ts",
+          "line": 325,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-11-25T09:57:43.160Z",
+    "duration": 2138.4610000000002,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}
