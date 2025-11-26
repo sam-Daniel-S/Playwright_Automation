@@ -2,11 +2,14 @@ import { Page, expect } from '@playwright/test';
 import { BasePage } from './BasePage';
 import { Scenario, SearchFormData, TripType, CabinClass } from '../lib/data/types';
 import { PassengerBuilder } from '../lib/utils/passengerBuilder';
+import { FlightSearchLocators } from '../flightSearchLocators';
 
 /**
  * Search Page Object for flight search functionality
  */
 export class SearchPage extends BasePage {
+  
+  private readonly locators: FlightSearchLocators;
   
   // Selectors based on existing locators file
   private readonly selectors = {
@@ -18,8 +21,8 @@ export class SearchPage extends BasePage {
     // Airport inputs
     fromAirportInput: '//input[@data-testid="from-input"]',
     toAirportInput: '//input[@data-testid="to-input"]',
-    selectFromInput: "//div[@class='qmbogk7']//div[1]",
-    selectToInput: "//div[@class='qmbogk7']//div[1]",
+    selectFromInput: "//div[@class='qmbogk8']//div[1]",
+    selectToInput: "//div[@class='qmbogk8']//div[1]",
     airportSuggestions: '[data-testid="airport-suggestions"], .airport-dropdown, .autocomplete-dropdown',
     
     // Date inputs
@@ -54,6 +57,7 @@ export class SearchPage extends BasePage {
 
   constructor(page: Page) {
     super(page);
+    this.locators = new FlightSearchLocators(page);
   }
 
   /**
@@ -164,24 +168,13 @@ export class SearchPage extends BasePage {
     // Wait for suggestions to appear
     await this.page.waitForTimeout(1000);
     
-    // Try to select from suggestions
-    const suggestionSelectors = [
-      `${this.selectors.airportSuggestions} >> text="${airportCode}"`,
-      `${this.selectors.airportSuggestions} >> text*="${airportCode}"`,
-      this.selectors.selectFromInput, // Fallback to first suggestion
-    ];
+    // Determine which selection to use based on the input field
+    const suggestionSelector = selector === this.selectors.fromAirportInput 
+      ? this.selectors.selectFromInput 
+      : this.selectors.selectToInput;
     
-    for (const suggestionSelector of suggestionSelectors) {
-      try {
-        if (await this.isVisible(suggestionSelector, 2000)) {
-          await this.clickWhenReady(suggestionSelector);
-          break;
-        }
-      } catch (error) {
-        // Continue to next selector
-      }
-    }
-    
+    // Click on the appropriate suggestion to close the dropdown
+    await this.clickWhenReady(suggestionSelector);
     await this.page.waitForTimeout(500);
   }
 
@@ -302,54 +295,155 @@ export class SearchPage extends BasePage {
 
   /**
    * Configure passengers based on scenario
+   * Uses plus button for count increment, adds new slots only for different passenger types
    */
   private async configurePassengers(scenario: Scenario): Promise<void> {
     if (!scenario.parsedPassengers) {
       throw new Error('Passenger data not parsed');
     }
     
-    // Open passenger dropdown
-    await this.clickWhenReady(this.selectors.passengersTypeDropdown);
-    await this.page.waitForTimeout(500);
+    console.log('Configuring passengers for search:', scenario.parsedPassengers);
     
-    // Configure each passenger type
-    for (const passengerCount of scenario.parsedPassengers) {
-      await this.setPassengerCount(passengerCount.type, passengerCount.count);
+    // Get passenger counts by type
+    const adults = scenario.parsedPassengers.find(p => p.type === 'ADT')?.count || 0;
+    const children = scenario.parsedPassengers.find(p => p.type === 'CHD')?.count || 0;
+    const infants = scenario.parsedPassengers.find(p => p.type === 'INF')?.count || 0;
+    
+    console.log(`Passengers needed: ${adults} adults, ${children} children, ${infants} infants`);
+    
+    let currentSlot = 1;
+    
+    // Configure adults (slot 1 is adult by default)
+    if (adults > 0) {
+      console.log(`Setting ${adults} adults in slot ${currentSlot}`);
+      if (adults > 1) {
+        // Use plus button to increase adult count from default 1 to required count
+        await this.increasePassengerCount(currentSlot, adults - 1);
+      }
+      // Adult type is already set by default, so no need to change dropdown
+      currentSlot++;
     }
     
-    // Close dropdown by clicking elsewhere
-    await this.clickWhenReady(this.selectors.fromAirportInput);
+    // Add and configure children if needed
+    if (children > 0) {
+      console.log(`Adding and configuring ${children} children`);
+      await this.locators.addNewPassengers.click();
+      await this.page.waitForTimeout(1000);
+      
+      // Change passenger type to Child
+      await this.setPassengerTypeInSlot(currentSlot, 'Child');
+      
+      // Increase count if more than 1 child
+      if (children > 1) {
+        await this.increasePassengerCount(currentSlot, children - 1);
+      }
+      currentSlot++;
+    }
+    
+    // Add and configure infants if needed  
+    if (infants > 0) {
+      console.log(`Adding and configuring ${infants} infants`);
+      await this.locators.addNewPassengers.click();
+      await this.page.waitForTimeout(1000);
+      
+      // Change passenger type to Infant
+      await this.setPassengerTypeInSlot(currentSlot, 'Infant');
+      
+      // Increase count if more than 1 infant
+      if (infants > 1) {
+        await this.increasePassengerCount(currentSlot, infants - 1);
+      }
+    }
+    
+    console.log('✅ Passenger configuration completed');
+  }
+  
+  /**
+   * Set passenger type for a specific slot (without changing count)
+   */
+  private async setPassengerTypeInSlot(slotNumber: number, passengerType: 'Adult' | 'Child' | 'Infant'): Promise<void> {
+    try {
+      console.log(`Setting passenger type in slot ${slotNumber} to ${passengerType}`);
+      
+      // Get the dropdown selector for the specific passenger slot
+      let dropdownSelector;
+      
+      if (slotNumber === 1) {
+        dropdownSelector = this.locators.PassengersDropDown;
+      } else if (slotNumber === 2) {
+        dropdownSelector = this.locators.passengersTypeDropdown_New;
+      } else if (slotNumber === 3) {
+        dropdownSelector = this.locators.passengersTypeDropdown_New_2;
+      } else {
+        // For additional passengers, use a dynamic selector
+        dropdownSelector = this.page.locator(`((//label[text()="Passengers"])[${slotNumber}]/following::div)`).first();
+      }
+      
+      // Click the dropdown for this passenger slot
+      await dropdownSelector.click();
+      await this.page.waitForTimeout(500);
+      
+      // Select the appropriate passenger type
+      switch (passengerType) {
+        case 'Adult':
+          await this.locators.selectPassenger_Adult.click();
+          break;
+        case 'Child':
+          await this.locators.selectPassenger_Child.click();
+          break;
+        case 'Infant':
+          await this.locators.selectPassenger_Infant.click();
+          break;
+      }
+      
+      await this.page.waitForTimeout(500);
+      console.log(`✅ Slot ${slotNumber} type set to ${passengerType}`);
+      
+    } catch (error) {
+      console.error(`Failed to set passenger type in slot ${slotNumber} to ${passengerType}:`, error);
+      throw error;
+    }
+  }
+  
+  /**
+   * Increase passenger count in a specific slot using plus button
+   */
+  private async increasePassengerCount(slotNumber: number, increaseBy: number): Promise<void> {
+    if (increaseBy <= 0) return;
+    
+    try {
+      console.log(`Increasing passenger count in slot ${slotNumber} by ${increaseBy}`);
+      
+      // Get the appropriate plus button selector
+      let plusButtonSelector;
+      
+      if (slotNumber === 1) {
+        plusButtonSelector = this.locators.passengerCountInput_Plus_1;
+      } else if (slotNumber === 2) {
+        plusButtonSelector = this.locators.passengerCountInput_Plus_2;
+      } else if (slotNumber === 3) {
+        plusButtonSelector = this.locators.passengerCountInput_Plus_3;
+      } else {
+        // For additional passengers, use a dynamic plus button selector
+        plusButtonSelector = this.page.locator(`(//button[text()="+"])[${slotNumber}]`).first();
+      }
+      
+      // Click plus button the required number of times
+      for (let i = 0; i < increaseBy; i++) {
+        await plusButtonSelector.click();
+        await this.page.waitForTimeout(300);
+        console.log(`Plus clicked ${i + 1}/${increaseBy} for slot ${slotNumber}`);
+      }
+      
+      console.log(`✅ Passenger count in slot ${slotNumber} increased by ${increaseBy}`);
+      
+    } catch (error) {
+      console.error(`Failed to increase passenger count in slot ${slotNumber}:`, error);
+      throw error;
+    }
   }
 
-  /**
-   * Set passenger count for specific type
-   */
-  private async setPassengerCount(type: 'ADT' | 'CHD' | 'INF', count: number): Promise<void> {
-    // First select passenger type
-    let typeSelector: string;
-    switch (type) {
-      case 'ADT':
-        typeSelector = this.selectors.selectPassenger_Adult;
-        break;
-      case 'CHD':
-        typeSelector = this.selectors.selectPassenger_Child;
-        break;
-      case 'INF':
-        typeSelector = this.selectors.selectPassenger_Infant;
-        break;
-    }
-    
-    // Click to select passenger type
-    await this.clickWhenReady(typeSelector);
-    await this.page.waitForTimeout(300);
-    
-    // Adjust count using plus/minus buttons
-    // Note: This is simplified - actual implementation depends on UI behavior
-    for (let i = 1; i < count; i++) {
-      await this.clickWhenReady(this.selectors.passengerCountInput_Plus);
-      await this.page.waitForTimeout(200);
-    }
-  }
+
 
   /**
    * Close interfering popups/overlays

@@ -252,7 +252,7 @@ async function executeScenario(
       fareFamily: scenario.fareFamily
     };
     
-    await resultsPage.selectFlight(flightSelection);
+    await resultsPage.selectFlight(flightSelection, scenario.tripType);
     
   } catch (error) {
     // If no results found, this might be expected for negative tests

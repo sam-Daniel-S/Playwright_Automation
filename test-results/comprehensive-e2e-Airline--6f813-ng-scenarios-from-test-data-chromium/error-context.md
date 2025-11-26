@@ -1,0 +1,208 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - button "Amadeus Nevio Logo" [ref=e6] [cursor=pointer]:
+          - img "Amadeus Nevio Logo" [ref=e7]
+        - generic [ref=e8]: "|"
+        - generic [ref=e9]: Finnair
+      - generic [ref=e10]:
+        - generic [ref=e11]: Development
+        - button "AB" [ref=e13] [cursor=pointer]
+    - generic [ref=e14]:
+      - generic [ref=e15]:
+        - img [ref=e16]
+        - generic [ref=e18]:
+          - text: Finnish Aviation Union's industrial action causes disruptions on Finnair flights on 17 July 2025.
+          - link "Read more" [ref=e19] [cursor=pointer]:
+            - /url: "#"
+      - button "Close" [ref=e20] [cursor=pointer]:
+        - img "Close" [ref=e21]
+    - generic [ref=e22]:
+      - generic [ref=e23]:
+        - generic [ref=e24]: Order 1
+        - button "Close" [ref=e25] [cursor=pointer]:
+          - img "Close" [ref=e26]
+      - button [ref=e27] [cursor=pointer]:
+        - img [ref=e28]
+      - generic [ref=e29]:
+        - img [ref=e30]
+        - button "Split Scene" [ref=e32] [cursor=pointer]:
+          - img "Split Scene" [ref=e33]
+        - button [ref=e34] [cursor=pointer]:
+          - img [ref=e35]
+        - button [ref=e37] [cursor=pointer]:
+          - img [ref=e38]
+        - img [ref=e41]
+        - button [ref=e43] [cursor=pointer]:
+          - img [ref=e44]
+        - button "Shopping Cart" [ref=e48] [cursor=pointer]:
+          - img "Shopping Cart" [ref=e49]
+    - generic [ref=e50]:
+      - generic [ref=e51]:
+        - generic [ref=e52]:
+          - button "Create Order" [ref=e54] [cursor=pointer]:
+            - img "Create Order" [ref=e56]
+          - button "Group Order" [disabled] [ref=e58]:
+            - img "Group Order" [ref=e60]
+          - generic [ref=e61]:
+            - button "Manage Order" [disabled] [ref=e62]:
+              - img [ref=e64]
+            - separator [ref=e66]
+          - button "Tools" [disabled] [ref=e68]:
+            - img [ref=e70]
+          - button "Flight Status" [disabled] [ref=e73]:
+            - img "Flight Status" [ref=e75]
+          - button "Sparkles" [disabled] [ref=e77]:
+            - img "Sparkles" [ref=e79]
+        - button "Expand sidebar" [ref=e80] [cursor=pointer]:
+          - img [ref=e81]
+      - generic [ref=e85]:
+        - generic [ref=e86]:
+          - generic [ref=e87]:
+            - generic [ref=e88]:
+              - img "Person" [ref=e89]
+              - generic [ref=e90]: Steeve Smith
+              - button "Copy" [ref=e91] [cursor=pointer]:
+                - img "Copy" [ref=e92]
+            - generic [ref=e93]:
+              - img "Diamond" [ref=e94]
+              - generic [ref=e95]: AY362532E3
+              - button "Copy" [ref=e96] [cursor=pointer]:
+                - img "Copy" [ref=e97]
+            - generic [ref=e98]:
+              - img "Phone" [ref=e99]
+              - generic [ref=e100]: +44 7911123456
+              - button "Copy" [ref=e101] [cursor=pointer]:
+                - img "Copy" [ref=e102]
+            - generic [ref=e103]:
+              - img "Mail" [ref=e104]
+              - generic [ref=e105]: steeves12@gmail.com
+              - button "Copy" [ref=e106] [cursor=pointer]:
+                - img "Copy" [ref=e107]
+          - button "500 Points Star" [ref=e108] [cursor=pointer]:
+            - generic [ref=e109]: 500 Points
+            - img "Star" [ref=e110]
+        - generic [ref=e111]:
+          - generic [ref=e113]:
+            - button "Travel Flight" [ref=e114] [cursor=pointer]:
+              - img "Travel" [ref=e117]
+              - generic [ref=e118]: Flight
+            - button "Hotel Hotel" [disabled] [ref=e119]:
+              - img "Hotel" [ref=e120]
+              - generic [ref=e121]: Hotel
+            - button "Train Train" [disabled] [ref=e122]:
+              - img "Train" [ref=e123]
+              - generic [ref=e124]: Train
+            - button "Package Package" [disabled] [ref=e125]:
+              - img "Package" [ref=e126]
+              - generic [ref=e127]: Package
+          - generic [ref=e128]:
+            - generic [ref=e131]:
+              - generic [ref=e132]:
+                - generic [ref=e133]:
+                  - radio [checked] [ref=e134] [cursor=pointer]
+                  - generic [ref=e135] [cursor=pointer]: Oneway
+                - generic [ref=e136]:
+                  - radio [ref=e137] [cursor=pointer]
+                  - generic [ref=e138] [cursor=pointer]: Round Trip
+                - generic [ref=e139]:
+                  - radio [disabled] [ref=e140]
+                  - generic [ref=e141]: Multicity
+              - generic [ref=e142]:
+                - generic [ref=e145]:
+                  - generic [ref=e146]: Departure*
+                  - generic [ref=e147]:
+                    - textbox "e.g. LHR" [active] [ref=e149]: HEL
+                    - generic [ref=e150]:
+                      - generic [ref=e151] [cursor=pointer]: Helsinki - Helsinki Vantaa (HEL)
+                      - generic [ref=e152] [cursor=pointer]: Helena - Helena Regional (HLN)
+                      - generic [ref=e153] [cursor=pointer]: Sechelt - Sechelt Airport (YHS)
+                      - generic [ref=e154] [cursor=pointer]: Vilhelmina - Vilhelmina Airport (VHM)
+                      - generic [ref=e155] [cursor=pointer]: Angelholm/Helsingborg - Angelholm Airport (AGH)
+                      - generic [ref=e156] [cursor=pointer]: St Barthelemy - Gustaf Iii (SBH)
+                      - generic [ref=e157] [cursor=pointer]: Bethel - Bethel Airport (BET)
+                      - generic [ref=e158] [cursor=pointer]: Chelyabinsk - Balandino (CEK)
+                      - generic [ref=e159] [cursor=pointer]: Gloucester Cheltenham - Gloucestershire (GLO)
+                      - generic [ref=e160] [cursor=pointer]: Cheltenham - Royal Well Bus Station (CHW)
+                      - generic [ref=e161] [cursor=pointer]: La Rochelle - Ile de Re (LRH)
+                      - generic [ref=e162] [cursor=pointer]: Gaspe - Michel-Pouliot (YGP)
+                      - generic [ref=e163] [cursor=pointer]: Mahe Island - Seychelles Intl (SEZ)
+                      - generic [ref=e164] [cursor=pointer]: Praslin Island - Praslin Island Airport (PRI)
+                      - generic [ref=e165] [cursor=pointer]: Kassel - Wilhelmshoehe Rail Stn (KWQ)
+                      - generic [ref=e166] [cursor=pointer]: Svolvaer - Helle (SVJ)
+                      - generic [ref=e167] [cursor=pointer]: Milwaukee - General Mitchell Intl (MKE)
+                      - generic [ref=e168] [cursor=pointer]: Nunam Iqua - Sheldon Point (SXP)
+                      - generic [ref=e169] [cursor=pointer]: Ascension Island - RAF Station (ASI)
+                      - generic [ref=e170] [cursor=pointer]: Jamestown - Saint Helena (HLE)
+                      - generic [ref=e171] [cursor=pointer]: Ammassivik - Heliport (QUW)
+                      - generic [ref=e172] [cursor=pointer]: Ilimanaq - Heliport (XIQ)
+                      - generic [ref=e173] [cursor=pointer]: Tiniteqilaaq - Heliport (TQI)
+                      - generic [ref=e174] [cursor=pointer]: Alluitsup Paa - Heliport (LLU)
+                      - generic [ref=e175] [cursor=pointer]: Nanortalik - Heliport (JNN)
+                - generic [ref=e178]:
+                  - generic [ref=e179]: Arrival*
+                  - textbox "e.g. CDG" [ref=e182]
+                - generic [ref=e183]:
+                  - generic [ref=e184]: Date *
+                  - generic [ref=e185]:
+                    - textbox "DD/MM/YYYY" [ref=e186] [cursor=pointer]
+                    - generic:
+                      - img
+                - generic [ref=e187]:
+                  - generic [ref=e188]: Class Type
+                  - generic [ref=e190]:
+                    - generic [ref=e192]: Economy
+                    - img [ref=e194]
+                - generic [ref=e196]:
+                  - generic [ref=e197]: Promo Code
+                  - textbox "e.g. abc123456" [ref=e198]
+              - generic [ref=e199]:
+                - generic [ref=e200]:
+                  - generic [ref=e201]: Passengers*
+                  - generic [ref=e203]:
+                    - generic [ref=e204]: Adult
+                    - img [ref=e206]
+                - generic [ref=e208]:
+                  - generic [ref=e209]: Count*
+                  - generic [ref=e211]:
+                    - spinbutton [ref=e212]: "1"
+                    - generic [ref=e213]:
+                      - button "-" [disabled] [ref=e214]
+                      - text: "|"
+                      - button "+" [ref=e215] [cursor=pointer]
+                - generic [ref=e216]:
+                  - generic [ref=e217]: Discount Code
+                  - textbox "e.g. abc12345" [ref=e220]
+                - generic [ref=e221]:
+                  - generic [ref=e222]: Loyalty Program
+                  - textbox "e.g. Flying blue" [ref=e225]
+                - generic [ref=e226]:
+                  - generic [ref=e227]: Member ID
+                  - textbox "e.g. 36215254" [ref=e228]
+              - button "Add Passengers" [ref=e230] [cursor=pointer]
+              - generic [ref=e231]:
+                - button "Clear" [ref=e232] [cursor=pointer]
+                - button "Search" [disabled] [ref=e233]
+            - generic [ref=e234]:
+              - button "Flights" [disabled] [ref=e238]:
+                - img [ref=e239]
+                - generic [ref=e241]: Flights
+              - button "Passenger details" [disabled] [ref=e245]:
+                - img [ref=e246]
+                - generic [ref=e248]: Passenger details
+              - button "Seats & Services" [disabled] [ref=e251]:
+                - img [ref=e252]
+                - generic [ref=e254]: Seats & Services
+              - button "Payment" [disabled] [ref=e257]:
+                - img [ref=e258]
+                - generic [ref=e260]: Payment
+              - button "Order Confirmation" [disabled] [ref=e263]:
+                - img [ref=e264]
+                - generic [ref=e266]: Order Confirmation
+  - region "Notifications Alt+T"
+  - alert [ref=e267]
+```

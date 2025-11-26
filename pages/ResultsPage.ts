@@ -1,11 +1,14 @@
 import { Page, expect } from '@playwright/test';
 import { BasePage } from './BasePage';
 import { FlightSelection, CabinClass } from '../lib/data/types';
+import { FlightSearchLocators } from '../flightSearchLocators';
 
 /**
  * Results Page Object for flight search results and selection
  */
 export class ResultsPage extends BasePage {
+  
+  private readonly locators: FlightSearchLocators;
   
   private readonly selectors = {
     // Page verification
@@ -47,6 +50,7 @@ export class ResultsPage extends BasePage {
 
   constructor(page: Page) {
     super(page);
+    this.locators = new FlightSearchLocators(page);
   }
 
   /**
@@ -81,8 +85,8 @@ export class ResultsPage extends BasePage {
   /**
    * Select a flight based on criteria
    */
-  async selectFlight(criteria: FlightSelection): Promise<void> {
-    console.log(`Selecting flight: cabin=${criteria.cabin}, preference=${criteria.preference}`);
+  async selectFlight(criteria: FlightSelection, tripType?: string): Promise<void> {
+    console.log(`Selecting flight: cabin=${criteria.cabin}, preference=${criteria.preference}, tripType=${tripType}`);
     
     try {
       // Wait for flight cards to be visible
@@ -109,7 +113,15 @@ export class ResultsPage extends BasePage {
       // Click continue to proceed
       await this.continueToNextStep();
       
-      console.log('Flight selected successfully');
+      // For round-trip, wait 2 seconds and click continue again
+      if (tripType && (tripType.toLowerCase().includes('round') || tripType.toLowerCase().includes('return'))) {
+        console.log('Round-trip detected - waiting 2 seconds for additional continue step');
+        await this.page.waitForTimeout(3000);
+        await this.continueToNextStep();
+        console.log('✅ Additional continue step completed for round-trip');
+      }
+      
+      console.log('Flight selection completed successfully');
       
     } catch (error) {
       console.error('Failed to select flight:', error);
@@ -251,10 +263,47 @@ export class ResultsPage extends BasePage {
    * Click continue to proceed to next step
    */
   private async continueToNextStep(): Promise<void> {
-    await this.clickWhenReady(this.selectors.continueButton);
-    
-    // Wait for navigation to complete
-    await this.waitForPageLoad();
+    try {
+      // Try FlightSearchLocators continue button first
+      if (await this.locators.Click_Continue_FlightCard.isVisible({ timeout: 5000 })) {
+        await this.locators.Click_Continue_FlightCard.click();
+        console.log('✅ Continue clicked using FlightSearchLocators');
+      } else {
+        // Fallback to regular continue button
+        await this.clickWhenReady(this.selectors.continueButton);
+        console.log('✅ Continue clicked using fallback selector');
+      }
+      
+      // Wait for navigation to complete
+      await this.waitForPageLoad();
+      
+    } catch (error) {
+      console.error('Failed to click continue button:', error);
+      
+      // Try alternative continue button selectors
+      const alternativeSelectors = [
+        "//button[text()='Continue']",
+        "//button[contains(text(), 'Continue')]",
+        "//button[@type='submit']",
+        "//button[contains(@class, 'continue')]"
+      ];
+      
+      let clicked = false;
+      for (const selector of alternativeSelectors) {
+        if (await this.isVisible(selector, 3000)) {
+          await this.clickWhenReady(selector);
+          console.log(`✅ Continue clicked using alternative selector: ${selector}`);
+          clicked = true;
+          break;
+        }
+      }
+      
+      if (!clicked) {
+        throw new Error('Could not find and click continue button');
+      }
+      
+      await this.waitForPageLoad();
+    }
   }
 
   /**

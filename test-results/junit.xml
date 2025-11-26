@@ -1,8 +1,311 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="1" errors="0" time="181.79828199999997">
-<testsuite name="comprehensive-e2e.spec.ts" timestamp="2025-11-26T10:32:01.709Z" hostname="chromium" tests="1" failures="0" skipped="1" time="177.89" errors="0">
-<testcase name="Airline Booking - All Scenarios E2E › Execute all booking scenarios from test data" classname="comprehensive-e2e.spec.ts" time="177.89">
-<skipped>
-</skipped>
+<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="122.076164">
+<testsuite name="comprehensive-e2e.spec.ts" timestamp="2025-11-26T15:29:10.473Z" hostname="chromium" tests="1" failures="1" skipped="0" time="120.297" errors="0">
+<testcase name="Airline Booking - All Scenarios E2E › Execute all booking scenarios from test data" classname="comprehensive-e2e.spec.ts" time="120.297">
+<failure message="comprehensive-e2e.spec.ts:17:7 Execute all booking scenarios from test data" type="FAILURE">
+<![CDATA[  [chromium] › comprehensive-e2e.spec.ts:17:7 › Airline Booking - All Scenarios E2E › Execute all booking scenarios from test data 
+
+    Test timeout of 120000ms exceeded.
+
+    Error: page.screenshot: Target page, context or browser has been closed
+
+      78 |         
+      79 |         // Capture failure screenshot
+    > 80 |         await page.screenshot({
+         |                    ^
+      81 |           path: `test-results/scenario-${scenario.scenarioID}-failure.png`,
+      82 |           fullPage: true
+      83 |         });
+        at C:\Users\2853064\Documents\Testing\Automation\Playwright_Automation\tests\comprehensive-e2e.spec.ts:80:20
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\test-results\comprehensive-e2e-Airline--6f813-ng-scenarios-from-test-data-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\test-results\comprehensive-e2e-Airline--6f813-ng-scenarios-from-test-data-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\test-results\comprehensive-e2e-Airline--6f813-ng-scenarios-from-test-data-chromium\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[🚀 Starting comprehensive E2E test execution...
+📝 No saved auth state found, performing initial login...
+🔑 Starting authentication process...
+🔐 Starting Microsoft authentication process...
+📍 Navigated to login page
+⚠️  No login button found, checking if login form is present
+📧 Found email input, attempting automated login...
+🤖 Starting automated Microsoft login...
+📧 Filling email field...
+➡️ Clicking Next button...
+🔐 Filling password field...
+🔑 Clicking Sign In button...
+✅ Clicking Stay signed in...
+⏳ Waiting for login completion...
+🔄 Navigating to main application...
+📍 Navigated to: https://app-test-finnair-fra-frontend-f7byg3hef7abafat.germanywestcentral-01.azurewebsites.net/en
+✅ Automated login completed successfully!
+📍 Successfully accessed main application
+✅ Detected /en redirect - User is logged in
+✅ Authentication successful
+💾 Authentication state saved
+💾 Authentication state saved for future test runs
+📊 Loading test scenarios...
+Reading Excel file: C:\Users\2853064\Documents\Testing\Automation\Playwright_Automation\test-data\scenarios.xlsx, sheet: scenarios
+Attempting CSV fallback: C:\Users\2853064\Documents\Testing\Automation\Playwright_Automation\test-data\scenarios.csv
+Reading CSV file: C:\Users\2853064\Documents\Testing\Automation\Playwright_Automation\test-data\scenarios.csv
+Found 5 scenario(s) with headers: scenarioid, triptype, origin, destination, passengers, cabin, farefamily, dates, tags, expectedresult
+Successfully parsed 5 scenarios
+✅ Loaded 5 test scenarios
+
+🧪 Executing Scenario: SMOKE_002
+📋 Round-trip | LHR → MAA | Business | 2 ADT
+   📍 Step 1: Filling search form...
+Flight search page loaded successfully
+Filling search form for scenario: SMOKE_002
+Selecting Business class - deselecting Economy first
+Configuring passengers for search: [ { type: [32m'ADT'[39m, count: [33m2[39m } ]
+Passengers needed: 2 adults, 0 children, 0 infants
+Setting 2 adults in slot 1
+Increasing passenger count in slot 1 by 1
+Plus clicked 1/1 for slot 1
+✅ Passenger count in slot 1 increased by 1
+✅ Passenger configuration completed
+Search form filled successfully
+Submitting flight search...
+Search submitted successfully
+   ✈️  Step 2: Processing search results...
+Waiting for flight search results...
+Flight results loaded successfully
+Selecting flight: cabin=Business, preference=first, tripType=Round-trip
+✅ Continue clicked using FlightSearchLocators
+Round-trip detected - waiting 2 seconds for additional continue step
+✅ Continue clicked using FlightSearchLocators
+✅ Additional continue step completed for round-trip
+Flight selection completed successfully
+   👤 Step 3: Filling passenger information...
+Filling passenger information for 2 passengers
+Filling 2 adult passenger(s)
+Filling adult passenger 1
+Filling adult form 1
+✅ Adult passenger 1 form completed
+Filling adult passenger 2
+Filling adult form 2
+✅ Adult passenger 2 form completed
+Passenger information filled successfully
+   💳 Step 5: Processing payment with enhanced flow...
+Attempting to locate and click Proceed to Payment button
+Proceed to Payment button found in DOM
+Scrolled Proceed to Payment button into view
+✅ Proceed to Payment button clicked successfully
+   ⚠️  Payment step failed (expected in test environment): locator.fill: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('//input[@placeholder="Select Country"]').first()[22m
+[2m    - locator resolved to <input disabled type="text" value="India" class="qmbogkk" placeholder="Select Country" data-testid="guestdetails_country1"/>[22m
+[2m    - fill("India")[22m
+[2m  - attempting fill action[22m
+[2m    2 × waiting for element to be visible, enabled and editable[22m
+[2m      - element is not enabled[22m
+[2m    - retrying fill action[22m
+[2m    - waiting 20ms[22m
+[2m    2 × waiting for element to be visible, enabled and editable[22m
+[2m      - element is not enabled[22m
+[2m    - retrying fill action[22m
+[2m      - waiting 100ms[22m
+[2m    58 × waiting for element to be visible, enabled and editable[22m
+[2m       - element is not enabled[22m
+[2m     - retrying fill action[22m
+[2m       - waiting 500ms[22m
+
+    at BookingSummaryPage.proceedToPaymentAndWait [90m(C:\Users\2853064\Documents\Testing\Automation\Playwright_Automation\[39mpages\BookingSummaryPage.ts:434:64[90m)[39m
+    at executeScenario [90m(C:\Users\2853064\Documents\Testing\Automation\Playwright_Automation\[39mtests\comprehensive-e2e.spec.ts:294:7[90m)[39m
+    at [90mC:\Users\2853064\Documents\Testing\Automation\Playwright_Automation\[39mtests\comprehensive-e2e.spec.ts:66:9 {
+  name: [32m'TimeoutError'[39m,
+  [[32mSymbol(step)[39m]: {
+    location: {
+      file: [32m'C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\pages\\BookingSummaryPage.ts'[39m,
+      line: [33m434[39m,
+      column: [33m64[39m,
+      function: [32m'BookingSummaryPage.proceedToPaymentAndWait'[39m
+    },
+    category: [32m'pw:api'[39m,
+    title: [32m`Fill "India" locator('//input[@placeholder="Select Country"]').first()`[39m,
+    apiName: [32m'locator.fill'[39m,
+    params: {
+      selector: [32m'//input[@placeholder="Select Country"] >> nth=0'[39m,
+      value: [32m'India'[39m,
+      strict: [33mtrue[39m,
+      timeout: [33m30000[39m
+    },
+    group: [90mundefined[39m,
+    stepId: [32m'pw:api@337'[39m,
+    boxedStack: [90mundefined[39m,
+    steps: [],
+    attachmentIndices: [],
+    info: TestStepInfoImpl {
+      annotations: [],
+      _testInfo: [36m[TestInfoImpl][39m,
+      _stepId: [32m'pw:api@337'[39m,
+      _title: [32m`Fill "India" locator('//input[@placeholder="Select Country"]').first()`[39m,
+      _parentStep: [90mundefined[39m,
+      skip: [36m[Function (anonymous)][39m
+    },
+    complete: [36m[Function: complete][39m,
+    endWallTime: [33m1764171063508[39m,
+    error: {
+      message: [32m'TimeoutError: locator.fill: Timeout 30000ms exceeded.\n'[39m +
+        [32m'Call log:\n'[39m +
+        [32m`\x1B[2m  - waiting for locator('//input[@placeholder="Select Country"]').first()\x1B[22m\n`[39m +
+        [32m'\x1B[2m    - locator resolved to <input disabled type="text" value="India" class="qmbogkk" placeholder="Select Country" data-testid="guestdetails_country1"/>\x1B[22m\n'[39m +
+        [32m'\x1B[2m    - fill("India")\x1B[22m\n'[39m +
+        [32m'\x1B[2m  - attempting fill action\x1B[22m\n'[39m +
+        [32m'\x1B[2m    2 × waiting for element to be visible, enabled and editable\x1B[22m\n'[39m +
+        [32m'\x1B[2m      - element is not enabled\x1B[22m\n'[39m +
+        [32m'\x1B[2m    - retrying fill action\x1B[22m\n'[39m +
+        [32m'\x1B[2m    - waiting 20ms\x1B[22m\n'[39m +
+        [32m'\x1B[2m    2 × waiting for element to be visible, enabled and editable\x1B[22m\n'[39m +
+        [32m'\x1B[2m      - element is not enabled\x1B[22m\n'[39m +
+        [32m'\x1B[2m    - retrying fill action\x1B[22m\n'[39m +
+        [32m'\x1B[2m      - waiting 100ms\x1B[22m\n'[39m +
+        [32m'\x1B[2m    58 × waiting for element to be visible, enabled and editable\x1B[22m\n'[39m +
+        [32m'\x1B[2m       - element is not enabled\x1B[22m\n'[39m +
+        [32m'\x1B[2m     - retrying fill action\x1B[22m\n'[39m +
+        [32m'\x1B[2m       - waiting 500ms\x1B[22m\n'[39m,
+      stack: [32m'TimeoutError: locator.fill: Timeout 30000ms exceeded.\n'[39m +
+        [32m'Call log:\n'[39m +
+        [32m`\x1B[2m  - waiting for locator('//input[@placeholder="Select Country"]').first()\x1B[22m\n`[39m +
+        [32m'\x1B[2m    - locator resolved to <input disabled type="text" value="India" class="qmbogkk" placeholder="Select Country" data-testid="guestdetails_country1"/>\x1B[22m\n'[39m +
+        [32m'\x1B[2m    - fill("India")\x1B[22m\n'[39m +
+        [32m'\x1B[2m  - attempting fill action\x1B[22m\n'[39m +
+        [32m'\x1B[2m    2 × waiting for element to be visible, enabled and editable\x1B[22m\n'[39m +
+        [32m'\x1B[2m      - element is not enabled\x1B[22m\n'[39m +
+        [32m'\x1B[2m    - retrying fill action\x1B[22m\n'[39m +
+        [32m'\x1B[2m    - waiting 20ms\x1B[22m\n'[39m +
+        [32m'\x1B[2m    2 × waiting for element to be visible, enabled and editable\x1B[22m\n'[39m +
+        [32m'\x1B[2m      - element is not enabled\x1B[22m\n'[39m +
+        [32m'\x1B[2m    - retrying fill action\x1B[22m\n'[39m +
+        [32m'\x1B[2m      - waiting 100ms\x1B[22m\n'[39m +
+        [32m'\x1B[2m    58 × waiting for element to be visible, enabled and editable\x1B[22m\n'[39m +
+        [32m'\x1B[2m       - element is not enabled\x1B[22m\n'[39m +
+        [32m'\x1B[2m     - retrying fill action\x1B[22m\n'[39m +
+        [32m'\x1B[2m       - waiting 500ms\x1B[22m\n'[39m +
+        [32m'\n'[39m +
+        [32m'    at BookingSummaryPage.proceedToPaymentAndWait (C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\pages\\BookingSummaryPage.ts:434:64)\n'[39m +
+        [32m'    at executeScenario (C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\tests\\comprehensive-e2e.spec.ts:294:7)\n'[39m +
+        [32m'    at C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\tests\\comprehensive-e2e.spec.ts:66:9'[39m,
+      cause: [90mundefined[39m
+    }
+  }
+}
+✅ Scenario SMOKE_002 completed successfully
+
+🧪 Executing Scenario: REG_001
+📋 One-way | HEL → LHR | Premium | 1 ADT,1 CHD
+   📍 Step 1: Filling search form...
+Flight search page loaded successfully
+Filling search form for scenario: REG_001
+
+[[ATTACHMENT|comprehensive-e2e-Airline--6f813-ng-scenarios-from-test-data-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|comprehensive-e2e-Airline--6f813-ng-scenarios-from-test-data-chromium\video.webm]]
+
+[[ATTACHMENT|comprehensive-e2e-Airline--6f813-ng-scenarios-from-test-data-chromium\error-context.md]]
+]]>
+</system-out>
+<system-err>
+<![CDATA[Failed to read scenarios from C:\Users\2853064\Documents\Testing\Automation\Playwright_Automation\test-data\scenarios.xlsx: Error: ENOENT: no such file or directory, open 'C:\Users\2853064\Documents\Testing\Automation\Playwright_Automation\test-data\scenarios.xlsx'
+[90m    at Object.openSync (node:fs:573:18)[39m
+[90m    at Object.readFileSync (node:fs:452:35)[39m
+    at read_binary [90m(C:\Users\2853064\Documents\Testing\Automation\Playwright_Automation\[39mnode_modules\[4mxlsx[24m\xlsx.js:3153:44[90m)[39m
+    at readSync [90m(C:\Users\2853064\Documents\Testing\Automation\Playwright_Automation\[39mnode_modules\[4mxlsx[24m\xlsx.js:23698:69[90m)[39m
+    at Object.readFile [as readFileSync] [90m(C:\Users\2853064\Documents\Testing\Automation\Playwright_Automation\[39mnode_modules\[4mxlsx[24m\xlsx.js:23738:9[90m)[39m
+    at Function.readFromExcel [90m(C:\Users\2853064\Documents\Testing\Automation\Playwright_Automation\[39mlib\excel\excelReader.ts:51:27[90m)[39m
+    at Function.readScenarios [90m(C:\Users\2853064\Documents\Testing\Automation\Playwright_Automation\[39mlib\excel\excelReader.ts:21:21[90m)[39m
+    at [90mC:\Users\2853064\Documents\Testing\Automation\Playwright_Automation\[39mtests\comprehensive-e2e.spec.ts:31:37
+    at [90mC:\Users\2853064\Documents\Testing\Automation\Playwright_Automation\[39mnode_modules\[4mplaywright[24m\lib\worker\workerMain.js:310:9
+    at [90mC:\Users\2853064\Documents\Testing\Automation\Playwright_Automation\[39mnode_modules\[4mplaywright[24m\lib\worker\testInfo.js:305:11
+    at TimeoutManager.withRunnable [90m(C:\Users\2853064\Documents\Testing\Automation\Playwright_Automation\[39mnode_modules\[4mplaywright[24m\lib\worker\timeoutManager.js:67:14[90m)[39m
+    at TestInfoImpl._runWithTimeout [90m(C:\Users\2853064\Documents\Testing\Automation\Playwright_Automation\[39mnode_modules\[4mplaywright[24m\lib\worker\testInfo.js:303:7[90m)[39m
+    at [90mC:\Users\2853064\Documents\Testing\Automation\Playwright_Automation\[39mnode_modules\[4mplaywright[24m\lib\worker\workerMain.js:308:7
+    at WorkerMain._runTest [90m(C:\Users\2853064\Documents\Testing\Automation\Playwright_Automation\[39mnode_modules\[4mplaywright[24m\lib\worker\workerMain.js:283:5[90m)[39m
+    at WorkerMain.runTestGroup [90m(C:\Users\2853064\Documents\Testing\Automation\Playwright_Automation\[39mnode_modules\[4mplaywright[24m\lib\worker\workerMain.js:198:11[90m)[39m
+    at process.<anonymous> [90m(C:\Users\2853064\Documents\Testing\Automation\Playwright_Automation\[39mnode_modules\[4mplaywright[24m\lib\common\process.js:65:22[90m)[39m {
+  errno: [33m-4058[39m,
+  code: [32m'ENOENT'[39m,
+  syscall: [32m'open'[39m,
+  path: [32m'C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\test-data\\scenarios.xlsx'[39m
+}
+Input validation failed. Expected: "Adult1", Actual: ""
+Input validation failed. Expected: "Test State", Actual: ""
+Input validation failed. Expected: "Adult2", Actual: ""
+Input validation failed. Expected: "Test State", Actual: ""
+Payment flow failed: locator.fill: Timeout 30000ms exceeded.
+Call log:
+[2m  - waiting for locator('//input[@placeholder="Select Country"]').first()[22m
+[2m    - locator resolved to <input disabled type="text" value="India" class="qmbogkk" placeholder="Select Country" data-testid="guestdetails_country1"/>[22m
+[2m    - fill("India")[22m
+[2m  - attempting fill action[22m
+[2m    2 × waiting for element to be visible, enabled and editable[22m
+[2m      - element is not enabled[22m
+[2m    - retrying fill action[22m
+[2m    - waiting 20ms[22m
+[2m    2 × waiting for element to be visible, enabled and editable[22m
+[2m      - element is not enabled[22m
+[2m    - retrying fill action[22m
+[2m      - waiting 100ms[22m
+[2m    58 × waiting for element to be visible, enabled and editable[22m
+[2m       - element is not enabled[22m
+[2m     - retrying fill action[22m
+[2m       - waiting 500ms[22m
+
+Failed to fill search form: page.waitForTimeout: Test timeout of 120000ms exceeded.
+    at SearchPage.fillAirportInput [90m(C:\Users\2853064\Documents\Testing\Automation\Playwright_Automation\[39mpages\SearchPage.ts:169:21[90m)[39m
+    at SearchPage.fillOriginDestination [90m(C:\Users\2853064\Documents\Testing\Automation\Playwright_Automation\[39mpages\SearchPage.ts:148:5[90m)[39m
+    at SearchPage.fillSearch [90m(C:\Users\2853064\Documents\Testing\Automation\Playwright_Automation\[39mpages\SearchPage.ts:91:7[90m)[39m
+    at executeScenario [90m(C:\Users\2853064\Documents\Testing\Automation\Playwright_Automation\[39mtests\comprehensive-e2e.spec.ts:239:3[90m)[39m
+    at [90mC:\Users\2853064\Documents\Testing\Automation\Playwright_Automation\[39mtests\comprehensive-e2e.spec.ts:66:9 {
+  [[32mSymbol(step)[39m]: {
+    location: {
+      file: [32m'C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\pages\\SearchPage.ts'[39m,
+      line: [33m169[39m,
+      column: [33m21[39m,
+      function: [32m'SearchPage.fillAirportInput'[39m
+    },
+    category: [32m'pw:api'[39m,
+    title: [32m'Wait for timeout'[39m,
+    apiName: [32m'page.waitForTimeout'[39m,
+    params: { waitTimeout: [33m1000[39m },
+    group: [90mundefined[39m,
+    stepId: [32m'pw:api@359'[39m,
+    boxedStack: [90mundefined[39m,
+    steps: [],
+    attachmentIndices: [],
+    info: TestStepInfoImpl {
+      annotations: [],
+      _testInfo: [36m[TestInfoImpl][39m,
+      _stepId: [32m'pw:api@359'[39m,
+      _title: [32m'Wait for timeout'[39m,
+      _parentStep: [90mundefined[39m,
+      skip: [36m[Function (anonymous)][39m
+    },
+    complete: [36m[Function: complete][39m,
+    endWallTime: [33m1764171071912[39m,
+    error: {
+      message: [32m'Error: page.waitForTimeout: Test timeout of 120000ms exceeded.'[39m,
+      stack: [32m'Error: page.waitForTimeout: Test timeout of 120000ms exceeded.\n'[39m +
+        [32m'    at SearchPage.fillAirportInput (C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\pages\\SearchPage.ts:169:21)\n'[39m +
+        [32m'    at SearchPage.fillOriginDestination (C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\pages\\SearchPage.ts:148:5)\n'[39m +
+        [32m'    at SearchPage.fillSearch (C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\pages\\SearchPage.ts:91:7)\n'[39m +
+        [32m'    at executeScenario (C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\tests\\comprehensive-e2e.spec.ts:239:3)\n'[39m +
+        [32m'    at C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\tests\\comprehensive-e2e.spec.ts:66:9'[39m,
+      cause: [90mundefined[39m
+    }
+  }
+}
+❌ Scenario REG_001 failed: page.screenshot: Target page, context or browser has been closed
+]]>
+</system-err>
 </testcase>
 </testsuite>
 </testsuites>

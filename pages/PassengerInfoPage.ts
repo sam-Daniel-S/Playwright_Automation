@@ -1,11 +1,14 @@
 import { Page, expect } from '@playwright/test';
 import { BasePage } from './BasePage';
 import { Passenger, PassengerType } from '../lib/data/types';
+import { FlightSearchLocators } from '../flightSearchLocators';
 
 /**
  * Passenger Information Page Object for filling passenger details
  */
 export class PassengerInfoPage extends BasePage {
+  
+  private readonly locators: FlightSearchLocators;
   
   private readonly selectors = {
     // Adult passenger form
@@ -34,7 +37,7 @@ export class PassengerInfoPage extends BasePage {
     postalCodeInput: '//input[@data-testid="guestdetails_postalcode1"]',
     
     // Child passenger navigation and form
-    navigateToChildPassenger: '//button[text()="Child 1"]',
+   
     childTitleDropdown: '//div[@data-testid="guestdetails_child_title1"]',
     childFirstNameInput: '//input[@data-testid="guestdetails_child_firstname1"]',
     childLastNameInput: '//input[@data-testid="guestdetails_child_lastname1"]',
@@ -59,6 +62,7 @@ export class PassengerInfoPage extends BasePage {
 
   constructor(page: Page) {
     super(page);
+    this.locators = new FlightSearchLocators(page);
   }
 
   /**
@@ -99,31 +103,37 @@ export class PassengerInfoPage extends BasePage {
   }
 
   /**
-   * Fill adult passenger information
+   * Fill adult passenger information for all adult forms
    */
   private async fillAdultPassengers(adults: Passenger[]): Promise<void> {
     if (adults.length === 0) return;
     
     console.log(`Filling ${adults.length} adult passenger(s)`);
     
-    // Fill first adult (primary passenger)
-    const primaryAdult = adults[0];
-    await this.fillPrimaryAdultForm(primaryAdult);
-    
-    // Fill additional adults if any (would need to navigate to additional forms)
-    for (let i = 1; i < adults.length; i++) {
-      // Note: This would require navigation to additional adult forms
-      // Implementation depends on UI behavior for multiple adults
-      console.log(`Additional adult ${i + 1} would be filled here`);
+    // Fill each adult passenger form
+    for (let i = 0; i < adults.length; i++) {
+      const adult = adults[i];
+      const passengerNumber = i + 1;
+      console.log(`Filling adult passenger ${passengerNumber}`);
+      
+      await this.fillAdultForm(adult, passengerNumber);
     }
   }
 
   /**
-   * Fill primary adult passenger form
+   * Fill adult passenger form with dynamic selectors
    */
-  private async fillPrimaryAdultForm(adult: Passenger): Promise<void> {
+  private async fillAdultForm(adult: Passenger, passengerNumber: number): Promise<void> {
+    console.log(`Filling adult form ${passengerNumber}`);
+    
+    // Generate dynamic selectors for this passenger
+    const titleDropdown = `//div[@data-testid="guestdetails_title${passengerNumber}"]`;
+    const firstNameInput = `//input[@data-testid="guestdetails_firstname${passengerNumber}"]`;
+    const lastNameInput = `//input[@data-testid="guestdetails_lastname${passengerNumber}"]`;
+    const dobInput = `(//input[@placeholder="DD/MM/YYYY"])[${passengerNumber}]`;
+    
     // Fill title
-    await this.clickWhenReady(this.selectors.titleDropdown);
+    await this.clickWhenReady(titleDropdown);
     await this.page.waitForTimeout(500);
     
     const titleSelector = adult.title === 'Ms' 
@@ -135,23 +145,28 @@ export class PassengerInfoPage extends BasePage {
     await this.clickWhenReady(titleSelector);
     
     // Fill name fields
-    await this.fillInput(this.selectors.firstNameInput, adult.firstName);
-    await this.fillInput(this.selectors.lastNameInput, adult.lastName);
+    await this.fillInput(firstNameInput, adult.firstName);
+    await this.fillInput(lastNameInput, adult.lastName);
     
     // Fill date of birth
-    await this.fillInput(this.selectors.dobInput, adult.dateOfBirth);
+    await this.fillInput(dobInput, adult.dateOfBirth);
     
-    // Fill contact information
-    await this.fillContactInformation(adult);
+    // Fill contact and address information for each adult passenger
+    await this.fillContactInformation(adult, passengerNumber);
+    await this.fillAddressInformation(passengerNumber);
     
-    // Fill address information
-    await this.fillAddressInformation();
+    console.log(`✅ Adult passenger ${passengerNumber} form completed`);
   }
 
   /**
-   * Fill contact information for primary passenger
+   * Fill contact information with dynamic selectors
    */
-  private async fillContactInformation(passenger: Passenger): Promise<void> {
+  private async fillContactInformation(passenger: Passenger, passengerNumber: number): Promise<void> {
+    // Generate dynamic selectors
+    const phoneExtensionDropdown = `//input[@data-testid="guestdetails_countrycode${passengerNumber}"]`;
+    const contactInput = `//input[@data-testid="guestdetails_contactno${passengerNumber}"]`;
+    const emailInput = `//input[@data-testid="guestdetails_email${passengerNumber}"]`;
+    
     // Contact purpose (Standard)
     if (await this.isVisible(this.selectors.contactPurpose, 5000)) {
       await this.clickWhenReady(this.selectors.contactPurpose);
@@ -163,43 +178,50 @@ export class PassengerInfoPage extends BasePage {
     }
     
     // Phone number country code
-    if (await this.isVisible(this.selectors.phoneExtensionDropdown, 5000)) {
-      await this.clickWhenReady(this.selectors.phoneExtensionDropdown);
+    if (await this.isVisible(phoneExtensionDropdown, 5000)) {
+      await this.clickWhenReady(phoneExtensionDropdown);
       await this.page.waitForTimeout(500);
       await this.clickWhenReady(this.selectors.phoneExtension);
     }
     
     // Phone number
     const phoneNumber = this.generatePhoneNumber();
-    await this.fillInput(this.selectors.contactInput, phoneNumber);
+    await this.fillInput(contactInput, phoneNumber);
     
     // Email address
     const email = this.generateEmail(passenger.firstName, passenger.lastName);
-    await this.fillInput(this.selectors.emailInput, email);
+    await this.fillInput(emailInput, email);
   }
 
   /**
-   * Fill address information
+   * Fill address information with dynamic selectors
    */
-  private async fillAddressInformation(): Promise<void> {
+  private async fillAddressInformation(passengerNumber: number): Promise<void> {
+    // Generate dynamic selectors
+    const streetInput = `//input[@data-testid="guestdetails_street${passengerNumber}"]`;
+    const cityInput = `//input[@data-testid="guestdetails_city${passengerNumber}"]`;
+    const stateInput = `//input[@data-testid="guestdetails_state${passengerNumber}"]`;
+    const countryDropdown = `//input[@data-testid="guestdetails_country${passengerNumber}"]`;
+    const postalCodeInput = `//input[@data-testid="guestdetails_postalcode${passengerNumber}"]`;
+    
     // Street address
-    await this.fillInput(this.selectors.streetInput, '123 Test Street');
+    await this.fillInput(streetInput, '123 Test Street');
     
     // City
-    await this.fillInput(this.selectors.cityInput, 'Test City');
+    await this.fillInput(cityInput, 'Test City');
     
     // State
-    await this.fillInput(this.selectors.stateInput, 'Test State');
+    await this.fillInput(stateInput, 'Test State');
     
     // Country
-    if (await this.isVisible(this.selectors.countryDropdown, 5000)) {
-      await this.clickWhenReady(this.selectors.countryDropdown);
+    if (await this.isVisible(countryDropdown, 5000)) {
+      await this.clickWhenReady(countryDropdown);
       await this.page.waitForTimeout(500);
       await this.clickWhenReady(this.selectors.selectCountry);
     }
     
     // Postal code
-    await this.fillInput(this.selectors.postalCodeInput, '123456');
+    await this.fillInput(postalCodeInput, '123456');
   }
 
   /**
@@ -217,23 +239,30 @@ export class PassengerInfoPage extends BasePage {
   }
 
   /**
-   * Fill single child passenger form
+   * Fill single child passenger form with dynamic selectors
    */
   private async fillSingleChildPassenger(child: Passenger, childNumber: number): Promise<void> {
-    // Navigate to child form if not the first child
-    if (childNumber > 1) {
-      const childNavSelector = `//button[text()="Child ${childNumber}"]`;
-      if (await this.isVisible(childNavSelector, 5000)) {
-        await this.clickWhenReady(childNavSelector);
-        await this.page.waitForTimeout(1000);
-      }
-    } else if (await this.isVisible(this.selectors.navigateToChildPassenger, 5000)) {
-      await this.clickWhenReady(this.selectors.navigateToChildPassenger);
+    console.log(`Filling child passenger ${childNumber}`);
+    
+    // Generate dynamic selectors for this child
+    const childTitleDropdown = `//div[@data-testid="guestdetails_child_title${childNumber}"]`;
+    const childFirstNameInput = `//input[@data-testid="guestdetails_child_firstname${childNumber}"]`;
+    const childLastNameInput = `//input[@data-testid="guestdetails_child_lastname${childNumber}"]`;
+    
+    // Calculate DOB input position (adults + child position)
+    // Assuming adults come first, then children
+    const dobPosition = childNumber + 1; // +1 because adults use position 1
+    const childDobInput = `(//input[@placeholder="DD/MM/YYYY"])[${dobPosition}]`;
+    
+    // Navigate to child form if needed
+    const childNavSelector = `//button[text()="Child ${childNumber}"]`;
+    if (await this.isVisible(childNavSelector, 5000)) {
+      await this.clickWhenReady(childNavSelector);
       await this.page.waitForTimeout(1000);
     }
     
     // Fill child title
-    await this.clickWhenReady(this.selectors.childTitleDropdown);
+    await this.clickWhenReady(childTitleDropdown);
     await this.page.waitForTimeout(500);
     
     const titleSelector = child.title === 'Ms' 
@@ -243,9 +272,11 @@ export class PassengerInfoPage extends BasePage {
     await this.clickWhenReady(titleSelector);
     
     // Fill child name and DOB
-    await this.fillInput(this.selectors.childFirstNameInput, child.firstName);
-    await this.fillInput(this.selectors.childLastNameInput, child.lastName);
-    await this.fillInput(this.selectors.childDobInput, child.dateOfBirth);
+    await this.fillInput(childFirstNameInput, child.firstName);
+    await this.fillInput(childLastNameInput, child.lastName);
+    await this.fillInput(childDobInput, child.dateOfBirth);
+    
+    console.log(`✅ Child passenger ${childNumber} form completed`);
   }
 
   /**
@@ -263,32 +294,51 @@ export class PassengerInfoPage extends BasePage {
   }
 
   /**
-   * Fill single infant passenger form
+   * Fill single infant passenger form with dynamic selectors
    */
   private async fillSingleInfantPassenger(infant: Passenger, infantNumber: number): Promise<void> {
+    console.log(`Filling infant passenger ${infantNumber}`);
+    
+    // Generate dynamic selectors for this infant
+    const infantTitleDropdown = `//div[@data-testid="guestdetails_infant_title${infantNumber}"]`;
+    const infantFirstNameInput = `//input[@data-testid="guestdetails_infant_firstname${infantNumber}"]`;
+    const infantLastNameInput = `//input[@data-testid="guestdetails_infant_lastname${infantNumber}"]`;
+    const infantAdultAssociationDropdown = `//div[@data-testid="guestdetails_infant_infantassocitation${infantNumber}"]`;
+    
+    // Calculate DOB input position (adults + children + infant position)
+    // Assuming adults come first, then children, then infants
+    const dobPosition = infantNumber + 2; // +2 because adults and children use earlier positions
+    const infantDobInput = `(//input[@placeholder="DD/MM/YYYY"])[${dobPosition}]`;
+    
     // Navigate to infant form if needed
-    // This would depend on the specific UI implementation
+    const infantNavSelector = `//button[text()="Infant ${infantNumber}"]`;
+    if (await this.isVisible(infantNavSelector, 5000)) {
+      await this.clickWhenReady(infantNavSelector);
+      await this.page.waitForTimeout(1000);
+    }
     
     // Fill infant title (typically Ms for female infants)
-    if (await this.isVisible(this.selectors.infantTitleDropdown, 5000)) {
-      await this.clickWhenReady(this.selectors.infantTitleDropdown);
+    if (await this.isVisible(infantTitleDropdown, 5000)) {
+      await this.clickWhenReady(infantTitleDropdown);
       await this.page.waitForTimeout(500);
       await this.clickWhenReady(this.selectors.selectMsOption);
     }
     
     // Fill infant name and DOB
-    await this.fillInput(this.selectors.infantFirstNameInput, infant.firstName);
-    await this.fillInput(this.selectors.infantLastNameInput, infant.lastName);
-    await this.fillInput(this.selectors.infantDobInput, infant.dateOfBirth);
+    await this.fillInput(infantFirstNameInput, infant.firstName);
+    await this.fillInput(infantLastNameInput, infant.lastName);
+    await this.fillInput(infantDobInput, infant.dateOfBirth);
     
     // Associate infant with adult passenger
-    if (infant.associatedAdult && await this.isVisible(this.selectors.infantAdultAssociationDropdown, 5000)) {
-      await this.clickWhenReady(this.selectors.infantAdultAssociationDropdown);
+    if (infant.associatedAdult && await this.isVisible(infantAdultAssociationDropdown, 5000)) {
+      await this.clickWhenReady(infantAdultAssociationDropdown);
       await this.page.waitForTimeout(500);
       
       // Select the associated adult (simplified - would need dynamic selector)
       await this.clickWhenReady(this.selectors.selectInfantAdultAssociation);
     }
+    
+    console.log(`✅ Infant passenger ${infantNumber} form completed`);
   }
 
   /**

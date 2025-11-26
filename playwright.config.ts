@@ -51,8 +51,12 @@ export default defineConfig({
       use: {
         ...devices['Desktop Chrome'],
         headless: false,
+        // viewport: {height: 1080, width: 1920 },
         launchOptions: {
           args: [
+            '--start-maximized',
+            '--disable-web-security',
+            '--disable-features=VizDisplayCompositor',
             '--ignore-certificate-errors',
             '--ignore-ssl-errors',
             '--ignore-certificate-errors-spki-list',
@@ -89,6 +93,9 @@ export default defineConfig({
         /* Chrome-specific args to ignore certificate errors */
         launchOptions: {
           args: [
+            '--start-maximized',
+            '--disable-web-security',
+            '--disable-features=VizDisplayCompositor',
             '--ignore-certificate-errors',
             '--ignore-ssl-errors',
             '--ignore-certificate-errors-spki-list',
@@ -129,7 +136,7 @@ export default defineConfig({
   // },
 
   /* Global test timeout */
-  timeout: 60000,
+  timeout: 120000,
 
   /* Maximum failures before stopping test run */
   maxFailures: process.env.CI ? 5 : undefined,

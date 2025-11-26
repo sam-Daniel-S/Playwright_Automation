@@ -414,7 +414,8 @@ export class BookingSummaryPage extends BasePage {
       await this.locator(this.selectors.proceedToPayment).waitFor({ state: 'visible' });
       await this.locator(this.selectors.proceedToPayment).click({ force: true });
 
-      // Country selection with proper wait
+      // Wait for country dropdown to be visible before filling
+      await this.locator(this.selectors.selectCountryDropDown).waitFor({ state: 'visible', timeout: 60000 });
       await this.locator(this.selectors.selectCountryDropDown).fill('India');
       console.log('✅ Country set to India');
 

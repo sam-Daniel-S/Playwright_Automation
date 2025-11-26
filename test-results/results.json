@@ -54,7 +54,7 @@
         "testMatch": [
           "**/auth.setup.ts"
         ],
-        "timeout": 300000
+        "timeout": 120000
       },
       {
         "outputDir": "C:/Users/2853064/Documents/Testing/Automation/Playwright_Automation/test-results",
@@ -70,7 +70,7 @@
         "testMatch": [
           "**/auth-setup.spec.ts"
         ],
-        "timeout": 300000
+        "timeout": 120000
       },
       {
         "outputDir": "C:/Users/2853064/Documents/Testing/Automation/Playwright_Automation/test-results",
@@ -86,7 +86,7 @@
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
         ],
-        "timeout": 300000
+        "timeout": 120000
       }
     ],
     "shard": null,
@@ -112,11 +112,11 @@
           "specs": [
             {
               "title": "Execute all booking scenarios from test data",
-              "ok": true,
+              "ok": false,
               "tags": [],
               "tests": [
                 {
-                  "timeout": 300000,
+                  "timeout": 120000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
@@ -125,19 +125,16 @@
                     {
                       "workerIndex": 0,
                       "parallelIndex": 0,
-                      "status": "interrupted",
-                      "duration": 177890,
+                      "status": "timedOut",
+                      "duration": 120297,
                       "error": {
-                        "message": "Error: page.screenshot: Target page, context or browser has been closed",
-                        "stack": "Error: page.screenshot: Target page, context or browser has been closed\n    at C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\tests\\comprehensive-e2e.spec.ts:80:20",
-                        "location": {
-                          "file": "C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\tests\\comprehensive-e2e.spec.ts",
-                          "column": 20,
-                          "line": 80
-                        },
-                        "snippet": "\u001b[0m \u001b[90m 78 |\u001b[39m         \n \u001b[90m 79 |\u001b[39m         \u001b[90m// Capture failure screenshot\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 80 |\u001b[39m         \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mscreenshot({\n \u001b[90m    |\u001b[39m                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 81 |\u001b[39m           path\u001b[33m:\u001b[39m \u001b[32m`test-results/scenario-${scenario.scenarioID}-failure.png`\u001b[39m\u001b[33m,\u001b[39m\n \u001b[90m 82 |\u001b[39m           fullPage\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m\n \u001b[90m 83 |\u001b[39m         })\u001b[33m;\u001b[39m\u001b[0m"
+                        "message": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m"
                       },
                       "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 120000ms exceeded.\u001b[39m"
+                        },
                         {
                           "location": {
                             "file": "C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\tests\\comprehensive-e2e.spec.ts",
@@ -227,19 +224,19 @@
                           "text": "Reading CSV file: C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\test-data\\scenarios.csv\n"
                         },
                         {
-                          "text": "Found 6 scenario(s) with headers: scenarioid, triptype, origin, destination, passengers, cabin, farefamily, dates, tags, expectedresult\n"
+                          "text": "Found 5 scenario(s) with headers: scenarioid, triptype, origin, destination, passengers, cabin, farefamily, dates, tags, expectedresult\n"
                         },
                         {
-                          "text": "Successfully parsed 6 scenarios\n"
+                          "text": "Successfully parsed 5 scenarios\n"
                         },
                         {
-                          "text": "✅ Loaded 6 test scenarios\n"
+                          "text": "✅ Loaded 5 test scenarios\n"
                         },
                         {
-                          "text": "\n🧪 Executing Scenario: SMOKE_001\n"
+                          "text": "\n🧪 Executing Scenario: SMOKE_002\n"
                         },
                         {
-                          "text": "📋 One-way | HEL → LHR | Economy | 1 ADT\n"
+                          "text": "📋 Round-trip | LHR → MAA | Business | 2 ADT\n"
                         },
                         {
                           "text": "   📍 Step 1: Filling search form...\n"
@@ -248,10 +245,31 @@
                           "text": "Flight search page loaded successfully\n"
                         },
                         {
-                          "text": "Filling search form for scenario: SMOKE_001\n"
+                          "text": "Filling search form for scenario: SMOKE_002\n"
                         },
                         {
-                          "text": "Economy is default - opening and closing dropdown\n"
+                          "text": "Selecting Business class - deselecting Economy first\n"
+                        },
+                        {
+                          "text": "Configuring passengers for search: [ { type: \u001b[32m'ADT'\u001b[39m, count: \u001b[33m2\u001b[39m } ]\n"
+                        },
+                        {
+                          "text": "Passengers needed: 2 adults, 0 children, 0 infants\n"
+                        },
+                        {
+                          "text": "Setting 2 adults in slot 1\n"
+                        },
+                        {
+                          "text": "Increasing passenger count in slot 1 by 1\n"
+                        },
+                        {
+                          "text": "Plus clicked 1/1 for slot 1\n"
+                        },
+                        {
+                          "text": "✅ Passenger count in slot 1 increased by 1\n"
+                        },
+                        {
+                          "text": "✅ Passenger configuration completed\n"
                         },
                         {
                           "text": "Search form filled successfully\n"
@@ -272,19 +290,49 @@
                           "text": "Flight results loaded successfully\n"
                         },
                         {
-                          "text": "Selecting flight: cabin=Economy, preference=first\n"
+                          "text": "Selecting flight: cabin=Business, preference=first, tripType=Round-trip\n"
                         },
                         {
-                          "text": "Flight selected successfully\n"
+                          "text": "✅ Continue clicked using FlightSearchLocators\n"
+                        },
+                        {
+                          "text": "Round-trip detected - waiting 2 seconds for additional continue step\n"
+                        },
+                        {
+                          "text": "✅ Continue clicked using FlightSearchLocators\n"
+                        },
+                        {
+                          "text": "✅ Additional continue step completed for round-trip\n"
+                        },
+                        {
+                          "text": "Flight selection completed successfully\n"
                         },
                         {
                           "text": "   👤 Step 3: Filling passenger information...\n"
                         },
                         {
-                          "text": "Filling passenger information for 1 passengers\n"
+                          "text": "Filling passenger information for 2 passengers\n"
                         },
                         {
-                          "text": "Filling 1 adult passenger(s)\n"
+                          "text": "Filling 2 adult passenger(s)\n"
+                        },
+                        {
+                          "text": "Filling adult passenger 1\n"
+                        },
+                        {
+                          "text": "Filling adult form 1\n"
+                        },
+                        {
+                          "text": "✅ Adult passenger 1 form completed\n"
+                        },
+                        {
+                          "text": "Filling adult passenger 2\n"
+                        },
+                        {
+                          "text": "Filling adult form 2\n"
+                        },
+                        {
+                          "text": "✅ Adult passenger 2 form completed\n"
                         },
                         {
                           "text": "Passenger information filled successfully\n"
@@ -293,31 +341,28 @@
                           "text": "   💳 Step 5: Processing payment with enhanced flow...\n"
                         },
                         {
-                          "text": "Attempting to click Proceed to Payment button\n"
+                          "text": "Attempting to locate and click Proceed to Payment button\n"
                         },
                         {
-                          "text": "✅ Country set to India\n"
+                          "text": "Proceed to Payment button found in DOM\n"
                         },
                         {
-                          "text": "✅ Language set to English\n"
+                          "text": "Scrolled Proceed to Payment button into view\n"
                         },
                         {
-                          "text": "Proceed to Payment clicked, waiting for Confirm Payment button\n"
+                          "text": "✅ Proceed to Payment button clicked successfully\n"
                         },
                         {
-                          "text": "✅ Payment flow ready\n"
+                          "text": "   ⚠️  Payment step failed (expected in test environment): locator.fill: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('//input[@placeholder=\"Select Country\"]').first()\u001b[22m\n\u001b[2m    - locator resolved to <input disabled type=\"text\" value=\"India\" class=\"qmbogkk\" placeholder=\"Select Country\" data-testid=\"guestdetails_country1\"/>\u001b[22m\n\u001b[2m    - fill(\"India\")\u001b[22m\n\u001b[2m  - attempting fill action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and editable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying fill action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and editable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying fill action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    58 × waiting for element to be visible, enabled and editable\u001b[22m\n\u001b[2m       - element is not enabled\u001b[22m\n\u001b[2m     - retrying fill action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n    at BookingSummaryPage.proceedToPaymentAndWait \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mpages\\BookingSummaryPage.ts:434:64\u001b[90m)\u001b[39m\n    at executeScenario \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mtests\\comprehensive-e2e.spec.ts:294:7\u001b[90m)\u001b[39m\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mtests\\comprehensive-e2e.spec.ts:66:9 {\n  name: \u001b[32m'TimeoutError'\u001b[39m,\n  [\u001b[32mSymbol(step)\u001b[39m]: {\n    location: {\n      file: \u001b[32m'C:\\\\Users\\\\2853064\\\\Documents\\\\Testing\\\\Automation\\\\Playwright_Automation\\\\pages\\\\BookingSummaryPage.ts'\u001b[39m,\n      line: \u001b[33m434\u001b[39m,\n      column: \u001b[33m64\u001b[39m,\n      function: \u001b[32m'BookingSummaryPage.proceedToPaymentAndWait'\u001b[39m\n    },\n    category: \u001b[32m'pw:api'\u001b[39m,\n    title: \u001b[32m`Fill \"India\" locator('//input[@placeholder=\"Select Country\"]').first()`\u001b[39m,\n    apiName: \u001b[32m'locator.fill'\u001b[39m,\n    params: {\n      selector: \u001b[32m'//input[@placeholder=\"Select Country\"] >> nth=0'\u001b[39m,\n      value: \u001b[32m'India'\u001b[39m,\n      strict: \u001b[33mtrue\u001b[39m,\n      timeout: \u001b[33m30000\u001b[39m\n    },\n    group: \u001b[90mundefined\u001b[39m,\n    stepId: \u001b[32m'pw:api@337'\u001b[39m,\n    boxedStack: \u001b[90mundefined\u001b[39m,\n    steps: [],\n    attachmentIndices: [],\n    info: TestStepInfoImpl {\n      annotations: [],\n      _testInfo: \u001b[36m[TestInfoImpl]\u001b[39m,\n      _stepId: \u001b[32m'pw:api@337'\u001b[39m,\n      _title: \u001b[32m`Fill \"India\" locator('//input[@placeholder=\"Select Country\"]').first()`\u001b[39m,\n      _parentStep: \u001b[90mundefined\u001b[39m,\n      skip: \u001b[36m[Function (anonymous)]\u001b[39m\n    },\n    complete: \u001b[36m[Function: complete]\u001b[39m,\n    endWallTime: \u001b[33m1764171063508\u001b[39m,\n    error: {\n      message: \u001b[32m'TimeoutError: locator.fill: Timeout 30000ms exceeded.\\n'\u001b[39m +\n        \u001b[32m'Call log:\\n'\u001b[39m +\n        \u001b[32m`\\x1B[2m  - waiting for locator('//input[@placeholder=\"Select Country\"]').first()\\x1B[22m\\n`\u001b[39m +\n        \u001b[32m'\\x1B[2m    - locator resolved to <input disabled type=\"text\" value=\"India\" class=\"qmbogkk\" placeholder=\"Select Country\" data-testid=\"guestdetails_country1\"/>\\x1B[22m\\n'\u001b[39m +\n        \u001b[32m'\\x1B[2m    - fill(\"India\")\\x1B[22m\\n'\u001b[39m +\n        \u001b[32m'\\x1B[2m  - attempting fill action\\x1B[22m\\n'\u001b[39m +\n        \u001b[32m'\\x1B[2m    2 × waiting for element to be visible, enabled and editable\\x1B[22m\\n'\u001b[39m +\n        \u001b[32m'\\x1B[2m      - element is not enabled\\x1B[22m\\n'\u001b[39m +\n        \u001b[32m'\\x1B[2m    - retrying fill action\\x1B[22m\\n'\u001b[39m +\n        \u001b[32m'\\x1B[2m    - waiting 20ms\\x1B[22m\\n'\u001b[39m +\n        \u001b[32m'\\x1B[2m    2 × waiting for element to be visible, enabled and editable\\x1B[22m\\n'\u001b[39m +\n        \u001b[32m'\\x1B[2m      - element is not enabled\\x1B[22m\\n'\u001b[39m +\n        \u001b[32m'\\x1B[2m    - retrying fill action\\x1B[22m\\n'\u001b[39m +\n        \u001b[32m'\\x1B[2m      - waiting 100ms\\x1B[22m\\n'\u001b[39m +\n        \u001b[32m'\\x1B[2m    58 × waiting for element to be visible, enabled and editable\\x1B[22m\\n'\u001b[39m +\n        \u001b[32m'\\x1B[2m       - element is not enabled\\x1B[22m\\n'\u001b[39m +\n        \u001b[32m'\\x1B[2m     - retrying fill action\\x1B[22m\\n'\u001b[39m +\n        \u001b[32m'\\x1B[2m       - waiting 500ms\\x1B[22m\\n'\u001b[39m,\n      stack: \u001b[32m'TimeoutError: locator.fill: Timeout 30000ms exceeded.\\n'\u001b[39m +\n        \u001b[32m'Call log:\\n'\u001b[39m +\n        \u001b[32m`\\x1B[2m  - waiting for locator('//input[@placeholder=\"Select Country\"]').first()\\x1B[22m\\n`\u001b[39m +\n        \u001b[32m'\\x1B[2m    - locator resolved to <input disabled type=\"text\" value=\"India\" class=\"qmbogkk\" placeholder=\"Select Country\" data-testid=\"guestdetails_country1\"/>\\x1B[22m\\n'\u001b[39m +\n        \u001b[32m'\\x1B[2m    - fill(\"India\")\\x1B[22m\\n'\u001b[39m +\n        \u001b[32m'\\x1B[2m  - attempting fill action\\x1B[22m\\n'\u001b[39m +\n        \u001b[32m'\\x1B[2m    2 × waiting for element to be visible, enabled and editable\\x1B[22m\\n'\u001b[39m +\n        \u001b[32m'\\x1B[2m      - element is not enabled\\x1B[22m\\n'\u001b[39m +\n        \u001b[32m'\\x1B[2m    - retrying fill action\\x1B[22m\\n'\u001b[39m +\n        \u001b[32m'\\x1B[2m    - waiting 20ms\\x1B[22m\\n'\u001b[39m +\n        \u001b[32m'\\x1B[2m    2 × waiting for element to be visible, enabled and editable\\x1B[22m\\n'\u001b[39m +\n        \u001b[32m'\\x1B[2m      - element is not enabled\\x1B[22m\\n'\u001b[39m +\n        \u001b[32m'\\x1B[2m    - retrying fill action\\x1B[22m\\n'\u001b[39m +\n        \u001b[32m'\\x1B[2m      - waiting 100ms\\x1B[22m\\n'\u001b[39m +\n        \u001b[32m'\\x1B[2m    58 × waiting for element to be visible, enabled and editable\\x1B[22m\\n'\u001b[39m +\n        \u001b[32m'\\x1B[2m       - element is not enabled\\x1B[22m\\n'\u001b[39m +\n        \u001b[32m'\\x1B[2m     - retrying fill action\\x1B[22m\\n'\u001b[39m +\n        \u001b[32m'\\x1B[2m       - waiting 500ms\\x1B[22m\\n'\u001b[39m +\n        \u001b[32m'\\n'\u001b[39m +\n        \u001b[32m'    at BookingSummaryPage.proceedToPaymentAndWait (C:\\\\Users\\\\2853064\\\\Documents\\\\Testing\\\\Automation\\\\Playwright_Automation\\\\pages\\\\BookingSummaryPage.ts:434:64)\\n'\u001b[39m +\n        \u001b[32m'    at executeScenario (C:\\\\Users\\\\2853064\\\\Documents\\\\Testing\\\\Automation\\\\Playwright_Automation\\\\tests\\\\comprehensive-e2e.spec.ts:294:7)\\n'\u001b[39m +\n        \u001b[32m'    at C:\\\\Users\\\\2853064\\\\Documents\\\\Testing\\\\Automation\\\\Playwright_Automation\\\\tests\\\\comprehensive-e2e.spec.ts:66:9'\u001b[39m,\n      cause: \u001b[90mundefined\u001b[39m\n    }\n  }\n}\n"
                         },
                         {
-                          "text": "   ✅ Enhanced payment flow completed successfully\n"
+                          "text": "✅ Scenario SMOKE_002 completed successfully\n"
                         },
                         {
-                          "text": "✅ Scenario SMOKE_001 completed successfully\n"
+                          "text": "\n🧪 Executing Scenario: REG_001\n"
                         },
                         {
-                          "text": "\n🧪 Executing Scenario: SMOKE_002\n"
-                        },
-                        {
-                          "text": "📋 Round-trip | LHR → MAA | Business | 2 ADT\n"
+                          "text": "📋 One-way | HEL → LHR | Premium | 1 ADT,1 CHD\n"
                         },
                         {
                           "text": "   📍 Step 1: Filling search form...\n"
@@ -326,15 +371,12 @@
                           "text": "Flight search page loaded successfully\n"
                         },
                         {
-                          "text": "Filling search form for scenario: SMOKE_002\n"
+                          "text": "Filling search form for scenario: REG_001\n"
                         }
                       ],
                       "stderr": [
                         {
                           "text": "Failed to read scenarios from C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\test-data\\scenarios.xlsx: Error: ENOENT: no such file or directory, open 'C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\test-data\\scenarios.xlsx'\n\u001b[90m    at Object.openSync (node:fs:573:18)\u001b[39m\n\u001b[90m    at Object.readFileSync (node:fs:452:35)\u001b[39m\n    at read_binary \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mnode_modules\\\u001b[4mxlsx\u001b[24m\\xlsx.js:3153:44\u001b[90m)\u001b[39m\n    at readSync \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mnode_modules\\\u001b[4mxlsx\u001b[24m\\xlsx.js:23698:69\u001b[90m)\u001b[39m\n    at Object.readFile [as readFileSync] \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mnode_modules\\\u001b[4mxlsx\u001b[24m\\xlsx.js:23738:9\u001b[90m)\u001b[39m\n    at Function.readFromExcel \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mlib\\excel\\excelReader.ts:51:27\u001b[90m)\u001b[39m\n    at Function.readScenarios \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mlib\\excel\\excelReader.ts:21:21\u001b[90m)\u001b[39m\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mtests\\comprehensive-e2e.spec.ts:31:37\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:310:9\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\testInfo.js:305:11\n    at TimeoutManager.withRunnable \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\timeoutManager.js:67:14\u001b[90m)\u001b[39m\n    at TestInfoImpl._runWithTimeout \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\testInfo.js:303:7\u001b[90m)\u001b[39m\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:308:7\n    at WorkerMain._runTest \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:283:5\u001b[90m)\u001b[39m\n    at WorkerMain.runTestGroup \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:198:11\u001b[90m)\u001b[39m\n    at process.<anonymous> \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\common\\process.js:65:22\u001b[90m)\u001b[39m {\n  errno: \u001b[33m-4058\u001b[39m,\n  code: \u001b[32m'ENOENT'\u001b[39m,\n  syscall: \u001b[32m'open'\u001b[39m,\n  path: \u001b[32m'C:\\\\Users\\\\2853064\\\\Documents\\\\Testing\\\\Automation\\\\Playwright_Automation\\\\test-data\\\\scenarios.xlsx'\u001b[39m\n}\n"
-                        },
-                        {
-                          "text": "Using fallback selector for Economy class: [data-testid*=\"flight-result\"], .flight-card, .flight-option\n"
                         },
                         {
                           "text": "Input validation failed. Expected: \"Adult1\", Actual: \"\"\n"
@@ -343,14 +385,23 @@
                           "text": "Input validation failed. Expected: \"Test State\", Actual: \"\"\n"
                         },
                         {
-                          "text": "Failed to fill search form: page.waitForTimeout: Target page, context or browser has been closed\n    at SearchPage.fillAirportInput \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mpages\\SearchPage.ts:185:21\u001b[90m)\u001b[39m\n    at SearchPage.fillOriginDestination \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mpages\\SearchPage.ts:144:5\u001b[90m)\u001b[39m\n    at SearchPage.fillSearch \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mpages\\SearchPage.ts:87:7\u001b[90m)\u001b[39m\n    at executeScenario \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mtests\\comprehensive-e2e.spec.ts:239:3\u001b[90m)\u001b[39m\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mtests\\comprehensive-e2e.spec.ts:66:9 {\n  [\u001b[32mSymbol(step)\u001b[39m]: {\n    location: {\n      file: \u001b[32m'C:\\\\Users\\\\2853064\\\\Documents\\\\Testing\\\\Automation\\\\Playwright_Automation\\\\pages\\\\SearchPage.ts'\u001b[39m,\n      line: \u001b[33m185\u001b[39m,\n      column: \u001b[33m21\u001b[39m,\n      function: \u001b[32m'SearchPage.fillAirportInput'\u001b[39m\n    },\n    category: \u001b[32m'pw:api'\u001b[39m,\n    title: \u001b[32m'Wait for timeout'\u001b[39m,\n    apiName: \u001b[32m'page.waitForTimeout'\u001b[39m,\n    params: { waitTimeout: \u001b[33m500\u001b[39m },\n    group: \u001b[90mundefined\u001b[39m,\n    stepId: \u001b[32m'pw:api@286'\u001b[39m,\n    boxedStack: \u001b[90mundefined\u001b[39m,\n    steps: [],\n    attachmentIndices: [],\n    info: TestStepInfoImpl {\n      annotations: [],\n      _testInfo: \u001b[36m[TestInfoImpl]\u001b[39m,\n      _stepId: \u001b[32m'pw:api@286'\u001b[39m,\n      _title: \u001b[32m'Wait for timeout'\u001b[39m,\n      _parentStep: \u001b[36m[TestStepInfoImpl]\u001b[39m,\n      skip: \u001b[36m[Function (anonymous)]\u001b[39m\n    },\n    complete: \u001b[36m[Function: complete]\u001b[39m,\n    endWallTime: \u001b[33m1764153302534\u001b[39m,\n    error: {\n      message: \u001b[32m'Error: page.waitForTimeout: Target page, context or browser has been closed'\u001b[39m,\n      stack: \u001b[32m'Error: page.waitForTimeout: Target page, context or browser has been closed\\n'\u001b[39m +\n        \u001b[32m'    at SearchPage.fillAirportInput (C:\\\\Users\\\\2853064\\\\Documents\\\\Testing\\\\Automation\\\\Playwright_Automation\\\\pages\\\\SearchPage.ts:185:21)\\n'\u001b[39m +\n        \u001b[32m'    at SearchPage.fillOriginDestination (C:\\\\Users\\\\2853064\\\\Documents\\\\Testing\\\\Automation\\\\Playwright_Automation\\\\pages\\\\SearchPage.ts:144:5)\\n'\u001b[39m +\n        \u001b[32m'    at SearchPage.fillSearch (C:\\\\Users\\\\2853064\\\\Documents\\\\Testing\\\\Automation\\\\Playwright_Automation\\\\pages\\\\SearchPage.ts:87:7)\\n'\u001b[39m +\n        \u001b[32m'    at executeScenario (C:\\\\Users\\\\2853064\\\\Documents\\\\Testing\\\\Automation\\\\Playwright_Automation\\\\tests\\\\comprehensive-e2e.spec.ts:239:3)\\n'\u001b[39m +\n        \u001b[32m'    at C:\\\\Users\\\\2853064\\\\Documents\\\\Testing\\\\Automation\\\\Playwright_Automation\\\\tests\\\\comprehensive-e2e.spec.ts:66:9'\u001b[39m,\n      cause: \u001b[90mundefined\u001b[39m\n    }\n  }\n}\n"
+                          "text": "Input validation failed. Expected: \"Adult2\", Actual: \"\"\n"
                         },
                         {
-                          "text": "❌ Scenario SMOKE_002 failed: page.screenshot: Target page, context or browser has been closed\n"
+                          "text": "Input validation failed. Expected: \"Test State\", Actual: \"\"\n"
+                        },
+                        {
+                          "text": "Payment flow failed: locator.fill: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('//input[@placeholder=\"Select Country\"]').first()\u001b[22m\n\u001b[2m    - locator resolved to <input disabled type=\"text\" value=\"India\" class=\"qmbogkk\" placeholder=\"Select Country\" data-testid=\"guestdetails_country1\"/>\u001b[22m\n\u001b[2m    - fill(\"India\")\u001b[22m\n\u001b[2m  - attempting fill action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and editable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying fill action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and editable\u001b[22m\n\u001b[2m      - element is not enabled\u001b[22m\n\u001b[2m    - retrying fill action\u001b[22m\n\u001b[2m      - waiting 100ms\u001b[22m\n\u001b[2m    58 × waiting for element to be visible, enabled and editable\u001b[22m\n\u001b[2m       - element is not enabled\u001b[22m\n\u001b[2m     - retrying fill action\u001b[22m\n\u001b[2m       - waiting 500ms\u001b[22m\n\n"
+                        },
+                        {
+                          "text": "Failed to fill search form: page.waitForTimeout: Test timeout of 120000ms exceeded.\n    at SearchPage.fillAirportInput \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mpages\\SearchPage.ts:169:21\u001b[90m)\u001b[39m\n    at SearchPage.fillOriginDestination \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mpages\\SearchPage.ts:148:5\u001b[90m)\u001b[39m\n    at SearchPage.fillSearch \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mpages\\SearchPage.ts:91:7\u001b[90m)\u001b[39m\n    at executeScenario \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mtests\\comprehensive-e2e.spec.ts:239:3\u001b[90m)\u001b[39m\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mtests\\comprehensive-e2e.spec.ts:66:9 {\n  [\u001b[32mSymbol(step)\u001b[39m]: {\n    location: {\n      file: \u001b[32m'C:\\\\Users\\\\2853064\\\\Documents\\\\Testing\\\\Automation\\\\Playwright_Automation\\\\pages\\\\SearchPage.ts'\u001b[39m,\n      line: \u001b[33m169\u001b[39m,\n      column: \u001b[33m21\u001b[39m,\n      function: \u001b[32m'SearchPage.fillAirportInput'\u001b[39m\n    },\n    category: \u001b[32m'pw:api'\u001b[39m,\n    title: \u001b[32m'Wait for timeout'\u001b[39m,\n    apiName: \u001b[32m'page.waitForTimeout'\u001b[39m,\n    params: { waitTimeout: \u001b[33m1000\u001b[39m },\n    group: \u001b[90mundefined\u001b[39m,\n    stepId: \u001b[32m'pw:api@359'\u001b[39m,\n    boxedStack: \u001b[90mundefined\u001b[39m,\n    steps: [],\n    attachmentIndices: [],\n    info: TestStepInfoImpl {\n      annotations: [],\n      _testInfo: \u001b[36m[TestInfoImpl]\u001b[39m,\n      _stepId: \u001b[32m'pw:api@359'\u001b[39m,\n      _title: \u001b[32m'Wait for timeout'\u001b[39m,\n      _parentStep: \u001b[90mundefined\u001b[39m,\n      skip: \u001b[36m[Function (anonymous)]\u001b[39m\n    },\n    complete: \u001b[36m[Function: complete]\u001b[39m,\n    endWallTime: \u001b[33m1764171071912\u001b[39m,\n    error: {\n      message: \u001b[32m'Error: page.waitForTimeout: Test timeout of 120000ms exceeded.'\u001b[39m,\n      stack: \u001b[32m'Error: page.waitForTimeout: Test timeout of 120000ms exceeded.\\n'\u001b[39m +\n        \u001b[32m'    at SearchPage.fillAirportInput (C:\\\\Users\\\\2853064\\\\Documents\\\\Testing\\\\Automation\\\\Playwright_Automation\\\\pages\\\\SearchPage.ts:169:21)\\n'\u001b[39m +\n        \u001b[32m'    at SearchPage.fillOriginDestination (C:\\\\Users\\\\2853064\\\\Documents\\\\Testing\\\\Automation\\\\Playwright_Automation\\\\pages\\\\SearchPage.ts:148:5)\\n'\u001b[39m +\n        \u001b[32m'    at SearchPage.fillSearch (C:\\\\Users\\\\2853064\\\\Documents\\\\Testing\\\\Automation\\\\Playwright_Automation\\\\pages\\\\SearchPage.ts:91:7)\\n'\u001b[39m +\n        \u001b[32m'    at executeScenario (C:\\\\Users\\\\2853064\\\\Documents\\\\Testing\\\\Automation\\\\Playwright_Automation\\\\tests\\\\comprehensive-e2e.spec.ts:239:3)\\n'\u001b[39m +\n        \u001b[32m'    at C:\\\\Users\\\\2853064\\\\Documents\\\\Testing\\\\Automation\\\\Playwright_Automation\\\\tests\\\\comprehensive-e2e.spec.ts:66:9'\u001b[39m,\n      cause: \u001b[90mundefined\u001b[39m\n    }\n  }\n}\n"
+                        },
+                        {
+                          "text": "❌ Scenario REG_001 failed: page.screenshot: Target page, context or browser has been closed\n"
                         }
                       ],
                       "retry": 0,
-                      "startTime": "2025-11-26T10:32:03.318Z",
+                      "startTime": "2025-11-26T15:29:11.370Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -362,16 +413,16 @@
                           "name": "video",
                           "contentType": "video/webm",
                           "path": "C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\test-results\\comprehensive-e2e-Airline--6f813-ng-scenarios-from-test-data-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\test-results\\comprehensive-e2e-Airline--6f813-ng-scenarios-from-test-data-chromium\\error-context.md"
                         }
-                      ],
-                      "errorLocation": {
-                        "file": "C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\tests\\comprehensive-e2e.spec.ts",
-                        "column": 20,
-                        "line": 80
-                      }
+                      ]
                     }
                   ],
-                  "status": "skipped"
+                  "status": "unexpected"
                 }
               ],
               "id": "ceae8d42728a3fcdf4bb-6b566aedc91552ae0b8f",
@@ -386,11 +437,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-11-26T10:32:01.389Z",
-    "duration": 181798.28199999998,
+    "startTime": "2025-11-26T15:29:10.331Z",
+    "duration": 122076.164,
     "expected": 0,
-    "skipped": 1,
-    "unexpected": 0,
+    "skipped": 0,
+    "unexpected": 1,
     "flaky": 0
   }
 }
