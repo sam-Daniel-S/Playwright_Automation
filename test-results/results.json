@@ -1,7 +1,7 @@
 {
   "config": {
-    "configFile": "C:\\Users\\2451487\\workspace\\UI_Automation_SingleBase\\playwright.config.ts",
-    "rootDir": "C:/Users/2451487/workspace/UI_Automation_SingleBase/tests",
+    "configFile": "C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\playwright.config.ts",
+    "rootDir": "C:/Users/2853064/Documents/Testing/Automation/Playwright_Automation/tests",
     "forbidOnly": false,
     "fullyParallel": false,
     "globalSetup": null,
@@ -41,7 +41,7 @@
     "quiet": false,
     "projects": [
       {
-        "outputDir": "C:/Users/2451487/workspace/UI_Automation_SingleBase/test-results",
+        "outputDir": "C:/Users/2853064/Documents/Testing/Automation/Playwright_Automation/test-results",
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
@@ -49,15 +49,31 @@
         },
         "id": "setup",
         "name": "setup",
-        "testDir": "C:/Users/2451487/workspace/UI_Automation_SingleBase/tests",
+        "testDir": "C:/Users/2853064/Documents/Testing/Automation/Playwright_Automation/tests",
         "testIgnore": [],
         "testMatch": [
-          "/.*\\.setup\\.ts/"
+          "**/auth.setup.ts"
         ],
-        "timeout": 60000
+        "timeout": 300000
       },
       {
-        "outputDir": "C:/Users/2451487/workspace/UI_Automation_SingleBase/test-results",
+        "outputDir": "C:/Users/2853064/Documents/Testing/Automation/Playwright_Automation/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "auth-only",
+        "name": "auth-only",
+        "testDir": "C:/Users/2853064/Documents/Testing/Automation/Playwright_Automation/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/auth-setup.spec.ts"
+        ],
+        "timeout": 300000
+      },
+      {
+        "outputDir": "C:/Users/2853064/Documents/Testing/Automation/Playwright_Automation/test-results",
         "repeatEach": 1,
         "retries": 0,
         "metadata": {
@@ -65,12 +81,12 @@
         },
         "id": "chromium",
         "name": "chromium",
-        "testDir": "C:/Users/2451487/workspace/UI_Automation_SingleBase/tests",
+        "testDir": "C:/Users/2853064/Documents/Testing/Automation/Playwright_Automation/tests",
         "testIgnore": [],
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
         ],
-        "timeout": 60000
+        "timeout": 300000
       }
     ],
     "shard": null,
@@ -86,59 +102,295 @@
       "file": "comprehensive-e2e.spec.ts",
       "column": 0,
       "line": 0,
-      "specs": [
+      "specs": [],
+      "suites": [
         {
-          "title": "Debug - Application Access Check",
-          "ok": false,
-          "tags": [],
-          "tests": [
+          "title": "Airline Booking - All Scenarios E2E",
+          "file": "comprehensive-e2e.spec.ts",
+          "line": 15,
+          "column": 6,
+          "specs": [
             {
-              "timeout": 60000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "chromium",
-              "projectName": "chromium",
-              "results": [
+              "title": "Execute all booking scenarios from test data",
+              "ok": true,
+              "tags": [],
+              "tests": [
                 {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "failed",
-                  "duration": 14,
-                  "error": {
-                    "message": "Error: Error reading storage state from ./test-results/auth.json:\nENOENT: no such file or directory, open 'C:\\Users\\2451487\\workspace\\UI_Automation_SingleBase\\test-results\\auth.json'",
-                    "stack": "Error: Error reading storage state from ./test-results/auth.json:\nENOENT: no such file or directory, open 'C:\\Users\\2451487\\workspace\\UI_Automation_SingleBase\\test-results\\auth.json'"
-                  },
-                  "errors": [
+                  "timeout": 300000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
                     {
-                      "message": "Error: Error reading storage state from ./test-results/auth.json:\nENOENT: no such file or directory, open 'C:\\Users\\2451487\\workspace\\UI_Automation_SingleBase\\test-results\\auth.json'"
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "interrupted",
+                      "duration": 177890,
+                      "error": {
+                        "message": "Error: page.screenshot: Target page, context or browser has been closed",
+                        "stack": "Error: page.screenshot: Target page, context or browser has been closed\n    at C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\tests\\comprehensive-e2e.spec.ts:80:20",
+                        "location": {
+                          "file": "C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\tests\\comprehensive-e2e.spec.ts",
+                          "column": 20,
+                          "line": 80
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 78 |\u001b[39m         \n \u001b[90m 79 |\u001b[39m         \u001b[90m// Capture failure screenshot\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 80 |\u001b[39m         \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mscreenshot({\n \u001b[90m    |\u001b[39m                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 81 |\u001b[39m           path\u001b[33m:\u001b[39m \u001b[32m`test-results/scenario-${scenario.scenarioID}-failure.png`\u001b[39m\u001b[33m,\u001b[39m\n \u001b[90m 82 |\u001b[39m           fullPage\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m\n \u001b[90m 83 |\u001b[39m         })\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\tests\\comprehensive-e2e.spec.ts",
+                            "column": 20,
+                            "line": 80
+                          },
+                          "message": "Error: page.screenshot: Target page, context or browser has been closed\n\n\u001b[0m \u001b[90m 78 |\u001b[39m         \n \u001b[90m 79 |\u001b[39m         \u001b[90m// Capture failure screenshot\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 80 |\u001b[39m         \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mscreenshot({\n \u001b[90m    |\u001b[39m                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 81 |\u001b[39m           path\u001b[33m:\u001b[39m \u001b[32m`test-results/scenario-${scenario.scenarioID}-failure.png`\u001b[39m\u001b[33m,\u001b[39m\n \u001b[90m 82 |\u001b[39m           fullPage\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m\n \u001b[90m 83 |\u001b[39m         })\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\tests\\comprehensive-e2e.spec.ts:80:20\u001b[22m"
+                        }
+                      ],
+                      "stdout": [
+                        {
+                          "text": "🚀 Starting comprehensive E2E test execution...\n"
+                        },
+                        {
+                          "text": "📝 No saved auth state found, performing initial login...\n"
+                        },
+                        {
+                          "text": "🔑 Starting authentication process...\n"
+                        },
+                        {
+                          "text": "🔐 Starting Microsoft authentication process...\n"
+                        },
+                        {
+                          "text": "📍 Navigated to login page\n"
+                        },
+                        {
+                          "text": "⚠️  No login button found, checking if login form is present\n"
+                        },
+                        {
+                          "text": "📧 Found email input, attempting automated login...\n"
+                        },
+                        {
+                          "text": "🤖 Starting automated Microsoft login...\n"
+                        },
+                        {
+                          "text": "📧 Filling email field...\n"
+                        },
+                        {
+                          "text": "➡️ Clicking Next button...\n"
+                        },
+                        {
+                          "text": "🔐 Filling password field...\n"
+                        },
+                        {
+                          "text": "🔑 Clicking Sign In button...\n"
+                        },
+                        {
+                          "text": "✅ Clicking Stay signed in...\n"
+                        },
+                        {
+                          "text": "⏳ Waiting for login completion...\n"
+                        },
+                        {
+                          "text": "🔄 Navigating to main application...\n"
+                        },
+                        {
+                          "text": "📍 Navigated to: https://app-test-finnair-fra-frontend-f7byg3hef7abafat.germanywestcentral-01.azurewebsites.net/en\n"
+                        },
+                        {
+                          "text": "✅ Automated login completed successfully!\n"
+                        },
+                        {
+                          "text": "📍 Successfully accessed main application\n"
+                        },
+                        {
+                          "text": "✅ Detected /en redirect - User is logged in\n"
+                        },
+                        {
+                          "text": "✅ Authentication successful\n"
+                        },
+                        {
+                          "text": "💾 Authentication state saved\n"
+                        },
+                        {
+                          "text": "💾 Authentication state saved for future test runs\n"
+                        },
+                        {
+                          "text": "📊 Loading test scenarios...\n"
+                        },
+                        {
+                          "text": "Reading Excel file: C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\test-data\\scenarios.xlsx, sheet: scenarios\n"
+                        },
+                        {
+                          "text": "Attempting CSV fallback: C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\test-data\\scenarios.csv\n"
+                        },
+                        {
+                          "text": "Reading CSV file: C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\test-data\\scenarios.csv\n"
+                        },
+                        {
+                          "text": "Found 6 scenario(s) with headers: scenarioid, triptype, origin, destination, passengers, cabin, farefamily, dates, tags, expectedresult\n"
+                        },
+                        {
+                          "text": "Successfully parsed 6 scenarios\n"
+                        },
+                        {
+                          "text": "✅ Loaded 6 test scenarios\n"
+                        },
+                        {
+                          "text": "\n🧪 Executing Scenario: SMOKE_001\n"
+                        },
+                        {
+                          "text": "📋 One-way | HEL → LHR | Economy | 1 ADT\n"
+                        },
+                        {
+                          "text": "   📍 Step 1: Filling search form...\n"
+                        },
+                        {
+                          "text": "Flight search page loaded successfully\n"
+                        },
+                        {
+                          "text": "Filling search form for scenario: SMOKE_001\n"
+                        },
+                        {
+                          "text": "Economy is default - opening and closing dropdown\n"
+                        },
+                        {
+                          "text": "Search form filled successfully\n"
+                        },
+                        {
+                          "text": "Submitting flight search...\n"
+                        },
+                        {
+                          "text": "Search submitted successfully\n"
+                        },
+                        {
+                          "text": "   ✈️  Step 2: Processing search results...\n"
+                        },
+                        {
+                          "text": "Waiting for flight search results...\n"
+                        },
+                        {
+                          "text": "Flight results loaded successfully\n"
+                        },
+                        {
+                          "text": "Selecting flight: cabin=Economy, preference=first\n"
+                        },
+                        {
+                          "text": "Flight selected successfully\n"
+                        },
+                        {
+                          "text": "   👤 Step 3: Filling passenger information...\n"
+                        },
+                        {
+                          "text": "Filling passenger information for 1 passengers\n"
+                        },
+                        {
+                          "text": "Filling 1 adult passenger(s)\n"
+                        },
+                        {
+                          "text": "Passenger information filled successfully\n"
+                        },
+                        {
+                          "text": "   💳 Step 5: Processing payment with enhanced flow...\n"
+                        },
+                        {
+                          "text": "Attempting to click Proceed to Payment button\n"
+                        },
+                        {
+                          "text": "✅ Country set to India\n"
+                        },
+                        {
+                          "text": "✅ Language set to English\n"
+                        },
+                        {
+                          "text": "Proceed to Payment clicked, waiting for Confirm Payment button\n"
+                        },
+                        {
+                          "text": "✅ Payment flow ready\n"
+                        },
+                        {
+                          "text": "   ✅ Enhanced payment flow completed successfully\n"
+                        },
+                        {
+                          "text": "✅ Scenario SMOKE_001 completed successfully\n"
+                        },
+                        {
+                          "text": "\n🧪 Executing Scenario: SMOKE_002\n"
+                        },
+                        {
+                          "text": "📋 Round-trip | LHR → MAA | Business | 2 ADT\n"
+                        },
+                        {
+                          "text": "   📍 Step 1: Filling search form...\n"
+                        },
+                        {
+                          "text": "Flight search page loaded successfully\n"
+                        },
+                        {
+                          "text": "Filling search form for scenario: SMOKE_002\n"
+                        }
+                      ],
+                      "stderr": [
+                        {
+                          "text": "Failed to read scenarios from C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\test-data\\scenarios.xlsx: Error: ENOENT: no such file or directory, open 'C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\test-data\\scenarios.xlsx'\n\u001b[90m    at Object.openSync (node:fs:573:18)\u001b[39m\n\u001b[90m    at Object.readFileSync (node:fs:452:35)\u001b[39m\n    at read_binary \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mnode_modules\\\u001b[4mxlsx\u001b[24m\\xlsx.js:3153:44\u001b[90m)\u001b[39m\n    at readSync \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mnode_modules\\\u001b[4mxlsx\u001b[24m\\xlsx.js:23698:69\u001b[90m)\u001b[39m\n    at Object.readFile [as readFileSync] \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mnode_modules\\\u001b[4mxlsx\u001b[24m\\xlsx.js:23738:9\u001b[90m)\u001b[39m\n    at Function.readFromExcel \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mlib\\excel\\excelReader.ts:51:27\u001b[90m)\u001b[39m\n    at Function.readScenarios \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mlib\\excel\\excelReader.ts:21:21\u001b[90m)\u001b[39m\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mtests\\comprehensive-e2e.spec.ts:31:37\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:310:9\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\testInfo.js:305:11\n    at TimeoutManager.withRunnable \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\timeoutManager.js:67:14\u001b[90m)\u001b[39m\n    at TestInfoImpl._runWithTimeout \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\testInfo.js:303:7\u001b[90m)\u001b[39m\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:308:7\n    at WorkerMain._runTest \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:283:5\u001b[90m)\u001b[39m\n    at WorkerMain.runTestGroup \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:198:11\u001b[90m)\u001b[39m\n    at process.<anonymous> \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\common\\process.js:65:22\u001b[90m)\u001b[39m {\n  errno: \u001b[33m-4058\u001b[39m,\n  code: \u001b[32m'ENOENT'\u001b[39m,\n  syscall: \u001b[32m'open'\u001b[39m,\n  path: \u001b[32m'C:\\\\Users\\\\2853064\\\\Documents\\\\Testing\\\\Automation\\\\Playwright_Automation\\\\test-data\\\\scenarios.xlsx'\u001b[39m\n}\n"
+                        },
+                        {
+                          "text": "Using fallback selector for Economy class: [data-testid*=\"flight-result\"], .flight-card, .flight-option\n"
+                        },
+                        {
+                          "text": "Input validation failed. Expected: \"Adult1\", Actual: \"\"\n"
+                        },
+                        {
+                          "text": "Input validation failed. Expected: \"Test State\", Actual: \"\"\n"
+                        },
+                        {
+                          "text": "Failed to fill search form: page.waitForTimeout: Target page, context or browser has been closed\n    at SearchPage.fillAirportInput \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mpages\\SearchPage.ts:185:21\u001b[90m)\u001b[39m\n    at SearchPage.fillOriginDestination \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mpages\\SearchPage.ts:144:5\u001b[90m)\u001b[39m\n    at SearchPage.fillSearch \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mpages\\SearchPage.ts:87:7\u001b[90m)\u001b[39m\n    at executeScenario \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mtests\\comprehensive-e2e.spec.ts:239:3\u001b[90m)\u001b[39m\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\\u001b[39mtests\\comprehensive-e2e.spec.ts:66:9 {\n  [\u001b[32mSymbol(step)\u001b[39m]: {\n    location: {\n      file: \u001b[32m'C:\\\\Users\\\\2853064\\\\Documents\\\\Testing\\\\Automation\\\\Playwright_Automation\\\\pages\\\\SearchPage.ts'\u001b[39m,\n      line: \u001b[33m185\u001b[39m,\n      column: \u001b[33m21\u001b[39m,\n      function: \u001b[32m'SearchPage.fillAirportInput'\u001b[39m\n    },\n    category: \u001b[32m'pw:api'\u001b[39m,\n    title: \u001b[32m'Wait for timeout'\u001b[39m,\n    apiName: \u001b[32m'page.waitForTimeout'\u001b[39m,\n    params: { waitTimeout: \u001b[33m500\u001b[39m },\n    group: \u001b[90mundefined\u001b[39m,\n    stepId: \u001b[32m'pw:api@286'\u001b[39m,\n    boxedStack: \u001b[90mundefined\u001b[39m,\n    steps: [],\n    attachmentIndices: [],\n    info: TestStepInfoImpl {\n      annotations: [],\n      _testInfo: \u001b[36m[TestInfoImpl]\u001b[39m,\n      _stepId: \u001b[32m'pw:api@286'\u001b[39m,\n      _title: \u001b[32m'Wait for timeout'\u001b[39m,\n      _parentStep: \u001b[36m[TestStepInfoImpl]\u001b[39m,\n      skip: \u001b[36m[Function (anonymous)]\u001b[39m\n    },\n    complete: \u001b[36m[Function: complete]\u001b[39m,\n    endWallTime: \u001b[33m1764153302534\u001b[39m,\n    error: {\n      message: \u001b[32m'Error: page.waitForTimeout: Target page, context or browser has been closed'\u001b[39m,\n      stack: \u001b[32m'Error: page.waitForTimeout: Target page, context or browser has been closed\\n'\u001b[39m +\n        \u001b[32m'    at SearchPage.fillAirportInput (C:\\\\Users\\\\2853064\\\\Documents\\\\Testing\\\\Automation\\\\Playwright_Automation\\\\pages\\\\SearchPage.ts:185:21)\\n'\u001b[39m +\n        \u001b[32m'    at SearchPage.fillOriginDestination (C:\\\\Users\\\\2853064\\\\Documents\\\\Testing\\\\Automation\\\\Playwright_Automation\\\\pages\\\\SearchPage.ts:144:5)\\n'\u001b[39m +\n        \u001b[32m'    at SearchPage.fillSearch (C:\\\\Users\\\\2853064\\\\Documents\\\\Testing\\\\Automation\\\\Playwright_Automation\\\\pages\\\\SearchPage.ts:87:7)\\n'\u001b[39m +\n        \u001b[32m'    at executeScenario (C:\\\\Users\\\\2853064\\\\Documents\\\\Testing\\\\Automation\\\\Playwright_Automation\\\\tests\\\\comprehensive-e2e.spec.ts:239:3)\\n'\u001b[39m +\n        \u001b[32m'    at C:\\\\Users\\\\2853064\\\\Documents\\\\Testing\\\\Automation\\\\Playwright_Automation\\\\tests\\\\comprehensive-e2e.spec.ts:66:9'\u001b[39m,\n      cause: \u001b[90mundefined\u001b[39m\n    }\n  }\n}\n"
+                        },
+                        {
+                          "text": "❌ Scenario SMOKE_002 failed: page.screenshot: Target page, context or browser has been closed\n"
+                        }
+                      ],
+                      "retry": 0,
+                      "startTime": "2025-11-26T10:32:03.318Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\test-results\\comprehensive-e2e-Airline--6f813-ng-scenarios-from-test-data-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\test-results\\comprehensive-e2e-Airline--6f813-ng-scenarios-from-test-data-chromium\\video.webm"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\2853064\\Documents\\Testing\\Automation\\Playwright_Automation\\tests\\comprehensive-e2e.spec.ts",
+                        "column": 20,
+                        "line": 80
+                      }
                     }
                   ],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2025-11-25T09:57:44.425Z",
-                  "annotations": [],
-                  "attachments": []
+                  "status": "skipped"
                 }
               ],
-              "status": "unexpected"
+              "id": "ceae8d42728a3fcdf4bb-6b566aedc91552ae0b8f",
+              "file": "comprehensive-e2e.spec.ts",
+              "line": 17,
+              "column": 7
             }
-          ],
-          "id": "ceae8d42728a3fcdf4bb-690e0df73028bc088e8a",
-          "file": "comprehensive-e2e.spec.ts",
-          "line": 325,
-          "column": 5
+          ]
         }
       ]
     }
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-11-25T09:57:43.160Z",
-    "duration": 2138.4610000000002,
+    "startTime": "2025-11-26T10:32:01.389Z",
+    "duration": 181798.28199999998,
     "expected": 0,
-    "skipped": 0,
-    "unexpected": 1,
+    "skipped": 1,
+    "unexpected": 0,
     "flaky": 0
   }
 }

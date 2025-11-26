@@ -1,13 +1,8 @@
-<testsuites id="" name="" tests="1" failures="1" skipped="0" errors="0" time="2.1384610000000004">
-<testsuite name="comprehensive-e2e.spec.ts" timestamp="2025-11-25T09:57:43.324Z" hostname="chromium" tests="1" failures="1" skipped="0" time="0.014" errors="0">
-<testcase name="Debug - Application Access Check" classname="comprehensive-e2e.spec.ts" time="0.014">
-<failure message="comprehensive-e2e.spec.ts:325:5 Debug - Application Access Check" type="FAILURE">
-<![CDATA[  [chromium] › comprehensive-e2e.spec.ts:325:5 › Debug - Application Access Check ──────────────────
-
-    Error: Error reading storage state from ./test-results/auth.json:
-    ENOENT: no such file or directory, open 'C:\Users\2451487\workspace\UI_Automation_SingleBase\test-results\auth.json'
-]]>
-</failure>
+<testsuites id="" name="" tests="1" failures="0" skipped="1" errors="0" time="181.79828199999997">
+<testsuite name="comprehensive-e2e.spec.ts" timestamp="2025-11-26T10:32:01.709Z" hostname="chromium" tests="1" failures="0" skipped="1" time="177.89" errors="0">
+<testcase name="Airline Booking - All Scenarios E2E › Execute all booking scenarios from test data" classname="comprehensive-e2e.spec.ts" time="177.89">
+<skipped>
+</skipped>
 </testcase>
 </testsuite>
 </testsuites>

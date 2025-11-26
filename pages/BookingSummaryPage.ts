@@ -402,4 +402,34 @@ export class BookingSummaryPage extends BasePage {
     
     return result;
   }
+
+  /**
+   * Proceed to payment with country/language selection and wait for completion
+   * Use this function after filling the passengers form and clicking on continue button
+   */
+  async proceedToPaymentAndWait(): Promise<void> {
+    console.log('Attempting to click Proceed to Payment button');
+
+    try {
+      await this.locator(this.selectors.proceedToPayment).waitFor({ state: 'visible' });
+      await this.locator(this.selectors.proceedToPayment).click({ force: true });
+
+      // Country selection with proper wait
+      await this.locator(this.selectors.selectCountryDropDown).fill('India');
+      console.log('✅ Country set to India');
+
+      // Language selection with proper wait
+      await this.locator(this.selectors.selectLanguageDropDown).fill('English');
+      console.log('✅ Language set to English');
+
+      console.log('Proceed to Payment clicked, waiting for Confirm Payment button');
+      await this.locator(this.selectors.confirmPayment).waitFor({ state: 'visible', timeout: 50000 });
+      await this.locator(this.selectors.confirmPayment).click({ force: true });
+      await this.page.waitForTimeout(30000);
+      console.log('✅ Payment flow ready');
+    } catch (error) {
+      console.error(`Payment flow failed: ${error instanceof Error ? error.message : String(error)}`);
+      throw error;
+    }
+  }
 }

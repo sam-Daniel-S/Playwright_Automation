@@ -22,7 +22,7 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: 'https://app-test-finnair-fra-frontend-f7byg3hef7abafat.germanywestcentral-01.azurewebsites.net',
+    baseURL: 'https://app-test-finnair-fra-frontend-f7byg3hef7abafat.germanywestcentral-01.azurewebsites.net/en',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
@@ -47,10 +47,26 @@ export default defineConfig({
   projects: [
     {
       name: 'setup',
-      testMatch: /.*\.setup\.ts/,
+      testMatch: '**/auth.setup.ts',
       use: {
         ...devices['Desktop Chrome'],
-        viewport: { width: 1920, height: 1080 },
+        headless: false,
+        launchOptions: {
+          args: [
+            '--ignore-certificate-errors',
+            '--ignore-ssl-errors',
+            '--ignore-certificate-errors-spki-list',
+            '--disable-web-security',
+            '--allow-running-insecure-content'
+          ]
+        }
+      },
+    },
+    {
+      name: 'auth-only',
+      testMatch: '**/auth-setup.spec.ts',
+      use: {
+        ...devices['Desktop Chrome'],
         headless: false,
         launchOptions: {
           args: [
@@ -67,11 +83,9 @@ export default defineConfig({
       name: 'chromium',
       use: { 
         ...devices['Desktop Chrome'],
-        viewport: { width: 1920, height: 1080 },
         /* Always run in headed mode */
         headless: false,
-        /* Use saved authentication state */
-        storageState: './test-results/auth.json',
+
         /* Chrome-specific args to ignore certificate errors */
         launchOptions: {
           args: [
@@ -83,7 +97,7 @@ export default defineConfig({
           ]
         }
       },
-      dependencies: ['setup'],
+
     },
 
     /* Test against mobile viewports. */

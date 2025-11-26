@@ -258,28 +258,46 @@ export class SearchPage extends BasePage {
    * Select cabin class
    */
   private async selectCabinClass(cabin: CabinClass): Promise<void> {
+    // Open the class dropdown
     await this.clickWhenReady(this.selectors.clickClassTypeDropdown);
     await this.page.waitForTimeout(500);
     
-    let classSelector: string;
-    switch (cabin) {
-      case 'Economy':
-        classSelector = this.selectors.selectClass_Eco;
-        break;
-      case 'Premium':
-        classSelector = this.selectors.selectClass_PreEco;
-        break;
-      case 'Business':
-        classSelector = this.selectors.selectClass_Bus;
-        break;
-      case 'First':
-        classSelector = this.selectors.selectClass_First;
-        break;
-      default:
-        throw new Error(`Unknown cabin class: ${cabin}`);
+    if (cabin === 'Economy') {
+      // For Economy, just open and close the dropdown since it's the default
+      console.log('Economy is default - opening and closing dropdown');
+      await this.clickWhenReady(this.selectors.clickClassTypeDropdown);
+    } else {
+      // For non-Economy classes, first deselect Economy then select the target class
+      console.log(`Selecting ${cabin} class - deselecting Economy first`);
+      
+      // First click Economy to deselect it (if it's selected by default)
+      try {
+        await this.clickWhenReady(this.selectors.selectClass_Eco);
+        await this.page.waitForTimeout(300);
+      } catch (error) {
+        console.log('Economy deselection not needed or failed, continuing...');
+      }
+      
+      // Then select the target class
+      let classSelector: string;
+      switch (cabin) {
+        case 'Premium':
+          classSelector = this.selectors.selectClass_PreEco;
+          break;
+        case 'Business':
+          classSelector = this.selectors.selectClass_Bus;
+          break;
+        case 'First':
+          classSelector = this.selectors.selectClass_First;
+          break;
+        default:
+          throw new Error(`Unknown cabin class: ${cabin}`);
+      }
+      
+      await this.clickWhenReady(classSelector);
     }
     
-    await this.clickWhenReady(classSelector);
+    await this.page.waitForTimeout(300);
   }
 
   /**
@@ -338,8 +356,8 @@ export class SearchPage extends BasePage {
    */
   private async closeInterferingPopups(): Promise<void> {
     const popupSelectors = [
-      '//div[@class="_1htdylg0"]//div[3]//button[2]', // Close recommendations
-      '//div[@class="_1htdylg0"]//div[3]//button[3]', // Close smart pad
+      // '//div[@class="_1htdylg0"]//div[3]//button[2]', // Close recommendations
+      // '//div[@class="_1htdylg0"]//div[3]//button[3]', // Close smart pad
       '//button[@title="Collapse sidebar"]', // Close sidebar
     ];
     
