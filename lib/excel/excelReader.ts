@@ -136,6 +136,9 @@ export class ExcelReader {
       throw new Error(`Required fields missing: origin, destination, passengers, dates (row ${rowNum})`);
     }
     
+    const timeoutStr = getValue('timeout');
+    const timeout = timeoutStr ? parseInt(timeoutStr) : undefined;
+    
     const scenario: Scenario = {
       scenarioID,
       tripType,
@@ -147,6 +150,7 @@ export class ExcelReader {
       dates,
       tags,
       expectedResult: getValue('expectedresult') || getValue('expected_result'),
+      timeout,
       
       // Parse and expand data
       parsedPassengers: this.parsePassengers(passengers),

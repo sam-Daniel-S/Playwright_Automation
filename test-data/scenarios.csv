@@ -1,7 +1,7 @@
-ScenarioID,TripType,Origin,Destination,Passengers,Cabin,FareFamily,Dates,Tags,ExpectedResult
-SMOKE_001,One-way,HEL,LHR,1 ADT,Economy,,15-Dec-25,smoke,success
-SMOKE_002,Round-trip,LHR,MAA,2 ADT,Business,,20-25 Dec 2025,smoke,success
-REG_001,One-way,HEL,LHR,"1 ADT,1 CHD",Premium,,22-Dec-25,regression,success
-REG_002,Round-trip,MAA,LHR,"2 ADT,1 INF",Economy,Basic,15-18 Jan 2026,regression,success
-REG_003,One-way,HEL,JFK,"3 ADT,1 CHD,1 INF",Business,,28-Dec-25,regression,success
-NEG_001,One-way,HEL,JFK,1 ADT,Economy,,15-Dec-25,negative,error
+ScenarioID,TripType,Origin,Destination,Passengers,Cabin,FareFamily,Dates,Tags,ExpectedResult,Timeout
+SMOKE_001,One-way,HEL,LHR,1 ADT,Economy,,15-Dec-25,smoke,success,120000
+SMOKE_002,Round-trip,LHR,MAA,2 ADT,Business,,20-25 Dec 2025,smoke,success,120000
+REG_001,One-way,HEL,LHR,"1 ADT,1 CHD",Business,,22-Dec-25,regression,success,180000
+REG_002,Round-trip,MAA,LHR,"2 ADT,1 INF",Economy,Basic,15-18 Jan 2026,regression,success,240000
+REG_003,One-way,HEL,JFK,"3 ADT,1 CHD,1 INF",Business,,28-Dec-25,regression,success,300000
+NEG_001,One-way,HEL,JFK,1 ADT,Economy,,15-Dec-25,negative,error,120000

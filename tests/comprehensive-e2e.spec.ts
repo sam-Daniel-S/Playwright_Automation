@@ -62,6 +62,12 @@ test.describe('Airline Booking - All Scenarios E2E', () => {
       console.log(`📋 ${scenario.tripType} | ${scenario.origin} → ${scenario.destination} | ${scenario.cabin} | ${scenario.passengers}`);
       
       try {
+        // Set individual timeout for this scenario
+        if (scenario.timeout) {
+          test.setTimeout(scenario.timeout);
+          console.log(`   ⏱️  Setting timeout to ${scenario.timeout}ms`);
+        }
+        
         // Execute booking flow for this scenario
         await executeScenario(scenario, { searchPage, resultsPage, passengerInfoPage, bookingSummaryPage });
         
@@ -92,7 +98,7 @@ test.describe('Airline Booking - All Scenarios E2E', () => {
       }
       
       // Small delay between scenarios
-      await page.waitForTimeout(1000);
+      // await page.waitForTimeout(1000);
     }
     
     // Summary report

@@ -48,6 +48,7 @@ export interface Scenario {
   dates: string; // Raw string like "15-Nov-25" or "20-23 Nov 2025"
   tags: string; // Comma-separated tags
   expectedResult?: string;
+  timeout?: number; // Timeout in milliseconds for this specific scenario
   
   // Parsed fields (populated by data processor)
   parsedPassengers?: PassengerCount[];
