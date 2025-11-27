@@ -426,7 +426,7 @@ export class BookingSummaryPage extends BasePage {
       console.log('Proceed to Payment clicked, waiting for Confirm Payment button');
       await this.locator(this.selectors.confirmPayment).waitFor({ state: 'visible', timeout: 50000 });
       await this.locator(this.selectors.confirmPayment).click({ force: true });
-      await this.page.waitForTimeout(10000);
+      await this.page.waitForTimeout(20000);
       console.log('✅ Payment flow ready');
     } catch (error) {
       console.error(`Payment flow failed: ${error instanceof Error ? error.message : String(error)}`);

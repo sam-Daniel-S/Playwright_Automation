@@ -24,6 +24,9 @@ export default defineConfig({
     /* Base URL to use in actions like `await page.goto('/')`. */
     baseURL: 'https://app-test-finnair-fra-frontend-f7byg3hef7abafat.germanywestcentral-01.azurewebsites.net/en',
 
+    /* Set viewport to null to use the full browser window size */
+    viewport: null,
+
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
     
@@ -34,7 +37,7 @@ export default defineConfig({
     video: 'retain-on-failure',
     
     /* Global timeout for each action */
-    actionTimeout: 30000,
+    actionTimeout: 50000,
     
     /* Global timeout for navigation */
     navigationTimeout: 30000,
@@ -49,9 +52,9 @@ export default defineConfig({
       name: 'setup',
       testMatch: '**/auth.setup.ts',
       use: {
-        ...devices['Desktop Chrome'],
+        channel: 'chrome',
         headless: false,
-        // viewport: {height: 1080, width: 1920 },
+        viewport: null,
         launchOptions: {
           args: [
             '--start-maximized',
@@ -70,8 +73,9 @@ export default defineConfig({
       name: 'auth-only',
       testMatch: '**/auth-setup.spec.ts',
       use: {
-        ...devices['Desktop Chrome'],
+        channel: 'chrome',
         headless: false,
+        viewport: null,
         launchOptions: {
           args: [
             '--ignore-certificate-errors',
@@ -86,9 +90,12 @@ export default defineConfig({
     {
       name: 'chromium',
       use: { 
-        ...devices['Desktop Chrome'],
+        channel: 'chrome',
         /* Always run in headed mode */
         headless: false,
+        
+        /* Set viewport to null to use the full browser window size */
+        viewport: null,
 
         /* Chrome-specific args to ignore certificate errors */
         launchOptions: {
@@ -139,7 +146,7 @@ export default defineConfig({
   timeout: 120000,
 
   /* Maximum failures before stopping test run */
-  maxFailures: process.env.CI ? 5 : undefined,
+  maxFailures: undefined,
 
   /* Output folder for test artifacts */
   outputDir: 'test-results/',

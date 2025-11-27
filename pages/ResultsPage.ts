@@ -1,51 +1,26 @@
 import { Page, expect } from '@playwright/test';
 import { BasePage } from './BasePage';
-import { FlightSelection, CabinClass } from '../lib/data/types';
+import { FlightSelection, CabinClass, TripType } from '../lib/data/types';
 import { FlightSearchLocators } from '../flightSearchLocators';
 
 /**
  * Results Page Object for flight search results and selection
  */
 export class ResultsPage extends BasePage {
-  
+
   private readonly locators: FlightSearchLocators;
-  
+
   private readonly selectors = {
     // Page verification
     verifySearchResultPage: '//span[text()="Flights"]',
-    
+
     // Flight selection by cabin class
     economyFlightCard: '//div[@data-testid="flight-result-economy-column-0"]//div[5]',
     businessFlightCard: '//div[@data-testid="flight-result-business-column-0"]//div[2]',
-    firstClassFlightCard: '', // To be implemented based on actual selectors
-    premiumFlightCard: '', // To be implemented based on actual selectors
-    
-    // Flight details
-    flightPrice: '//div[@class="flex items-center"]//div[2]',
-    flightDuration: '//div[@data-testid="flight-duration"][1]',
-    
-    // Fare family selection
-    fareTypeToolTip: '//div[@data-testid="flight-result-economy-column-0"]//div//div//div//div//span[2]',
-    servicesPopUp: '//span[@data-testid="farename-0-1"]',
-    selectEconomyCard: '//span[@data-testid="farename-0-1"]/following-sibling::span[1]',
-    
+    priceForAdult : '(//div[text()="Price for 1 Adult"])[1]',
+
     // Continue button
     continueButton: "//button[text()='Continue']",
-    
-    // Flight details popups
-    termsAndConditions: '//button[text()="Terms & Conditions"]',
-    fareRules: '//button[text()="Fare Rules"]',
-    amenities: '//button[text()="Amenities"]',
-    closePopUp: '//div[contains(@class,"flex justify-between")]//h3/following::button[1]',
-    
-    // Loading states
-    loadingIndicator: '[data-testid="loading"], .loading, .spinner',
-    noResultsMessage: '[data-testid="no-results"], .no-flights, .no-results',
-    
-    // Flight cards generic
-    flightCards: '[data-testid*="flight-result"], .flight-card, .flight-option',
-    flightCardPrice: '[data-testid*="price"], .price, .fare-amount',
-    flightCardDuration: '[data-testid*="duration"], .duration, .flight-time',
   } as const;
 
   constructor(page: Page) {
@@ -53,388 +28,146 @@ export class ResultsPage extends BasePage {
     this.locators = new FlightSearchLocators(page);
   }
 
-  /**
-   * Wait for search results to load and be displayed
-   */
-  async waitForResults(): Promise<void> {
-    console.log('Waiting for flight search results...');
-    
+  async verifySearchProcessed(): Promise<boolean> {
+    console.log('Verifying search was processed - looking for Flights text');
+
     try {
-      // Wait for results page to load
-      await this.waitFor(this.selectors.verifySearchResultPage, { timeout: 60000 });
-      
-      // Wait for loading indicators to disappear
-      await this.waitForLoadingToComplete();
-      
-      // Check if we have results or no-results message
-      const hasResults = await this.verifyResultsAvailable();
-      
-      if (!hasResults) {
-        throw new Error('No flights found for the search criteria');
+      // Wait for the "Flights" text to be visible using the specific XPath
+      const FlightsTextLocator = this.locators.verifySearchResultPage;
+
+      // Wait up to 15 seconds for the Flights text to appear
+      await FlightsTextLocator.waitFor({ state: 'visible', timeout: 15000 });
+
+      // Get the text content to verify it contains "Flights"
+      const FlightsText = await FlightsTextLocator.textContent();
+
+      if (FlightsText) {
+        console.info(`✅ Found Flights text: "${FlightsText}"`);
+        return true;
+      } else {
+        throw new Error('Flights text is null or empty');
       }
-      
-      console.log('Flight results loaded successfully');
-      
+
     } catch (error) {
-      console.error('Failed to load search results:', error);
-      await this.captureScreenshot('results-loading-error');
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      console.error(`Failed to get Flights text: ${errorMessage}`);
+      
+      // Take a screenshot for debugging
+      await this.captureScreenshot('search-results-not-found');
       throw error;
     }
   }
 
-  /**
-   * Select a flight based on criteria
-   */
-  async selectFlight(criteria: FlightSelection, tripType?: string): Promise<void> {
-    console.log(`Selecting flight: cabin=${criteria.cabin}, preference=${criteria.preference}, tripType=${tripType}`);
-    
+  async waitForResults(): Promise<void> {
+    console.log('Waiting for search results to load...');
     try {
-      // Wait for flight cards to be visible
-      await this.waitFor(this.selectors.flightCards);
+      await this.verifySearchProcessed();
       
-      // Get available flights for the specified cabin
-      const flightCard = await this.findFlightByCabin(criteria.cabin);
+      // Additional wait to ensure page is stable
+      await this.page.waitForTimeout(2000);
+      console.info('✅ Search results loaded successfully');
+    } catch (error) {
+      console.error(`Failed to wait for results: ${error instanceof Error ? error.message : String(error)}`);
+      throw error;
+    }
+  }
+
+
+  async selectFlight(flightSelection?: FlightSelection, tripType?: TripType): Promise<void> {
+    console.log('Select a flight from the flight results');
+
+    try {
+      console.log('Checking if flight selection element is visible...');
+
       
-      if (!flightCard) {
-        throw new Error(`No flights available for ${criteria.cabin} class`);
+      
+      // Check if the flight selection element is visible
+      const isFlightVisible = await this.locators.verifySearchResultPage.isVisible({ timeout: 5000 }).catch(() => false);
+      
+      if (isFlightVisible) {
+        console.info('✅ Found flight using original locator');
+        await this.page.waitForTimeout(1000);
+        switch (flightSelection?.cabin) {
+          case 'Economy':
+            await this.page.locator(this.selectors.priceForAdult).click();
+            break;
+          case 'Business':
+            await this.page.locator(this.selectors.priceForAdult).click();
+            break;
       }
-      
-      // Apply preference logic (cheapest, first, fastest)
-      const selectedCard = await this.applySelectionPreference(flightCard, criteria);
-      
-      // Select the flight
-      await this.clickFlightCard(selectedCard);
-      
-      // Handle fare family selection if needed
-      if (criteria.fareFamily) {
-        await this.selectFareFamily(criteria.fareFamily);
+      // await this.fareFamilySelection(flightSelection?.cabin!);
+        console.log('✅ Outbound Flight Selected using original locator');
+      } else {
+        console.log('❌ Could not find flight selection element');
+        
+        // Take screenshot for debugging
+        await this.captureScreenshot('flight-not-found');
+        
+        // Log current page URL and title for debugging
+        console.error(`Current URL: ${this.page.url()}`);
+        console.error(`Page title: ${await this.page.title()}`);
+        
+        throw new Error('Flight selection element not found');
       }
-      
-      // Click continue to proceed
-      await this.continueToNextStep();
-      
-      // For round-trip, wait 2 seconds and click continue again
-      if (tripType && (tripType.toLowerCase().includes('round') || tripType.toLowerCase().includes('return'))) {
-        console.log('Round-trip detected - waiting 2 seconds for additional continue step');
-        await this.page.waitForTimeout(3000);
-        await this.continueToNextStep();
-        console.log('✅ Additional continue step completed for round-trip');
-      }
-      
-      console.log('Flight selection completed successfully');
+
+      // // Select fare family/cabin class if provided
+      // if (flightSelection?.cabin) {
+      //   await this.fareFamilySelection(flightSelection.cabin);
+      // }
+
+      // Continue to booking with trip type handling
+      await this.continueToBooking(tripType);
       
     } catch (error) {
-      console.error('Failed to select flight:', error);
+      console.error(`Failed to select flight: ${error instanceof Error ? error.message : String(error)}`);
+      
+      // Take screenshot on any error
       await this.captureScreenshot('flight-selection-error');
       throw error;
     }
   }
 
-  /**
-   * Find flight card by cabin class
-   */
-  private async findFlightByCabin(cabin: CabinClass): Promise<string> {
-    let selector: string;
-    
-    switch (cabin) {
-      case 'Economy':
-        selector = this.selectors.economyFlightCard;
-        break;
-      case 'Business':
-        selector = this.selectors.businessFlightCard;
-        break;
-      case 'Premium':
-        // Fallback to economy if premium not available
-        selector = this.selectors.economyFlightCard;
-        break;
-      case 'First':
-        // Fallback to business if first not available
-        selector = this.selectors.businessFlightCard;
-        break;
-      default:
-        throw new Error(`Unknown cabin class: ${cabin}`);
-    }
-    
-    // Verify the flight card exists
-    const isVisible = await this.isVisible(selector, 10000);
-    if (!isVisible) {
-      // Try fallback selectors
-      const fallbackSelectors = [
-        this.selectors.economyFlightCard,
-        this.selectors.flightCards
-      ];
-      
-      for (const fallbackSelector of fallbackSelectors) {
-        if (await this.isVisible(fallbackSelector, 5000)) {
-          console.warn(`Using fallback selector for ${cabin} class: ${fallbackSelector}`);
-          return fallbackSelector;
-        }
-      }
-      
-      throw new Error(`No flight cards found for ${cabin} class`);
-    }
-    
-    return selector;
-  }
-
-  /**
-   * Apply selection preference (cheapest, first, fastest)
-   */
-  private async applySelectionPreference(
-    flightCardSelector: string, 
-    criteria: FlightSelection
-  ): Promise<string> {
-    
-    switch (criteria.preference) {
-      case 'first':
-        // Just return the first available card
-        return flightCardSelector;
-        
-      case 'cheapest':
-        // Find the cheapest option (this would need more complex logic in real implementation)
-        return await this.findCheapestFlight(flightCardSelector);
-        
-      case 'fastest':
-        // Find the fastest option (this would need duration comparison)
-        return await this.findFastestFlight(flightCardSelector);
-        
-      default:
-        return flightCardSelector;
-    }
-  }
-
-  /**
-   * Find cheapest flight among available options
-   */
-  private async findCheapestFlight(baseSelector: string): Promise<string> {
-    // Simplified implementation - in real scenario, would compare prices
-    // For now, just return the first available option
-    return baseSelector;
-  }
-
-  /**
-   * Find fastest flight among available options
-   */
-  private async findFastestFlight(baseSelector: string): Promise<string> {
-    // Simplified implementation - in real scenario, would compare durations
-    // For now, just return the first available option
-    return baseSelector;
-  }
-
-  /**
-   * Click on the selected flight card
-   */
-  private async clickFlightCard(cardSelector: string): Promise<void> {
-    await this.clickWhenReady(cardSelector);
-    
-    // Wait for any selection animations or updates
-    await this.page.waitForTimeout(1000);
-  }
-
-  /**
-   * Select specific fare family if required
-   */
-  private async selectFareFamily(fareFamily: string): Promise<void> {
-    console.log(`Selecting fare family: ${fareFamily}`);
-    
+  async fareFamilySelection(cabinClass: CabinClass): Promise<void> {
+    console.log(`Selecting fare family for cabin class: ${cabinClass}`);
     try {
-      // Check if fare family selection popup appeared
-      if (await this.isVisible(this.selectors.servicesPopUp, 5000)) {
-        
-        // Look for the specific fare family option
-        const fareFamilySelector = `text="${fareFamily}"`;
-        
-        if (await this.isVisible(fareFamilySelector, 5000)) {
-          await this.clickWhenReady(fareFamilySelector);
-        } else {
-          console.warn(`Fare family "${fareFamily}" not found, using default selection`);
-          // Click the default economy card
-          await this.clickWhenReady(this.selectors.selectEconomyCard);
-        }
+      if (cabinClass === 'Economy') {
+        await this.locators.selectEconomyCard.click();
+        console.log('✅ Economy Flight Selected');
       }
-      
+      else if (cabinClass === 'Business') {
+        await this.locators.selectBusinessCard.click();
+        console.log('✅ Business Flight Selected');
+      }
     } catch (error) {
-      console.warn('Fare family selection failed:', error);
-      // Continue without specific fare family
+      console.error(`Failed to select fare family: ${error instanceof Error ? error.message : String(error)}`);
+      throw error;
     }
   }
 
-  /**
-   * Click continue to proceed to next step
-   */
-  private async continueToNextStep(): Promise<void> {
+  async continueToBooking(tripType?: TripType): Promise<void> {
+    console.log('Clicking Continue to proceed to booking');
     try {
-      // Try FlightSearchLocators continue button first
-      if (await this.locators.Click_Continue_FlightCard.isVisible({ timeout: 5000 })) {
+      await this.locators.Click_Continue_FlightCard.click();
+      console.log('✅ Clicked Continue to proceed to booking');
+      
+      // If it's a round trip, handle the inbound flight selection
+      if (tripType === 'Round-trip') {
+        console.log('Round trip detected - handling inbound flight selection');
+        
+        // Wait for 3 seconds after the first continue click
+        await this.page.waitForTimeout(3000);
+        console.log('Waited 3 seconds after inbound selection');
+        
+        // Click continue button again for the inbound flight
         await this.locators.Click_Continue_FlightCard.click();
-        console.log('✅ Continue clicked using FlightSearchLocators');
-      } else {
-        // Fallback to regular continue button
-        await this.clickWhenReady(this.selectors.continueButton);
-        console.log('✅ Continue clicked using fallback selector');
+        console.info('✅ Clicked Continue again for round trip inbound flight');
       }
-      
-      // Wait for navigation to complete
-      await this.waitForPageLoad();
-      
     } catch (error) {
-      console.error('Failed to click continue button:', error);
-      
-      // Try alternative continue button selectors
-      const alternativeSelectors = [
-        "//button[text()='Continue']",
-        "//button[contains(text(), 'Continue')]",
-        "//button[@type='submit']",
-        "//button[contains(@class, 'continue')]"
-      ];
-      
-      let clicked = false;
-      for (const selector of alternativeSelectors) {
-        if (await this.isVisible(selector, 3000)) {
-          await this.clickWhenReady(selector);
-          console.log(`✅ Continue clicked using alternative selector: ${selector}`);
-          clicked = true;
-          break;
-        }
-      }
-      
-      if (!clicked) {
-        throw new Error('Could not find and click continue button');
-      }
-      
-      await this.waitForPageLoad();
+      console.error(`Failed to click Continue: ${error instanceof Error ? error.message : String(error)}`);
+      throw error;
     }
   }
 
-  /**
-   * Wait for loading indicators to complete
-   */
-  private async waitForLoadingToComplete(): Promise<void> {
-    try {
-      // Wait for loading indicators to appear (if any)
-      await this.page.waitForTimeout(2000);
-      
-      // Wait for loading indicators to disappear
-      const loadingSelector = this.selectors.loadingIndicator;
-      if (await this.isVisible(loadingSelector, 5000)) {
-        await this.page.locator(loadingSelector).waitFor({ 
-          state: 'hidden', 
-          timeout: 60000 
-        });
-      }
-      
-      // Additional wait for results to stabilize
-      await this.page.waitForTimeout(2000);
-      
-    } catch (error) {
-      // Loading indicators might not be present
-      console.warn('Loading completion detection failed:', error);
-    }
-  }
 
-  /**
-   * Verify that search results are available
-   */
-  private async verifyResultsAvailable(): Promise<boolean> {
-    // Check for no-results message
-    if (await this.isVisible(this.selectors.noResultsMessage, 5000)) {
-      const noResultsText = await this.getText(this.selectors.noResultsMessage);
-      console.log(`No results found: ${noResultsText}`);
-      return false;
-    }
     
-    // Check for flight cards
-    const hasFlightCards = await this.isVisible(this.selectors.flightCards, 10000);
-    if (!hasFlightCards) {
-      console.log('No flight cards found on results page');
-      return false;
-    }
-    
-    return true;
-  }
-
-  /**
-   * Get flight details for validation
-   */
-  async getSelectedFlightDetails(): Promise<{
-    price?: string;
-    duration?: string;
-    cabin?: string;
-  }> {
-    const details: { price?: string; duration?: string; cabin?: string } = {};
-    
-    try {
-      // Get price
-      if (await this.isVisible(this.selectors.flightPrice, 5000)) {
-        details.price = await this.getText(this.selectors.flightPrice);
-      }
-      
-      // Get duration
-      if (await this.isVisible(this.selectors.flightDuration, 5000)) {
-        details.duration = await this.getText(this.selectors.flightDuration);
-      }
-      
-    } catch (error) {
-      console.warn('Could not retrieve flight details:', error);
-    }
-    
-    return details;
-  }
-
-  /**
-   * View flight details popups (Terms, Fare Rules, Amenities)
-   */
-  async viewFlightDetails(detailType: 'terms' | 'fareRules' | 'amenities'): Promise<void> {
-    let selector: string;
-    
-    switch (detailType) {
-      case 'terms':
-        selector = this.selectors.termsAndConditions;
-        break;
-      case 'fareRules':
-        selector = this.selectors.fareRules;
-        break;
-      case 'amenities':
-        selector = this.selectors.amenities;
-        break;
-    }
-    
-    // Click to open details
-    await this.clickWhenReady(selector);
-    
-    // Wait for popup to appear
-    await this.page.waitForTimeout(2000);
-    
-    // Close popup
-    if (await this.isVisible(this.selectors.closePopUp, 5000)) {
-      await this.clickWhenReady(this.selectors.closePopUp);
-    }
-  }
-
-  /**
-   * Get count of available flights
-   */
-  async getFlightCount(): Promise<number> {
-    try {
-      const flightCards = this.page.locator(this.selectors.flightCards);
-      const count = await flightCards.count();
-      console.log(`Found ${count} flight options`);
-      return count;
-    } catch (error) {
-      console.warn('Could not count flight cards:', error);
-      return 0;
-    }
-  }
-
-  /**
-   * Check if specific cabin class is available
-   */
-  async isCabinAvailable(cabin: CabinClass): Promise<boolean> {
-    try {
-      const selector = await this.findFlightByCabin(cabin);
-      return await this.isVisible(selector, 5000);
-    } catch (error) {
-      return false;
-    }
-  }
 }

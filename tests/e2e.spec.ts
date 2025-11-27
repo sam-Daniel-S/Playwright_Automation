@@ -160,7 +160,7 @@ async function executeBookingFlow(
     fareFamily: scenario.fareFamily
   };
   
-  await resultsPage.selectFlight(flightSelection);
+  await resultsPage.selectFlight(flightSelection, scenario.tripType);
   
   // Step 3: Fill passenger information
   console.log('👤 Step 3: Filling passenger information...');
