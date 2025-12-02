@@ -1,7 +1,7 @@
 import * as XLSX from 'xlsx';
 import { readFileSync } from 'fs';
 import { parse } from 'csv-parse/sync';
-import { Scenario, TravelDates, PassengerCount, TripType, CabinClass } from '../data/types';
+import { Scenario, TravelDates, PassengerCount, TripType, CabinClass, ActionType } from '../data/types';
 
 /**
  * Excel/CSV reader for test scenarios with robust parsing and fallback
@@ -119,18 +119,19 @@ export class ExcelReader {
       return String(row[index] || '').trim();
     };
     
-    const scenarioID = getValue('scenarioid') || getValue('scenario_id') || getValue('id');
-    if (!scenarioID) {
-      throw new Error(`ScenarioID is required (row ${rowNum})`);
-    }
-    
-    const tripType = this.parseTripType(getValue('triptype') || getValue('trip_type'));
+    const scenarioID = getValue('scenarioid') || getValue('scenario_id') || getValue('id') || `scenario_${rowNum}`;
+    const action = this.parseActionType(getValue('action'));
+    const tripType = this.parseTripType(getValue('triptype') || getValue('trip_type') || getValue('trip type'));
     const origin = getValue('origin');
     const destination = getValue('destination');
-    const passengers = getValue('passengers');
-    const cabin = this.parseCabinClass(getValue('cabin'));
-    const dates = getValue('dates');
+    const passengers = getValue('passengers') || getValue('passengers (ptc)');
+    const cabin = this.parseCabinClass(getValue('cabin') || getValue('class type'));
+    const dates = getValue('dates') || getValue('date');
     const tags = getValue('tags') || '';
+    
+    if (!action) {
+      throw new Error(`Action is required (row ${rowNum})`);
+    }
     
     if (!origin || !destination || !passengers || !dates) {
       throw new Error(`Required fields missing: origin, destination, passengers, dates (row ${rowNum})`);
@@ -141,6 +142,7 @@ export class ExcelReader {
     
     const scenario: Scenario = {
       scenarioID,
+      action,
       tripType,
       origin,
       destination,
@@ -152,6 +154,12 @@ export class ExcelReader {
       expectedResult: getValue('expectedresult') || getValue('expected_result'),
       timeout,
       
+      // Optional promotional and loyalty fields
+      promoCode: getValue('promo code') || getValue('promocode') || getValue('promo_code') || undefined,
+      discountCode: getValue('discounts') || getValue('discount code') || getValue('discount_code') || undefined,
+      loyaltyProgram: getValue('loyalty program') || getValue('loyaltyprogram') || getValue('loyalty_program') || undefined,
+      memberId: getValue('member id') || getValue('memberid') || getValue('member_id') || undefined,
+      
       // Parse and expand data
       parsedPassengers: this.parsePassengers(passengers),
       parsedDates: this.parseDates(dates, tripType),
@@ -161,6 +169,32 @@ export class ExcelReader {
     return scenario;
   }
   
+  /**
+   * Parse action type with validation
+   */
+  private static parseActionType(value: string): ActionType {
+    const normalized = value.toLowerCase().trim();
+    
+    switch (normalized) {
+      case 'booking':
+        return 'Booking';
+      case 'search':
+        return 'Search';
+      case 'results':
+        return 'Results';
+      case 'passengerinfo':
+      case 'passenger_info':
+      case 'passenger info':
+        return 'PassengerInfo';
+      case 'bookingsummary':
+      case 'booking_summary':
+      case 'booking summary':
+        return 'BookingSummary';
+      default:
+        throw new Error(`Invalid action type: ${value}. Expected: Booking, Search, Results, PassengerInfo, BookingSummary`);
+    }
+  }
+
   /**
    * Parse trip type with validation
    */
@@ -283,14 +317,25 @@ export class ExcelReader {
       return dateStr;
     }
     
-    // Parse various formats and convert
-    const date = new Date(dateStr);
+    const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                       'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    
+    let date: Date;
+    
+    // Handle DD/MM/YYYY format (common in CSV)
+    const ddmmyyyyMatch = dateStr.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+    if (ddmmyyyyMatch) {
+      const [, day, month, year] = ddmmyyyyMatch;
+      // Create date with month-1 because Date constructor uses 0-based months
+      date = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+    } else {
+      // Try other formats with Date constructor
+      date = new Date(dateStr);
+    }
+    
     if (isNaN(date.getTime())) {
       throw new Error(`Invalid date: ${dateStr}`);
     }
-    
-    const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                       'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     
     const day = date.getDate().toString().padStart(2, '0');
     const month = monthNames[date.getMonth()];

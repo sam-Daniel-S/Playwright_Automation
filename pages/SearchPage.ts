@@ -26,7 +26,7 @@ export class SearchPage extends BasePage {
     airportSuggestions: '[data-testid="airport-suggestions"], .airport-dropdown, .autocomplete-dropdown',
     
     // Date inputs
-    departureDateInput: '//input[@data-testid="travel-date"]',
+    departureDateInput: '//div[@data-testid="travel-date"]',
     selectDateOneWay: '(//button[text()="15"])[2]',
     selectRoundTripDepartureDate: '(//button[text()="8"])[2]',
     selectRoundTripReturnDate: '(//button[text()="18"])[2]',
@@ -49,6 +49,12 @@ export class SearchPage extends BasePage {
     
     // Search button
     searchButton: '//button[text()="Search"]',
+    
+    // Optional promotional and loyalty fields
+    promoCodeInput: '//input[@data-testid="promocode"]',
+    discountCodeInput: '(//label[text()="Discount Code"]/following::input)[1]',
+    loyaltyProgramInput: '(//label[text()="Loyalty Program"]/following::input)[1]',
+    memberIdInput: '//label[text()="Member ID"]/following::input',
     
     // Error messages
     sameOriginDestinationError: "//p[text()='Departure and arrival locations must be different']",
@@ -98,6 +104,9 @@ export class SearchPage extends BasePage {
       
       // Configure passengers
       await this.configurePassengers(scenario);
+      
+      // Fill optional promotional and loyalty fields if specified
+      await this.fillOptionalFields(scenario);
       
       console.log('Search form filled successfully');
       
@@ -160,6 +169,69 @@ export class SearchPage extends BasePage {
   }
 
   /**
+   * Fill optional promotional and loyalty fields if specified in scenario
+   */
+  private async fillOptionalFields(scenario: Scenario): Promise<void> {
+    console.log('Checking for optional promotional and loyalty fields...');
+    
+    try {
+      // Fill Promo Code if specified
+      if (scenario.promoCode && scenario.promoCode.trim()) {
+        console.log(`Filling promo code: ${scenario.promoCode}`);
+        if (await this.isVisible(this.selectors.promoCodeInput, 3000)) {
+          await this.fillInput(this.selectors.promoCodeInput, scenario.promoCode);
+          console.log('✅ Promo code filled successfully');
+        } else {
+          console.log('⚠️ Promo code field not found or not visible');
+        }
+      }
+      
+      // Fill Discount Code if specified
+      if (scenario.discountCode && scenario.discountCode.trim()) {
+        console.log(`Filling discount code: ${scenario.discountCode}`);
+        if (await this.isVisible(this.selectors.discountCodeInput, 3000)) {
+          await this.fillInput(this.selectors.discountCodeInput, scenario.discountCode);
+          console.log('✅ Discount code filled successfully');
+        } else {
+          console.log('⚠️ Discount code field not found or not visible');
+        }
+      }
+      
+      // Fill Loyalty Program if specified
+      if (scenario.loyaltyProgram && scenario.loyaltyProgram.trim()) {
+        console.log(`Filling loyalty program: ${scenario.loyaltyProgram}`);
+        if (await this.isVisible(this.selectors.loyaltyProgramInput, 3000)) {
+          await this.fillInput(this.selectors.loyaltyProgramInput, scenario.loyaltyProgram);
+          console.log('✅ Loyalty program filled successfully');
+        } else {
+          console.log('⚠️ Loyalty program field not found or not visible');
+        }
+      }
+      
+      // Fill Member ID if specified
+      if (scenario.memberId && scenario.memberId.trim()) {
+        console.log(`Filling member ID: ${scenario.memberId}`);
+        if (await this.isVisible(this.selectors.memberIdInput, 3000)) {
+          await this.fillInput(this.selectors.memberIdInput, scenario.memberId);
+          console.log('✅ Member ID filled successfully');
+        } else {
+          console.log('⚠️ Member ID field not found or not visible');
+        }
+      }
+      
+      // If no optional fields were specified, log that
+      if (!scenario.promoCode && !scenario.discountCode && !scenario.loyaltyProgram && !scenario.memberId) {
+        console.log('ℹ️ No optional promotional or loyalty fields specified in scenario');
+      }
+      
+    } catch (error) {
+      console.error('❌ Error filling optional fields:', error);
+      // Don't throw error - optional fields shouldn't break the flow
+      console.log('⚠️ Continuing with search despite optional field errors');
+    }
+  }
+
+  /**
    * Fill individual airport input with autocomplete handling
    */
   private async fillAirportInput(selector: string, airportCode: string): Promise<void> {
@@ -202,7 +274,7 @@ export class SearchPage extends BasePage {
    */
   private async selectSingleDate(dayStr: string): Promise<void> {
     const day = this.extractDayFromDate(dayStr);
-    const dateSelector = `(//button[text()="${day}"])[2]`;
+    const dateSelector = `(//button[text()="${day}"])[1]`;
     
     try {
       await this.clickWhenReady(dateSelector);
@@ -221,13 +293,13 @@ export class SearchPage extends BasePage {
     
     try {
       // Select departure date
-      const departureDateSelector = `(//button[text()="${departureDay}"])[2]`;
+      const departureDateSelector = `(//button[text()="${departureDay}"])[1]`;
       await this.clickWhenReady(departureDateSelector);
       
       await this.page.waitForTimeout(500);
       
       // Select return date
-      const returnDateSelector = `(//button[text()="${returnDay}"])[2]`;
+      const returnDateSelector = `(//button[text()="${returnDay}"])[1]`;
       await this.clickWhenReady(returnDateSelector);
       
     } catch (error) {
@@ -517,4 +589,48 @@ export class SearchPage extends BasePage {
       return formData;
     }
   }
+
+   async verifySearchProcessed(): Promise<boolean> {
+      console.log('Verifying search was processed - looking for Flights text');
+  
+      try {
+        // Wait for the "Flights" text to be visible using the specific XPath
+        const FlightsTextLocator = this.locators.verifySearchResultPage;
+  
+        // Wait up to 15 seconds for the Flights text to appear
+        await FlightsTextLocator.waitFor({ state: 'visible', timeout: 15000 });
+  
+        // Get the text content to verify it contains "Flights"
+        const FlightsText = await FlightsTextLocator.textContent();
+  
+        if (FlightsText) {
+          console.info(`✅ Found Flights text: "${FlightsText}"`);
+          return true;
+        } else {
+          throw new Error('Flights text is null or empty');
+        }
+  
+      } catch (error) {
+        const errorMessage = error instanceof Error ? error.message : String(error);
+        console.error(`Failed to get Flights text: ${errorMessage}`);
+        
+        // Take a screenshot for debugging
+        await this.captureScreenshot('search-results-not-found');
+        throw error;
+      }
+    }
+  
+    async waitForResults(): Promise<void> {
+      console.log('Waiting for search results to load...');
+      try {
+        await this.verifySearchProcessed();
+        
+        // Additional wait to ensure page is stable
+        await this.page.waitForTimeout(2000);
+        console.info('✅ Search results loaded successfully');
+      } catch (error) {
+        console.error(`Failed to wait for results: ${error instanceof Error ? error.message : String(error)}`);
+        throw error;
+      }
+    }
 }

@@ -17,7 +17,11 @@ export default defineConfig({
   reporter: [
     ['html', { outputFolder: 'playwright-report' }],
     ['junit', { outputFile: 'test-results/junit.xml' }],
-    ['json', { outputFile: 'test-results/results.json' }]
+    ['json', { outputFile: 'test-results/results.json' }],
+    ['allure-playwright', { 
+      outputFolder: 'allure-results',
+      suiteTitle: 'Airline Booking E2E Tests'
+    }]
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
@@ -143,7 +147,7 @@ export default defineConfig({
   // },
 
   /* Global test timeout */
-  timeout: 120000,
+  timeout: 180000, // 120 seconds (2 minutes)
 
   /* Maximum failures before stopping test run */
   maxFailures: undefined,

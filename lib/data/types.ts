@@ -5,6 +5,7 @@
 export type TripType = 'One-way' | 'Round-trip';
 export type CabinClass = 'Economy' | 'Premium' | 'Business' | 'First';
 export type PassengerType = 'ADT' | 'CHD' | 'INF'; // Adult, Child, Infant
+export type ActionType = 'Booking' | 'Search' | 'Results' | 'PassengerInfo' | 'BookingSummary';
 
 /**
  * Passenger count by type from scenario data
@@ -39,6 +40,7 @@ export interface TravelDates {
  */
 export interface Scenario {
   scenarioID: string;
+  action: ActionType; // Determines which steps to execute
   tripType: TripType;
   origin: string;
   destination: string;
@@ -49,6 +51,12 @@ export interface Scenario {
   tags: string; // Comma-separated tags
   expectedResult?: string;
   timeout?: number; // Timeout in milliseconds for this specific scenario
+  
+  // Optional promotional and loyalty fields
+  promoCode?: string;
+  discountCode?: string;
+  loyaltyProgram?: string;
+  memberId?: string;
   
   // Parsed fields (populated by data processor)
   parsedPassengers?: PassengerCount[];

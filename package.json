@@ -12,19 +12,31 @@
     "test:debug": "playwright test --debug",
     "test:ui": "playwright test --ui",
     "install:browsers": "playwright install",
-    "report": "playwright show-report"
+    "report": "playwright show-report",
+    "allure:generate": "npx allure generate allure-results --clean",
+    "allure:open": "npx allure open allure-report",
+    "allure:serve": "npx allure serve allure-results",
+    "test:allure": "playwright test && npm run allure:serve"
   },
-  "keywords": ["playwright", "typescript", "e2e", "airline", "booking"],
+  "keywords": [
+    "playwright",
+    "typescript",
+    "e2e",
+    "airline",
+    "booking"
+  ],
   "author": "",
   "license": "MIT",
   "devDependencies": {
     "@playwright/test": "^1.40.0",
     "@types/node": "^20.0.0",
+    "allure-commandline": "^2.34.1",
+    "allure-playwright": "^3.4.2",
     "typescript": "^5.0.0"
   },
   "dependencies": {
-    "xlsx": "^0.18.5",
-    "csv-parse": "^5.5.2"
+    "csv-parse": "^5.5.2",
+    "xlsx": "^0.18.5"
   },
   "engines": {
     "node": ">=18.0.0"

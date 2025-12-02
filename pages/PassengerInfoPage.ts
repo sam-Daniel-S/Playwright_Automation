@@ -18,7 +18,7 @@ export class PassengerInfoPage extends BasePage {
     selectMrsOption: '//div[text()="Mrs"]',
     firstNameInput: '//input[@data-testid="guestdetails_firstname1"]',
     lastNameInput: '//input[@data-testid="guestdetails_lastname1"]',
-    dobInput: '//input[@placeholder="DD/MM/YYYY"]',
+    dobInput: '//div[@data-testid="guestdetails_dob1"]//input[1]',
     
     // Contact information
     contactPurpose: '//span[text()="Standard"]',
@@ -41,15 +41,14 @@ export class PassengerInfoPage extends BasePage {
     childTitleDropdown: '//div[@data-testid="guestdetails_child_title1"]',
     childFirstNameInput: '//input[@data-testid="guestdetails_child_firstname1"]',
     childLastNameInput: '//input[@data-testid="guestdetails_child_lastname1"]',
-    childDobInput: '(//input[@placeholder="DD/MM/YYYY"])[2]',
+    childDobInput: '//div[@data-testid="guestdetails_child_dob1"]//input[1]',
     
     // Infant passenger form
     infantTitleDropdown: '//div[@data-testid="guestdetails_infant_title1"]',
     infantFirstNameInput: '//input[@data-testid="guestdetails_infant_firstname1"]',
     infantLastNameInput: '//input[@data-testid="guestdetails_infant_lastname1"]',
-    infantDobInput: '(//input[@placeholder="DD/MM/YYYY"])[3]',
+    infantDobInput: '//div[@data-testid="guestdetails_infant_dob1"]//input[1]',
     infantAdultAssociationDropdown: '//div[@data-testid="guestdetails_infant_infantassocitation1"]',
-    selectInfantAdultAssociation: '//div[text()="Select Adult Passenger"]/following-sibling::div',
     
     // Continue buttons
     continueButton: '//button[@data-testid="guestdetails_continuebtn"]',
@@ -130,7 +129,7 @@ export class PassengerInfoPage extends BasePage {
     const titleDropdown = `//div[@data-testid="guestdetails_title${passengerNumber}"]`;
     const firstNameInput = `//input[@data-testid="guestdetails_firstname${passengerNumber}"]`;
     const lastNameInput = `//input[@data-testid="guestdetails_lastname${passengerNumber}"]`;
-    const dobInput = `(//input[@placeholder="DD/MM/YYYY"])[${passengerNumber}]`;
+    const dobInput = `//div[@data-testid="guestdetails_dob${passengerNumber}"]//input[1]`;
     
     // Fill title
     await this.clickWhenReady(titleDropdown);
@@ -248,11 +247,8 @@ export class PassengerInfoPage extends BasePage {
     const childTitleDropdown = `//div[@data-testid="guestdetails_child_title${childNumber}"]`;
     const childFirstNameInput = `//input[@data-testid="guestdetails_child_firstname${childNumber}"]`;
     const childLastNameInput = `//input[@data-testid="guestdetails_child_lastname${childNumber}"]`;
+    const childDobInput = `//div[@data-testid="guestdetails_child_dob${childNumber}"]//input[1]`;
     
-    // Calculate DOB input position (adults + child position)
-    // Assuming adults come first, then children
-    const dobPosition = childNumber + 1; // +1 because adults use position 1
-    const childDobInput = `(//input[@placeholder="DD/MM/YYYY"])[${dobPosition}]`;
     
     // Navigate to child form if needed
     const childNavSelector = `//button[text()="Child ${childNumber}"]`;
@@ -275,6 +271,7 @@ export class PassengerInfoPage extends BasePage {
     await this.fillInput(childFirstNameInput, child.firstName);
     await this.fillInput(childLastNameInput, child.lastName);
     await this.fillInput(childDobInput, child.dateOfBirth);
+    await this.page.keyboard.press('Enter');
     
     console.log(`✅ Child passenger ${childNumber} form completed`);
   }
@@ -304,11 +301,7 @@ export class PassengerInfoPage extends BasePage {
     const infantFirstNameInput = `//input[@data-testid="guestdetails_infant_firstname${infantNumber}"]`;
     const infantLastNameInput = `//input[@data-testid="guestdetails_infant_lastname${infantNumber}"]`;
     const infantAdultAssociationDropdown = `//div[@data-testid="guestdetails_infant_infantassocitation${infantNumber}"]`;
-    
-    // Calculate DOB input position (adults + children + infant position)
-    // Assuming adults come first, then children, then infants
-    const dobPosition = infantNumber + 2; // +2 because adults and children use earlier positions
-    const infantDobInput = `(//input[@placeholder="DD/MM/YYYY"])[${dobPosition}]`;
+    const infantDobInput = `//div[@data-testid="guestdetails_infant_dob${infantNumber}"]//input[1]`;
     
     // Navigate to infant form if needed
     const infantNavSelector = `//button[text()="Infant ${infantNumber}"]`;
@@ -334,8 +327,9 @@ export class PassengerInfoPage extends BasePage {
       await this.clickWhenReady(infantAdultAssociationDropdown);
       await this.page.waitForTimeout(500);
       
-      // Select the associated adult (simplified - would need dynamic selector)
-      await this.clickWhenReady(this.selectors.selectInfantAdultAssociation);
+      // Select the associated adult using dynamic selector based on infant number
+      const adultAssociationSelector = `(//div[@class='qmbogk9 ']/following-sibling::div)[1]`;
+      await this.clickWhenReady(adultAssociationSelector);
     }
     
     console.log(`✅ Infant passenger ${infantNumber} form completed`);

@@ -5,6 +5,25 @@ import { PassengerCount, Passenger, PassengerType } from '../data/types';
  */
 export class PassengerBuilder {
   
+  // Name pools for generating unique passenger names
+  private static readonly FIRST_NAMES = {
+    male: ['James', 'John', 'Robert', 'Michael', 'David', 'William', 'Richard', 'Joseph', 'Thomas', 'Christopher',
+           'Charles', 'Daniel', 'Matthew', 'Anthony', 'Mark', 'Donald', 'Steven', 'Paul', 'Andrew', 'Joshua'],
+    female: ['Mary', 'Patricia', 'Jennifer', 'Linda', 'Elizabeth', 'Barbara', 'Susan', 'Jessica', 'Sarah', 'Karen',
+             'Lisa', 'Nancy', 'Betty', 'Helen', 'Sandra', 'Donna', 'Carol', 'Ruth', 'Sharon', 'Michelle'],
+    child: ['Emma', 'Liam', 'Olivia', 'Noah', 'Ava', 'Ethan', 'Sophia', 'Mason', 'Isabella', 'William',
+            'Mia', 'James', 'Charlotte', 'Benjamin', 'Amelia', 'Lucas', 'Harper', 'Henry', 'Evelyn', 'Alexander']
+  };
+
+  private static readonly LAST_NAMES = [
+    'Smith', 'Johnson', 'Williams', 'Brown', 'Jones', 'Garcia', 'Miller', 'Davis', 'Rodriguez', 'Martinez',
+    'Hernandez', 'Lopez', 'Gonzalez', 'Wilson', 'Anderson', 'Thomas', 'Taylor', 'Moore', 'Jackson', 'Martin',
+    'Lee', 'Perez', 'Thompson', 'White', 'Harris', 'Sanchez', 'Clark', 'Ramirez', 'Lewis', 'Robinson'
+  ];
+
+  // Track used names to ensure uniqueness within a booking
+  private static usedNames: Set<string> = new Set();
+
   /**
    * Parse passenger string into PassengerCount array
    * @param passengerStr String like "3 ADT,1 CHD,1 INF"
@@ -42,10 +61,10 @@ export class PassengerBuilder {
    * @returns Array of individual passenger objects with placeholder data
    */
   static expandPassengers(passengerCounts: PassengerCount[]): Passenger[] {
+    // Reset used names for each new passenger group
+    this.usedNames.clear();
+    
     const passengers: Passenger[] = [];
-    let adultCounter = 1;
-    let childCounter = 1;
-    let infantCounter = 1;
     
     // Process adults first (required for infant associations)
     const adultNames: string[] = [];
@@ -53,19 +72,17 @@ export class PassengerBuilder {
     for (const passengerCount of passengerCounts) {
       if (passengerCount.type === 'ADT') {
         for (let i = 0; i < passengerCount.count; i++) {
-          const firstName = `Adult${adultCounter}`;
-          const lastName = `Test`;
+          const { firstName, lastName, title } = this.generateUniqueName('ADT');
           
           passengers.push({
             type: 'ADT',
-            title: 'Mr',
+            title:'Mr',
             firstName,
             lastName,
             dateOfBirth: this.generateDateOfBirth('ADT'),
           });
           
           adultNames.push(`${firstName} ${lastName}`);
-          adultCounter++;
         }
       }
     }
@@ -74,30 +91,34 @@ export class PassengerBuilder {
     for (const passengerCount of passengerCounts) {
       if (passengerCount.type === 'CHD') {
         for (let i = 0; i < passengerCount.count; i++) {
+          const { firstName, lastName, title } = this.generateUniqueName('CHD');
+          
           passengers.push({
             type: 'CHD',
-            title: 'Mr',
-            firstName: `Child${childCounter}`,
-            lastName: 'Test',
+            title:'Mr',
+            firstName,
+            lastName,
             dateOfBirth: this.generateDateOfBirth('CHD'),
           });
-          childCounter++;
         }
       }
     }
     
     // Process infants (associate with adults)
+    let infantCounter = 0;
     for (const passengerCount of passengerCounts) {
       if (passengerCount.type === 'INF') {
         for (let i = 0; i < passengerCount.count; i++) {
           // Associate infant with available adult (round-robin if multiple infants)
-          const associatedAdult = adultNames[(infantCounter - 1) % adultNames.length] || '';
+          const associatedAdult = adultNames[infantCounter % adultNames.length] || '';
+          
+          const { firstName, lastName, title } = this.generateUniqueName('INF');
           
           passengers.push({
             type: 'INF',
-            title: 'Ms',
-            firstName: `Infant${infantCounter}`,
-            lastName: 'Test',
+            title:'Mr',
+            firstName,
+            lastName,
             dateOfBirth: this.generateDateOfBirth('INF'),
             associatedAdult,
           });
@@ -110,6 +131,62 @@ export class PassengerBuilder {
   }
   
   /**
+   * Generate unique name for a passenger
+   * @param type Passenger type (ADT, CHD, INF)
+   * @returns Object with firstName, lastName, and title
+   */
+  private static generateUniqueName(type: PassengerType): { firstName: string; lastName: string; title: string } {
+    let firstName: string;
+    let lastName: string;
+    let title: string;
+    let fullName: string;
+    let attempts = 0;
+    const maxAttempts = 50; // Prevent infinite loops
+    
+    do {
+      // Select name pool based on passenger type
+      if (type === 'ADT') {
+        // Adults: mix of male and female names
+        const isMale = Math.random() > 0.5;
+        firstName = this.getRandomFromArray(isMale ? this.FIRST_NAMES.male : this.FIRST_NAMES.female);
+        title = isMale ? 'Mr' : (Math.random() > 0.5 ? 'Ms' : 'Mrs');
+      } else if (type === 'CHD') {
+        // Children: use child-friendly names, random gender
+        firstName = this.getRandomFromArray(this.FIRST_NAMES.child);
+        title = Math.random() > 0.5 ? 'Mr' : 'Ms';
+      } else {
+        // Infants: typically use 'Ms' and child names
+        firstName = this.getRandomFromArray(this.FIRST_NAMES.child);
+        title = 'Ms';
+      }
+      
+      lastName = this.getRandomFromArray(this.LAST_NAMES);
+      fullName = `${firstName} ${lastName}`;
+      attempts++;
+      
+    } while (this.usedNames.has(fullName) && attempts < maxAttempts);
+    
+    // If we couldn't find a unique name after max attempts, add a suffix
+    if (this.usedNames.has(fullName)) {
+      firstName = `${firstName}${attempts}`;
+      fullName = `${firstName} ${lastName}`;
+    }
+    
+    this.usedNames.add(fullName);
+    
+    return { firstName, lastName, title };
+  }
+
+  /**
+   * Get random element from array
+   * @param array Array to select from
+   * @returns Random element
+   */
+  private static getRandomFromArray<T>(array: T[]): T {
+    return array[Math.floor(Math.random() * array.length)];
+  }
+
+  /**
    * Generate appropriate date of birth based on passenger type
    * @param type Passenger type (ADT, CHD, INF)
    * @returns Date of birth in DD/MM/YYYY format
@@ -119,29 +196,44 @@ export class PassengerBuilder {
     const currentYear = currentDate.getFullYear();
     
     let birthYear: number;
+    let birthMonth: number;
+    let birthDay: number;
     
     switch (type) {
       case 'ADT':
-        // Adults: 18-65 years old
-        birthYear = currentYear - Math.floor(Math.random() * (65 - 18)) - 18;
+        // Adults: 18-100 years old
+        const adultAge = Math.floor(Math.random() * (100 - 18)) + 18;
+        birthYear = currentYear - adultAge;
         break;
       case 'CHD':
-        // Children: 2-17 years old
-        birthYear = currentYear - Math.floor(Math.random() * (17 - 2)) - 2;
+        // Children: 2-12 years old (exclusive of 12 to avoid overlap with adults)
+        const childAge = Math.floor(Math.random() * (12 - 2)) + 2;
+        birthYear = currentYear - childAge;
         break;
       case 'INF':
-        // Infants: 0-23 months old
-        birthYear = currentYear - 1; // 1 year old for simplicity
-        break;
+        // Infants: 0-2 years old (0-23 months)
+        const infantAgeMonths = Math.floor(Math.random() * 24); // 0-23 months
+        if (infantAgeMonths < 12) {
+          // 0-11 months: same year
+          birthYear = currentYear;
+          birthMonth = Math.max(1, currentDate.getMonth() + 1 - infantAgeMonths);
+        } else {
+          // 12-23 months: previous year
+          birthYear = currentYear - 1;
+          birthMonth = Math.max(1, currentDate.getMonth() + 1 - (infantAgeMonths - 12));
+        }
+        birthDay = Math.min(currentDate.getDate(), 28); // Safe day
+        
+        return `${birthDay.toString().padStart(2, '0')}/${birthMonth.toString().padStart(2, '0')}/${birthYear}`;
       default:
         throw new Error(`Unknown passenger type: ${type}`);
     }
     
-    // Generate random month and day
-    const month = Math.floor(Math.random() * 12) + 1;
-    const day = Math.floor(Math.random() * 28) + 1; // Use 28 to avoid month-specific day issues
+    // Generate random month and day for adults and children
+    birthMonth = Math.floor(Math.random() * 12) + 1;
+    birthDay = Math.floor(Math.random() * 28) + 1; // Use 28 to avoid month-specific day issues
     
-    return `${day.toString().padStart(2, '0')}/${month.toString().padStart(2, '0')}/${birthYear}`;
+    return `${birthDay.toString().padStart(2, '0')}/${birthMonth.toString().padStart(2, '0')}/${birthYear}`;
   }
   
   /**

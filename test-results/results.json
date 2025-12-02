@@ -32,6 +32,13 @@
         {
           "outputFile": "test-results/results.json"
         }
+      ],
+      [
+        "C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\node_modules\\allure-playwright\\dist\\cjs\\index.js",
+        {
+          "outputFolder": "allure-results",
+          "suiteTitle": "Airline Booking E2E Tests"
+        }
       ]
     ],
     "reportSlowTests": {
@@ -54,7 +61,7 @@
         "testMatch": [
           "**/auth.setup.ts"
         ],
-        "timeout": 120000
+        "timeout": 180000
       },
       {
         "outputDir": "C:/Users/2853064/Documents/Testing/Automation/SingleBase/test-results",
@@ -70,7 +77,7 @@
         "testMatch": [
           "**/auth-setup.spec.ts"
         ],
-        "timeout": 120000
+        "timeout": 180000
       },
       {
         "outputDir": "C:/Users/2853064/Documents/Testing/Automation/SingleBase/test-results",
@@ -86,7 +93,7 @@
         "testMatch": [
           "**/*.@(spec|test).?(c|m)[jt]s?(x)"
         ],
-        "timeout": 120000
+        "timeout": 180000
       }
     ],
     "shard": null,
@@ -102,65 +109,12 @@
       "file": "comprehensive-e2e.spec.ts",
       "column": 0,
       "line": 0,
-      "specs": [
-        {
-          "title": "Debug - Application Access Check",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 120000,
-              "annotations": [
-                {
-                  "type": "skip",
-                  "location": {
-                    "file": "C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\tests\\comprehensive-e2e.spec.ts",
-                    "line": 510,
-                    "column": 6
-                  }
-                }
-              ],
-              "expectedStatus": "skipped",
-              "projectId": "chromium",
-              "projectName": "chromium",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2025-11-27T14:41:12.722Z",
-                  "annotations": [
-                    {
-                      "type": "skip",
-                      "location": {
-                        "file": "C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\tests\\comprehensive-e2e.spec.ts",
-                        "line": 510,
-                        "column": 6
-                      }
-                    }
-                  ],
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "ceae8d42728a3fcdf4bb-690e0df73028bc088e8a",
-          "file": "comprehensive-e2e.spec.ts",
-          "line": 510,
-          "column": 6
-        }
-      ],
+      "specs": [],
       "suites": [
         {
           "title": "Airline Booking - All Scenarios E2E",
           "file": "comprehensive-e2e.spec.ts",
-          "line": 24,
+          "line": 25,
           "column": 6,
           "specs": [
             {
@@ -169,7 +123,7 @@
               "tags": [],
               "tests": [
                 {
-                  "timeout": 600000,
+                  "timeout": 180000000,
                   "annotations": [],
                   "expectedStatus": "passed",
                   "projectId": "chromium",
@@ -179,71 +133,29 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 438122,
+                      "duration": 251570,
                       "errors": [],
                       "stdout": [
                         {
                           "text": "🚀 Starting comprehensive E2E test execution...\n"
                         },
                         {
-                          "text": "📝 No saved auth state found, performing initial login...\n"
+                          "text": "🔧 Setting up authentication for test execution...\n"
                         },
                         {
-                          "text": "🔑 Starting authentication process...\n"
+                          "text": "🔑 Setting authentication cookie...\n"
                         },
                         {
-                          "text": "🔐 Starting Microsoft authentication process...\n"
+                          "text": "📋 Post-authentication status:\n"
                         },
                         {
-                          "text": "📍 Navigated to login page\n"
+                          "text": "   URL: https://app-test-finnair-fra-frontend-f7byg3hef7abafat.germanywestcentral-01.azurewebsites.net/en\n"
                         },
                         {
-                          "text": "⚠️  No login button found, checking if login form is present\n"
+                          "text": "   Title: Amadeus Nevio | Finnair\n"
                         },
                         {
-                          "text": "📧 Found email input, attempting automated login...\n"
-                        },
-                        {
-                          "text": "🤖 Starting automated Microsoft login...\n"
-                        },
-                        {
-                          "text": "📧 Filling email field...\n"
-                        },
-                        {
-                          "text": "➡️ Clicking Next button...\n"
-                        },
-                        {
-                          "text": "🔐 Filling password field...\n"
-                        },
-                        {
-                          "text": "🔑 Clicking Sign In button...\n"
-                        },
-                        {
-                          "text": "✅ Clicking Stay signed in...\n"
-                        },
-                        {
-                          "text": "⏳ Waiting for login completion...\n"
-                        },
-                        {
-                          "text": "🔄 Navigating to main application...\n"
-                        },
-                        {
-                          "text": "📍 Navigated to: https://app-test-finnair-fra-frontend-f7byg3hef7abafat.germanywestcentral-01.azurewebsites.net/en\n"
-                        },
-                        {
-                          "text": "✅ Automated login completed successfully!\n"
-                        },
-                        {
-                          "text": "📍 Successfully accessed main application\n"
-                        },
-                        {
-                          "text": "✅ Detected /en redirect - User is logged in\n"
-                        },
-                        {
-                          "text": "✅ Authentication successful\n"
-                        },
-                        {
-                          "text": "💾 Authentication state saved\n"
+                          "text": "✅ Cookie authentication successful!\n"
                         },
                         {
                           "text": "💾 Authentication state saved for future test runs\n"
@@ -261,31 +173,61 @@
                           "text": "Reading CSV file: C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\test-data\\scenarios.csv\n"
                         },
                         {
-                          "text": "Found 6 scenario(s) with headers: scenarioid, triptype, origin, destination, passengers, cabin, farefamily, dates, tags, expectedresult, timeout\n"
+                          "text": "Found 4 scenario(s) with headers: scenario id, action, trip type, origin, destination, date, passengers (ptc), class type, promo code, discounts, loyalty program, member id\n"
                         },
                         {
-                          "text": "Successfully parsed 6 scenarios\n"
+                          "text": "Successfully parsed 4 scenarios\n"
                         },
                         {
-                          "text": "✅ Loaded 6 test scenarios\n"
+                          "text": "✅ Loaded 4 test scenarios\n"
                         },
                         {
-                          "text": "\n🧪 Executing Scenario: SMOKE_001\n"
+                          "text": "📋 Scenario 1: ID=\"scenario_2\", Action=\"Search\", HEL→LHR\n"
                         },
                         {
-                          "text": "📋 One-way | HEL → LHR | Economy | 1 ADT\n"
+                          "text": "📋 Scenario 2: ID=\"scenario_3\", Action=\"Results\", HEL→LHR\n"
                         },
                         {
-                          "text": "   ⏱️  Setting timeout to 90000ms\n"
+                          "text": "📋 Scenario 3: ID=\"scenario_4\", Action=\"PassengerInfo\", LHR→MAA\n"
                         },
                         {
-                          "text": "   📍 Step 1: Filling search form...\n"
+                          "text": "📋 Scenario 4: ID=\"scenario_5\", Action=\"Booking\", HEL→JFK\n"
+                        },
+                        {
+                          "text": "\n📊 Processing scenario 1 of 4\n"
+                        },
+                        {
+                          "text": "\n🧪 Executing Scenario: scenario_2\n"
+                        },
+                        {
+                          "text": "📋 Round-trip | HEL → LHR | Economy | 1ADT\n"
+                        },
+                        {
+                          "text": "🔍 Checking browser state for scenario scenario_2...\n"
+                        },
+                        {
+                          "text": "✅ Browser state is valid for scenario scenario_2\n"
+                        },
+                        {
+                          "text": "   ⏱️  Setting fresh timeout to 18000000ms (18000 seconds) for this scenario\n"
+                        },
+                        {
+                          "text": "   🚀 Scenario execution started at: 2025-12-02T10:15:36.913Z\n"
+                        },
+                        {
+                          "text": "   ⏱️  Starting scenario execution with detailed time tracking\n"
+                        },
+                        {
+                          "text": "   🎯 Executing Action: Search\n"
+                        },
+                        {
+                          "text": "   📍 Step 1: Filling and submitting search form...\n"
                         },
                         {
                           "text": "Flight search page loaded successfully\n"
                         },
                         {
-                          "text": "Filling search form for scenario: SMOKE_001\n"
+                          "text": "Filling search form for scenario: scenario_2\n"
                         },
                         {
                           "text": "Economy is default - opening and closing dropdown\n"
@@ -303,6 +245,12 @@
                           "text": "✅ Passenger configuration completed\n"
                         },
                         {
+                          "text": "Checking for optional promotional and loyalty fields...\n"
+                        },
+                        {
+                          "text": "ℹ️ No optional promotional or loyalty fields specified in scenario\n"
+                        },
+                        {
                           "text": "Search form filled successfully\n"
                         },
                         {
@@ -312,97 +260,76 @@
                           "text": "Search submitted successfully\n"
                         },
                         {
-                          "text": "   ✈️  Step 2: Processing search results...\n"
-                        },
-                        {
                           "text": "Waiting for search results to load...\n"
                         },
                         {
-                          "text": "About to call selectFlight...\n"
+                          "text": "Verifying search was processed - looking for Flights text\n"
                         },
                         {
-                          "text": "Select a flight from the flight results\n"
+                          "text": "✅ Found Flights text: \"Flights\"\n"
                         },
                         {
-                          "text": "Checking if flight selection element is visible...\n"
+                          "text": "✅ Search results loaded successfully\n"
                         },
                         {
-                          "text": "✅ Found flight using original locator\n"
+                          "text": "   ✅ Search completed successfully\n"
                         },
                         {
-                          "text": "✅ Outbound Flight Selected using original locator\n"
+                          "text": "   ⏱️  Scenario execution phase completed in 23592ms\n"
                         },
                         {
-                          "text": "Clicking Continue to proceed to booking\n"
+                          "text": "   ⏱️  Total scenario time so far: 23593ms (24 seconds)\n"
                         },
                         {
-                          "text": "✅ Clicked Continue to proceed to booking\n"
+                          "text": "   ⏱️  Scenario completed in 23593ms (24 seconds)\n"
                         },
                         {
-                          "text": "   👤 Step 3: Filling passenger information...\n"
+                          "text": "✅ Scenario scenario_2 completed successfully\n"
                         },
                         {
-                          "text": "Filling passenger information for 1 passengers\n"
+                          "text": "🔄 Starting cleanup and reset for next scenario...\n"
                         },
                         {
-                          "text": "Filling 1 adult passenger(s)\n"
+                          "text": "🏠 Navigated to home page for fresh start\n"
                         },
                         {
-                          "text": "Filling adult passenger 1\n"
+                          "text": "✅ Scenario scenario_2 cleanup completed in 8117ms\n"
                         },
                         {
-                          "text": "Filling adult form 1\n"
+                          "text": "\n📊 Processing scenario 2 of 4\n"
                         },
                         {
-                          "text": "✅ Adult passenger 1 form completed\n"
+                          "text": "\n🧪 Executing Scenario: scenario_3\n"
                         },
                         {
-                          "text": "Passenger information filled successfully\n"
+                          "text": "📋 One-way | HEL → LHR | Business | 2ADT\n"
                         },
                         {
-                          "text": "   💳 Step 5: Processing payment with enhanced flow...\n"
+                          "text": "🔍 Checking browser state for scenario scenario_3...\n"
                         },
                         {
-                          "text": "Attempting to click Proceed to Payment button\n"
+                          "text": "✅ Browser state is valid for scenario scenario_3\n"
                         },
                         {
-                          "text": "✅ Country set to India\n"
+                          "text": "   ⏱️  Setting fresh timeout to 18000000ms (18000 seconds) for this scenario\n"
                         },
                         {
-                          "text": "✅ Language set to English\n"
+                          "text": "   🚀 Scenario execution started at: 2025-12-02T10:16:08.630Z\n"
                         },
                         {
-                          "text": "Proceed to Payment clicked, waiting for Confirm Payment button\n"
+                          "text": "   ⏱️  Starting scenario execution with detailed time tracking\n"
                         },
                         {
-                          "text": "✅ Payment flow ready\n"
+                          "text": "   🎯 Executing Action: Results\n"
                         },
                         {
-                          "text": "   ✅ Enhanced payment flow completed successfully\n"
-                        },
-                        {
-                          "text": "✅ Scenario SMOKE_001 completed successfully\n"
-                        },
-                        {
-                          "text": "✅ Scenario SMOKE_001 cleanup completed\n"
-                        },
-                        {
-                          "text": "\n🧪 Executing Scenario: SMOKE_002\n"
-                        },
-                        {
-                          "text": "📋 Round-trip | LHR → MAA | Business | 2 ADT\n"
-                        },
-                        {
-                          "text": "   ⏱️  Setting timeout to 90000ms\n"
-                        },
-                        {
-                          "text": "   📍 Step 1: Filling search form...\n"
+                          "text": "   📍 Step 1: Filling and submitting search form...\n"
                         },
                         {
                           "text": "Flight search page loaded successfully\n"
                         },
                         {
-                          "text": "Filling search form for scenario: SMOKE_002\n"
+                          "text": "Filling search form for scenario: scenario_3\n"
                         },
                         {
                           "text": "Selecting Business class - deselecting Economy first\n"
@@ -429,6 +356,12 @@
                           "text": "✅ Passenger configuration completed\n"
                         },
                         {
+                          "text": "Checking for optional promotional and loyalty fields...\n"
+                        },
+                        {
+                          "text": "ℹ️ No optional promotional or loyalty fields specified in scenario\n"
+                        },
+                        {
                           "text": "Search form filled successfully\n"
                         },
                         {
@@ -436,6 +369,21 @@
                         },
                         {
                           "text": "Search submitted successfully\n"
+                        },
+                        {
+                          "text": "Waiting for search results to load...\n"
+                        },
+                        {
+                          "text": "Verifying search was processed - looking for Flights text\n"
+                        },
+                        {
+                          "text": "✅ Found Flights text: \"Flights\"\n"
+                        },
+                        {
+                          "text": "✅ Search results loaded successfully\n"
+                        },
+                        {
+                          "text": "   ✅ Search completed successfully\n"
                         },
                         {
                           "text": "   ✈️  Step 2: Processing search results...\n"
@@ -465,88 +413,64 @@
                           "text": "✅ Clicked Continue to proceed to booking\n"
                         },
                         {
-                          "text": "Round trip detected - handling inbound flight selection\n"
+                          "text": "   ✅ Results processing completed successfully\n"
                         },
                         {
-                          "text": "Waited 3 seconds after inbound selection\n"
+                          "text": "   ⏱️  Scenario execution phase completed in 25166ms\n"
                         },
                         {
-                          "text": "✅ Clicked Continue again for round trip inbound flight\n"
+                          "text": "   ⏱️  Total scenario time so far: 25166ms (25 seconds)\n"
                         },
                         {
-                          "text": "   👤 Step 3: Filling passenger information...\n"
+                          "text": "   ⏱️  Scenario completed in 25166ms (25 seconds)\n"
                         },
                         {
-                          "text": "Filling passenger information for 2 passengers\n"
+                          "text": "✅ Scenario scenario_3 completed successfully\n"
                         },
                         {
-                          "text": "Filling 2 adult passenger(s)\n"
+                          "text": "🔄 Starting cleanup and reset for next scenario...\n"
                         },
                         {
-                          "text": "Filling adult passenger 1\n"
+                          "text": "🏠 Navigated to home page for fresh start\n"
                         },
                         {
-                          "text": "Filling adult form 1\n"
+                          "text": "✅ Scenario scenario_3 cleanup completed in 8327ms\n"
                         },
                         {
-                          "text": "✅ Adult passenger 1 form completed\n"
+                          "text": "\n📊 Processing scenario 3 of 4\n"
                         },
                         {
-                          "text": "Filling adult passenger 2\n"
+                          "text": "\n🧪 Executing Scenario: scenario_4\n"
                         },
                         {
-                          "text": "Filling adult form 2\n"
+                          "text": "📋 One-way | LHR → MAA | Business | 1ADT,1CHD\n"
                         },
                         {
-                          "text": "✅ Adult passenger 2 form completed\n"
+                          "text": "🔍 Checking browser state for scenario scenario_4...\n"
                         },
                         {
-                          "text": "Passenger information filled successfully\n"
+                          "text": "✅ Browser state is valid for scenario scenario_4\n"
                         },
                         {
-                          "text": "   💳 Step 5: Processing payment with enhanced flow...\n"
+                          "text": "   ⏱️  Setting fresh timeout to 18000000ms (18000 seconds) for this scenario\n"
                         },
                         {
-                          "text": "Attempting to click Proceed to Payment button\n"
+                          "text": "   🚀 Scenario execution started at: 2025-12-02T10:16:42.136Z\n"
                         },
                         {
-                          "text": "✅ Country set to India\n"
+                          "text": "   ⏱️  Starting scenario execution with detailed time tracking\n"
                         },
                         {
-                          "text": "✅ Language set to English\n"
+                          "text": "   🎯 Executing Action: PassengerInfo\n"
                         },
                         {
-                          "text": "Proceed to Payment clicked, waiting for Confirm Payment button\n"
-                        },
-                        {
-                          "text": "✅ Payment flow ready\n"
-                        },
-                        {
-                          "text": "   ✅ Enhanced payment flow completed successfully\n"
-                        },
-                        {
-                          "text": "✅ Scenario SMOKE_002 completed successfully\n"
-                        },
-                        {
-                          "text": "✅ Scenario SMOKE_002 cleanup completed\n"
-                        },
-                        {
-                          "text": "\n🧪 Executing Scenario: REG_001\n"
-                        },
-                        {
-                          "text": "📋 One-way | HEL → LHR | Business | 1 ADT,1 CHD\n"
-                        },
-                        {
-                          "text": "   ⏱️  Setting timeout to 90000ms\n"
-                        },
-                        {
-                          "text": "   📍 Step 1: Filling search form...\n"
+                          "text": "   📍 Step 1: Filling and submitting search form...\n"
                         },
                         {
                           "text": "Flight search page loaded successfully\n"
                         },
                         {
-                          "text": "Filling search form for scenario: REG_001\n"
+                          "text": "Filling search form for scenario: scenario_4\n"
                         },
                         {
                           "text": "Selecting Business class - deselecting Economy first\n"
@@ -573,6 +497,12 @@
                           "text": "✅ Passenger configuration completed\n"
                         },
                         {
+                          "text": "Checking for optional promotional and loyalty fields...\n"
+                        },
+                        {
+                          "text": "ℹ️ No optional promotional or loyalty fields specified in scenario\n"
+                        },
+                        {
                           "text": "Search form filled successfully\n"
                         },
                         {
@@ -580,6 +510,21 @@
                         },
                         {
                           "text": "Search submitted successfully\n"
+                        },
+                        {
+                          "text": "Waiting for search results to load...\n"
+                        },
+                        {
+                          "text": "Verifying search was processed - looking for Flights text\n"
+                        },
+                        {
+                          "text": "✅ Found Flights text: \"Flights\"\n"
+                        },
+                        {
+                          "text": "✅ Search results loaded successfully\n"
+                        },
+                        {
+                          "text": "   ✅ Search completed successfully\n"
                         },
                         {
                           "text": "   ✈️  Step 2: Processing search results...\n"
@@ -607,6 +552,9 @@
                         },
                         {
                           "text": "✅ Clicked Continue to proceed to booking\n"
+                        },
+                        {
+                          "text": "   ✅ Results processing completed successfully\n"
                         },
                         {
                           "text": "   👤 Step 3: Filling passenger information...\n"
@@ -639,58 +587,73 @@
                           "text": "Passenger information filled successfully\n"
                         },
                         {
-                          "text": "   💳 Step 5: Processing payment with enhanced flow...\n"
+                          "text": "   ✅ Passenger information completed successfully\n"
                         },
                         {
-                          "text": "Attempting to click Proceed to Payment button\n"
+                          "text": "   ⏱️  Scenario execution phase completed in 45216ms\n"
                         },
                         {
-                          "text": "✅ Country set to India\n"
+                          "text": "   ⏱️  Total scenario time so far: 45217ms (45 seconds)\n"
                         },
                         {
-                          "text": "✅ Language set to English\n"
+                          "text": "   ⏱️  Scenario completed in 45217ms (45 seconds)\n"
                         },
                         {
-                          "text": "Proceed to Payment clicked, waiting for Confirm Payment button\n"
+                          "text": "✅ Scenario scenario_4 completed successfully\n"
                         },
                         {
-                          "text": "✅ Payment flow ready\n"
+                          "text": "🔄 Starting cleanup and reset for next scenario...\n"
                         },
                         {
-                          "text": "   ✅ Enhanced payment flow completed successfully\n"
+                          "text": "🏠 Navigated to home page for fresh start\n"
                         },
                         {
-                          "text": "✅ Scenario REG_001 completed successfully\n"
+                          "text": "✅ Scenario scenario_4 cleanup completed in 8759ms\n"
                         },
                         {
-                          "text": "✅ Scenario REG_001 cleanup completed\n"
+                          "text": "\n📊 Processing scenario 4 of 4\n"
                         },
                         {
-                          "text": "\n🧪 Executing Scenario: REG_002\n"
+                          "text": "\n🧪 Executing Scenario: scenario_5\n"
                         },
                         {
-                          "text": "📋 Round-trip | MAA → LHR | Economy | 2 ADT,1 INF\n"
+                          "text": "📋 One-way | HEL → JFK | Economy | 2ADT,2CHD,2INF\n"
                         },
                         {
-                          "text": "   ⏱️  Setting timeout to 90000ms\n"
+                          "text": "🔍 Checking browser state for scenario scenario_5...\n"
                         },
                         {
-                          "text": "   📍 Step 1: Filling search form...\n"
+                          "text": "✅ Browser state is valid for scenario scenario_5\n"
+                        },
+                        {
+                          "text": "   ⏱️  Setting fresh timeout to 18000000ms (18000 seconds) for this scenario\n"
+                        },
+                        {
+                          "text": "   🚀 Scenario execution started at: 2025-12-02T10:17:36.125Z\n"
+                        },
+                        {
+                          "text": "   ⏱️  Starting scenario execution with detailed time tracking\n"
+                        },
+                        {
+                          "text": "   🎯 Executing Action: Booking\n"
+                        },
+                        {
+                          "text": "   📍 Step 1: Filling and submitting search form...\n"
                         },
                         {
                           "text": "Flight search page loaded successfully\n"
                         },
                         {
-                          "text": "Filling search form for scenario: REG_002\n"
+                          "text": "Filling search form for scenario: scenario_5\n"
                         },
                         {
                           "text": "Economy is default - opening and closing dropdown\n"
                         },
                         {
-                          "text": "Configuring passengers for search: [ { type: \u001b[32m'ADT'\u001b[39m, count: \u001b[33m2\u001b[39m }, { type: \u001b[32m'INF'\u001b[39m, count: \u001b[33m1\u001b[39m } ]\n"
+                          "text": "Configuring passengers for search: [\n  { type: \u001b[32m'ADT'\u001b[39m, count: \u001b[33m2\u001b[39m },\n  { type: \u001b[32m'CHD'\u001b[39m, count: \u001b[33m2\u001b[39m },\n  { type: \u001b[32m'INF'\u001b[39m, count: \u001b[33m2\u001b[39m }\n]\n"
                         },
                         {
-                          "text": "Passengers needed: 2 adults, 0 children, 1 infants\n"
+                          "text": "Passengers needed: 2 adults, 2 children, 2 infants\n"
                         },
                         {
                           "text": "Setting 2 adults in slot 1\n"
@@ -705,16 +668,49 @@
                           "text": "✅ Passenger count in slot 1 increased by 1\n"
                         },
                         {
-                          "text": "Adding and configuring 1 infants\n"
+                          "text": "Adding and configuring 2 children\n"
                         },
                         {
-                          "text": "Setting passenger type in slot 2 to Infant\n"
+                          "text": "Setting passenger type in slot 2 to Child\n"
                         },
                         {
-                          "text": "✅ Slot 2 type set to Infant\n"
+                          "text": "✅ Slot 2 type set to Child\n"
+                        },
+                        {
+                          "text": "Increasing passenger count in slot 2 by 1\n"
+                        },
+                        {
+                          "text": "Plus clicked 1/1 for slot 2\n"
+                        },
+                        {
+                          "text": "✅ Passenger count in slot 2 increased by 1\n"
+                        },
+                        {
+                          "text": "Adding and configuring 2 infants\n"
+                        },
+                        {
+                          "text": "Setting passenger type in slot 3 to Infant\n"
+                        },
+                        {
+                          "text": "✅ Slot 3 type set to Infant\n"
+                        },
+                        {
+                          "text": "Increasing passenger count in slot 3 by 1\n"
+                        },
+                        {
+                          "text": "Plus clicked 1/1 for slot 3\n"
+                        },
+                        {
+                          "text": "✅ Passenger count in slot 3 increased by 1\n"
                         },
                         {
                           "text": "✅ Passenger configuration completed\n"
+                        },
+                        {
+                          "text": "Checking for optional promotional and loyalty fields...\n"
+                        },
+                        {
+                          "text": "ℹ️ No optional promotional or loyalty fields specified in scenario\n"
                         },
                         {
                           "text": "Search form filled successfully\n"
@@ -724,6 +720,21 @@
                         },
                         {
                           "text": "Search submitted successfully\n"
+                        },
+                        {
+                          "text": "Waiting for search results to load...\n"
+                        },
+                        {
+                          "text": "Verifying search was processed - looking for Flights text\n"
+                        },
+                        {
+                          "text": "✅ Found Flights text: \"Flights\"\n"
+                        },
+                        {
+                          "text": "✅ Search results loaded successfully\n"
+                        },
+                        {
+                          "text": "   ✅ Search completed successfully\n"
                         },
                         {
                           "text": "   ✈️  Step 2: Processing search results...\n"
@@ -753,19 +764,13 @@
                           "text": "✅ Clicked Continue to proceed to booking\n"
                         },
                         {
-                          "text": "Round trip detected - handling inbound flight selection\n"
-                        },
-                        {
-                          "text": "Waited 3 seconds after inbound selection\n"
-                        },
-                        {
-                          "text": "✅ Clicked Continue again for round trip inbound flight\n"
+                          "text": "   ✅ Results processing completed successfully\n"
                         },
                         {
                           "text": "   👤 Step 3: Filling passenger information...\n"
                         },
                         {
-                          "text": "Filling passenger information for 3 passengers\n"
+                          "text": "Filling passenger information for 6 passengers\n"
                         },
                         {
                           "text": "Filling 2 adult passenger(s)\n"
@@ -789,160 +794,7 @@
                           "text": "✅ Adult passenger 2 form completed\n"
                         },
                         {
-                          "text": "Filling 1 infant passenger(s)\n"
-                        },
-                        {
-                          "text": "Filling infant passenger 1\n"
-                        },
-                        {
-                          "text": "✅ Infant passenger 1 form completed\n"
-                        },
-                        {
-                          "text": "Analyzing failing selector: //button[@data-testid=\"guestdetails_child_continuebtn\"]\n"
-                        },
-                        {
-                          "text": "🔄 Continuing to next scenario...\n"
-                        },
-                        {
-                          "text": "✅ Scenario REG_002 cleanup completed\n"
-                        },
-                        {
-                          "text": "\n🧪 Executing Scenario: REG_003\n"
-                        },
-                        {
-                          "text": "📋 One-way | HEL → JFK | Business | 3 ADT,1 CHD,1 INF\n"
-                        },
-                        {
-                          "text": "   ⏱️  Setting timeout to 90000ms\n"
-                        },
-                        {
-                          "text": "   📍 Step 1: Filling search form...\n"
-                        },
-                        {
-                          "text": "Flight search page loaded successfully\n"
-                        },
-                        {
-                          "text": "Filling search form for scenario: REG_003\n"
-                        },
-                        {
-                          "text": "Selecting Business class - deselecting Economy first\n"
-                        },
-                        {
-                          "text": "Configuring passengers for search: [\n  { type: \u001b[32m'ADT'\u001b[39m, count: \u001b[33m3\u001b[39m },\n  { type: \u001b[32m'CHD'\u001b[39m, count: \u001b[33m1\u001b[39m },\n  { type: \u001b[32m'INF'\u001b[39m, count: \u001b[33m1\u001b[39m }\n]\n"
-                        },
-                        {
-                          "text": "Passengers needed: 3 adults, 1 children, 1 infants\n"
-                        },
-                        {
-                          "text": "Setting 3 adults in slot 1\n"
-                        },
-                        {
-                          "text": "Increasing passenger count in slot 1 by 2\n"
-                        },
-                        {
-                          "text": "Plus clicked 1/2 for slot 1\n"
-                        },
-                        {
-                          "text": "Plus clicked 2/2 for slot 1\n"
-                        },
-                        {
-                          "text": "✅ Passenger count in slot 1 increased by 2\n"
-                        },
-                        {
-                          "text": "Adding and configuring 1 children\n"
-                        },
-                        {
-                          "text": "Setting passenger type in slot 2 to Child\n"
-                        },
-                        {
-                          "text": "✅ Slot 2 type set to Child\n"
-                        },
-                        {
-                          "text": "Adding and configuring 1 infants\n"
-                        },
-                        {
-                          "text": "Setting passenger type in slot 3 to Infant\n"
-                        },
-                        {
-                          "text": "✅ Slot 3 type set to Infant\n"
-                        },
-                        {
-                          "text": "✅ Passenger configuration completed\n"
-                        },
-                        {
-                          "text": "Search form filled successfully\n"
-                        },
-                        {
-                          "text": "Submitting flight search...\n"
-                        },
-                        {
-                          "text": "Search submitted successfully\n"
-                        },
-                        {
-                          "text": "   ✈️  Step 2: Processing search results...\n"
-                        },
-                        {
-                          "text": "Waiting for search results to load...\n"
-                        },
-                        {
-                          "text": "About to call selectFlight...\n"
-                        },
-                        {
-                          "text": "Select a flight from the flight results\n"
-                        },
-                        {
-                          "text": "Checking if flight selection element is visible...\n"
-                        },
-                        {
-                          "text": "✅ Found flight using original locator\n"
-                        },
-                        {
-                          "text": "✅ Outbound Flight Selected using original locator\n"
-                        },
-                        {
-                          "text": "Clicking Continue to proceed to booking\n"
-                        },
-                        {
-                          "text": "✅ Clicked Continue to proceed to booking\n"
-                        },
-                        {
-                          "text": "   👤 Step 3: Filling passenger information...\n"
-                        },
-                        {
-                          "text": "Filling passenger information for 5 passengers\n"
-                        },
-                        {
-                          "text": "Filling 3 adult passenger(s)\n"
-                        },
-                        {
-                          "text": "Filling adult passenger 1\n"
-                        },
-                        {
-                          "text": "Filling adult form 1\n"
-                        },
-                        {
-                          "text": "✅ Adult passenger 1 form completed\n"
-                        },
-                        {
-                          "text": "Filling adult passenger 2\n"
-                        },
-                        {
-                          "text": "Filling adult form 2\n"
-                        },
-                        {
-                          "text": "✅ Adult passenger 2 form completed\n"
-                        },
-                        {
-                          "text": "Filling adult passenger 3\n"
-                        },
-                        {
-                          "text": "Filling adult form 3\n"
-                        },
-                        {
-                          "text": "✅ Adult passenger 3 form completed\n"
-                        },
-                        {
-                          "text": "Filling 1 child passenger(s)\n"
+                          "text": "Filling 2 child passenger(s)\n"
                         },
                         {
                           "text": "Filling child passenger 1\n"
@@ -951,7 +803,13 @@
                           "text": "✅ Child passenger 1 form completed\n"
                         },
                         {
-                          "text": "Filling 1 infant passenger(s)\n"
+                          "text": "Filling child passenger 2\n"
+                        },
+                        {
+                          "text": "✅ Child passenger 2 form completed\n"
+                        },
+                        {
+                          "text": "Filling 2 infant passenger(s)\n"
                         },
                         {
                           "text": "Filling infant passenger 1\n"
@@ -960,148 +818,82 @@
                           "text": "✅ Infant passenger 1 form completed\n"
                         },
                         {
-                          "text": "🔄 Continuing to next scenario...\n"
+                          "text": "Filling infant passenger 2\n"
                         },
                         {
-                          "text": "✅ Scenario REG_003 cleanup completed\n"
-                        },
-                        {
-                          "text": "\n🧪 Executing Scenario: NEG_001\n"
-                        },
-                        {
-                          "text": "📋 One-way | HEL → JFK | Economy | 1 ADT\n"
-                        },
-                        {
-                          "text": "   ⏱️  Setting timeout to 90000ms\n"
-                        },
-                        {
-                          "text": "   📍 Step 1: Filling search form...\n"
-                        },
-                        {
-                          "text": "Flight search page loaded successfully\n"
-                        },
-                        {
-                          "text": "Filling search form for scenario: NEG_001\n"
-                        },
-                        {
-                          "text": "Economy is default - opening and closing dropdown\n"
-                        },
-                        {
-                          "text": "Configuring passengers for search: [ { type: \u001b[32m'ADT'\u001b[39m, count: \u001b[33m1\u001b[39m } ]\n"
-                        },
-                        {
-                          "text": "Passengers needed: 1 adults, 0 children, 0 infants\n"
-                        },
-                        {
-                          "text": "Setting 1 adults in slot 1\n"
-                        },
-                        {
-                          "text": "✅ Passenger configuration completed\n"
-                        },
-                        {
-                          "text": "Search form filled successfully\n"
-                        },
-                        {
-                          "text": "Submitting flight search...\n"
-                        },
-                        {
-                          "text": "Search submitted successfully\n"
-                        },
-                        {
-                          "text": "   ✈️  Step 2: Processing search results...\n"
-                        },
-                        {
-                          "text": "Waiting for search results to load...\n"
-                        },
-                        {
-                          "text": "About to call selectFlight...\n"
-                        },
-                        {
-                          "text": "Select a flight from the flight results\n"
-                        },
-                        {
-                          "text": "Checking if flight selection element is visible...\n"
-                        },
-                        {
-                          "text": "✅ Found flight using original locator\n"
-                        },
-                        {
-                          "text": "✅ Outbound Flight Selected using original locator\n"
-                        },
-                        {
-                          "text": "Clicking Continue to proceed to booking\n"
-                        },
-                        {
-                          "text": "✅ Clicked Continue to proceed to booking\n"
-                        },
-                        {
-                          "text": "   👤 Step 3: Filling passenger information...\n"
-                        },
-                        {
-                          "text": "Filling passenger information for 1 passengers\n"
-                        },
-                        {
-                          "text": "Filling 1 adult passenger(s)\n"
-                        },
-                        {
-                          "text": "Filling adult passenger 1\n"
-                        },
-                        {
-                          "text": "Filling adult form 1\n"
-                        },
-                        {
-                          "text": "✅ Adult passenger 1 form completed\n"
+                          "text": "✅ Infant passenger 2 form completed\n"
                         },
                         {
                           "text": "Passenger information filled successfully\n"
                         },
                         {
-                          "text": "✅ Scenario NEG_001 completed successfully\n"
+                          "text": "   ✅ Passenger information completed successfully\n"
                         },
                         {
-                          "text": "✅ Scenario NEG_001 cleanup completed\n"
+                          "text": "Attempting to click Proceed to Payment button\n"
+                        },
+                        {
+                          "text": "✅ Country set to India\n"
+                        },
+                        {
+                          "text": "✅ Language set to English\n"
+                        },
+                        {
+                          "text": "Proceed to Payment clicked, waiting for Confirm Payment button\n"
+                        },
+                        {
+                          "text": "✅ Payment flow ready\n"
+                        },
+                        {
+                          "text": "   ⏱️  Scenario execution phase completed in 109985ms\n"
+                        },
+                        {
+                          "text": "   ⏱️  Total scenario time so far: 109985ms (110 seconds)\n"
+                        },
+                        {
+                          "text": "   ⏱️  Scenario completed in 109985ms (110 seconds)\n"
+                        },
+                        {
+                          "text": "✅ Scenario scenario_5 completed successfully\n"
+                        },
+                        {
+                          "text": "🔄 Starting cleanup and reset for next scenario...\n"
+                        },
+                        {
+                          "text": "🏠 Navigated to home page for fresh start\n"
+                        },
+                        {
+                          "text": "✅ Scenario scenario_5 cleanup completed in 7932ms\n"
                         },
                         {
                           "text": "\n📊 Test Execution Summary:\n"
                         },
                         {
-                          "text": "   Total Scenarios: 6\n"
+                          "text": "   Total Scenarios: 4\n"
                         },
                         {
                           "text": "   Passed: 4\n"
                         },
                         {
-                          "text": "   Failed: 2\n"
+                          "text": "   Failed: 0\n"
                         },
                         {
-                          "text": "   Success Rate: 66.7%\n"
+                          "text": "   Success Rate: 100.0%\n"
                         },
                         {
                           "text": "\n📋 Detailed Results:\n"
                         },
                         {
-                          "text": "   ✅ SMOKE_001: PASSED\n"
+                          "text": "   ✅ scenario_2: PASSED\n"
                         },
                         {
-                          "text": "   ✅ SMOKE_002: PASSED\n"
+                          "text": "   ✅ scenario_3: PASSED\n"
                         },
                         {
-                          "text": "   ✅ REG_001: PASSED\n"
+                          "text": "   ✅ scenario_4: PASSED\n"
                         },
                         {
-                          "text": "   ❌ REG_002: FAILED\n"
-                        },
-                        {
-                          "text": "      Error: Passenger info failed: TimeoutError: locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('//button[@data-testid=\"guestdetails_child_continuebtn\"]').first() to be visible\u001b[22m\n\n"
-                        },
-                        {
-                          "text": "   ❌ REG_003: FAILED\n"
-                        },
-                        {
-                          "text": "      Error: Passenger info failed: Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeEnabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('//button[@data-testid=\"guestdetails_child_continuebtn\"]').first()\nExpected: enabled\nReceived: disabled\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeEnabled\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('//button[@data-testid=\"guestdetails_child_continuebtn\"]').first()\u001b[22m\n\u001b[2m    9 × locator resolved to <button disabled class=\"_1maotrv0 _1maotrv2 _1maotrv8\" data-testid=\"guestdetails_child_continuebtn\">…</button>\u001b[22m\n\u001b[2m      - unexpected value \"disabled\"\u001b[22m\n\n"
-                        },
-                        {
-                          "text": "   ✅ NEG_001: PASSED\n"
+                          "text": "   ✅ scenario_5: PASSED\n"
                         },
                         {
                           "text": "🏁 Comprehensive E2E test completed!\n"
@@ -1109,104 +901,44 @@
                       ],
                       "stderr": [
                         {
-                          "text": "Failed to read scenarios from C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\test-data\\scenarios.xlsx: Error: ENOENT: no such file or directory, open 'C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\test-data\\scenarios.xlsx'\n\u001b[90m    at Object.openSync (node:fs:573:18)\u001b[39m\n\u001b[90m    at Object.readFileSync (node:fs:452:35)\u001b[39m\n    at read_binary \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mxlsx\u001b[24m\\xlsx.js:3153:44\u001b[90m)\u001b[39m\n    at readSync \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mxlsx\u001b[24m\\xlsx.js:23698:69\u001b[90m)\u001b[39m\n    at Object.readFile [as readFileSync] \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mxlsx\u001b[24m\\xlsx.js:23738:9\u001b[90m)\u001b[39m\n    at Function.readFromExcel \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mlib\\excel\\excelReader.ts:51:27\u001b[90m)\u001b[39m\n    at Function.readScenarios \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mlib\\excel\\excelReader.ts:21:21\u001b[90m)\u001b[39m\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mtests\\comprehensive-e2e.spec.ts:43:37\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:310:9\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\testInfo.js:305:11\n    at TimeoutManager.withRunnable \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\timeoutManager.js:67:14\u001b[90m)\u001b[39m\n    at TestInfoImpl._runWithTimeout \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\testInfo.js:303:7\u001b[90m)\u001b[39m\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:308:7\n    at WorkerMain._runTest \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:283:5\u001b[90m)\u001b[39m\n    at WorkerMain.runTestGroup \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:198:11\u001b[90m)\u001b[39m\n    at process.<anonymous> \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\common\\process.js:65:22\u001b[90m)\u001b[39m {\n  errno: \u001b[33m-4058\u001b[39m,\n  code: \u001b[32m'ENOENT'\u001b[39m,\n  syscall: \u001b[32m'open'\u001b[39m,\n  path: \u001b[32m'C:\\\\Users\\\\2853064\\\\Documents\\\\Testing\\\\Automation\\\\SingleBase\\\\test-data\\\\scenarios.xlsx'\u001b[39m\n}\n"
+                          "text": "Failed to read scenarios from C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\test-data\\scenarios.xlsx: Error: ENOENT: no such file or directory, open 'C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\test-data\\scenarios.xlsx'\n\u001b[90m    at Object.openSync (node:fs:573:18)\u001b[39m\n\u001b[90m    at Object.readFileSync (node:fs:452:35)\u001b[39m\n    at read_binary \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mxlsx\u001b[24m\\xlsx.js:3153:44\u001b[90m)\u001b[39m\n    at readSync \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mxlsx\u001b[24m\\xlsx.js:23698:69\u001b[90m)\u001b[39m\n    at Object.readFile [as readFileSync] \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mxlsx\u001b[24m\\xlsx.js:23738:9\u001b[90m)\u001b[39m\n    at Function.readFromExcel \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mlib\\excel\\excelReader.ts:51:27\u001b[90m)\u001b[39m\n    at Function.readScenarios \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mlib\\excel\\excelReader.ts:21:21\u001b[90m)\u001b[39m\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mtests\\comprehensive-e2e.spec.ts:44:37\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:310:9\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\testInfo.js:305:11\n    at TimeoutManager.withRunnable \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\timeoutManager.js:67:14\u001b[90m)\u001b[39m\n    at TestInfoImpl._runWithTimeout \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\testInfo.js:303:7\u001b[90m)\u001b[39m\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:308:7\n    at WorkerMain._runTest \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:283:5\u001b[90m)\u001b[39m\n    at WorkerMain.runTestGroup \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:198:11\u001b[90m)\u001b[39m\n    at process.<anonymous> \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\common\\process.js:65:22\u001b[90m)\u001b[39m {\n  errno: \u001b[33m-4058\u001b[39m,\n  code: \u001b[32m'ENOENT'\u001b[39m,\n  syscall: \u001b[32m'open'\u001b[39m,\n  path: \u001b[32m'C:\\\\Users\\\\2853064\\\\Documents\\\\Testing\\\\Automation\\\\SingleBase\\\\test-data\\\\scenarios.xlsx'\u001b[39m\n}\n"
                         },
                         {
-                          "text": "Input validation failed. Expected: \"Adult1\", Actual: \"\"\n"
-                        },
-                        {
-                          "text": "Input validation failed. Expected: \"Test State\", Actual: \"\"\n"
-                        },
-                        {
-                          "text": "Input validation failed. Expected: \"Adult1\", Actual: \"\"\n"
+                          "text": "Input validation failed. Expected: \"21/09/1945\", Actual: \"21\"\n"
                         },
                         {
                           "text": "Input validation failed. Expected: \"Test State\", Actual: \"\"\n"
                         },
                         {
-                          "text": "Input validation failed. Expected: \"Adult2\", Actual: \"\"\n"
+                          "text": "Input validation failed. Expected: \"26/05/2020\", Actual: \"26\"\n"
+                        },
+                        {
+                          "text": "Input validation failed. Expected: \"07/03/1969\", Actual: \"07\"\n"
                         },
                         {
                           "text": "Input validation failed. Expected: \"Test State\", Actual: \"\"\n"
                         },
                         {
-                          "text": "Input validation failed. Expected: \"Adult1\", Actual: \"\"\n"
+                          "text": "Input validation failed. Expected: \"16/10/1970\", Actual: \"16\"\n"
                         },
                         {
                           "text": "Input validation failed. Expected: \"Test State\", Actual: \"\"\n"
                         },
                         {
-                          "text": "Input validation failed. Expected: \"Child1\", Actual: \"\"\n"
+                          "text": "Input validation failed. Expected: \"19/10/2014\", Actual: \"19\"\n"
                         },
                         {
-                          "text": "Input validation failed. Expected: \"Adult1\", Actual: \"\"\n"
+                          "text": "Input validation failed. Expected: \"08/08/2019\", Actual: \"08\"\n"
                         },
                         {
-                          "text": "Input validation failed. Expected: \"Test State\", Actual: \"\"\n"
+                          "text": "Input validation failed. Expected: \"02/02/2024\", Actual: \"02\"\n"
                         },
                         {
-                          "text": "Input validation failed. Expected: \"Adult2\", Actual: \"\"\n"
-                        },
-                        {
-                          "text": "Input validation failed. Expected: \"Test State\", Actual: \"\"\n"
-                        },
-                        {
-                          "text": "Input validation failed. Expected: \"Infant1\", Actual: \"\"\n"
-                        },
-                        {
-                          "text": "Wait failed for selector: //button[@data-testid=\"guestdetails_child_continuebtn\"]\n"
-                        },
-                        {
-                          "text": "Failed to fill passenger information: locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('//button[@data-testid=\"guestdetails_child_continuebtn\"]').first() to be visible\u001b[22m\n\n    at PassengerInfoPage.waitFor \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mpages\\BasePage.ts:46:36\u001b[90m)\u001b[39m\n    at PassengerInfoPage.clickWhenReady \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mpages\\BasePage.ts:86:16\u001b[90m)\u001b[39m\n    at PassengerInfoPage.continueToNextStep \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mpages\\PassengerInfoPage.ts:362:16\u001b[90m)\u001b[39m\n    at PassengerInfoPage.fillPassengers \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mpages\\PassengerInfoPage.ts:84:7\u001b[90m)\u001b[39m\n    at executeScenario \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mtests\\comprehensive-e2e.spec.ts:344:5\u001b[90m)\u001b[39m\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mtests\\comprehensive-e2e.spec.ts:96:9 {\n  name: \u001b[32m'TimeoutError'\u001b[39m,\n  [\u001b[32mSymbol(step)\u001b[39m]: {\n    location: {\n      file: \u001b[32m'C:\\\\Users\\\\2853064\\\\Documents\\\\Testing\\\\Automation\\\\SingleBase\\\\pages\\\\BasePage.ts'\u001b[39m,\n      line: \u001b[33m46\u001b[39m,\n      column: \u001b[33m36\u001b[39m,\n      function: \u001b[32m'PassengerInfoPage.waitFor'\u001b[39m\n    },\n    category: \u001b[32m'pw:api'\u001b[39m,\n    title: \u001b[32m`Wait for selector locator('//button[@data-testid=\"guestdetails_child_continuebtn\"]').first()`\u001b[39m,\n    apiName: \u001b[32m'locator.waitFor'\u001b[39m,\n    params: {\n      selector: \u001b[32m'//button[@data-testid=\"guestdetails_child_continuebtn\"] >> nth=0'\u001b[39m,\n      strict: \u001b[33mtrue\u001b[39m,\n      omitReturnValue: \u001b[33mtrue\u001b[39m,\n      state: \u001b[32m'visible'\u001b[39m,\n      timeout: \u001b[33m30000\u001b[39m\n    },\n    group: \u001b[90mundefined\u001b[39m,\n    stepId: \u001b[32m'pw:api@972'\u001b[39m,\n    boxedStack: \u001b[90mundefined\u001b[39m,\n    steps: [],\n    attachmentIndices: [],\n    info: TestStepInfoImpl {\n      annotations: [],\n      _testInfo: \u001b[36m[TestInfoImpl]\u001b[39m,\n      _stepId: \u001b[32m'pw:api@972'\u001b[39m,\n      _title: \u001b[32m`Wait for selector locator('//button[@data-testid=\"guestdetails_child_continuebtn\"]').first()`\u001b[39m,\n      _parentStep: \u001b[90mundefined\u001b[39m,\n      skip: \u001b[36m[Function (anonymous)]\u001b[39m\n    },\n    complete: \u001b[36m[Function: complete]\u001b[39m,\n    endWallTime: \u001b[33m1764254363811\u001b[39m,\n    error: {\n      message: \u001b[32m'TimeoutError: locator.waitFor: Timeout 30000ms exceeded.\\n'\u001b[39m +\n        \u001b[32m'Call log:\\n'\u001b[39m +\n        \u001b[32m`\\x1B[2m  - waiting for locator('//button[@data-testid=\"guestdetails_child_continuebtn\"]').first() to be visible\\x1B[22m\\n`\u001b[39m,\n      stack: \u001b[32m'TimeoutError: locator.waitFor: Timeout 30000ms exceeded.\\n'\u001b[39m +\n        \u001b[32m'Call log:\\n'\u001b[39m +\n        \u001b[32m`\\x1B[2m  - waiting for locator('//button[@data-testid=\"guestdetails_child_continuebtn\"]').first() to be visible\\x1B[22m\\n`\u001b[39m +\n        \u001b[32m'\\n'\u001b[39m +\n        \u001b[32m'    at PassengerInfoPage.waitFor (C:\\\\Users\\\\2853064\\\\Documents\\\\Testing\\\\Automation\\\\SingleBase\\\\pages\\\\BasePage.ts:46:36)\\n'\u001b[39m +\n        \u001b[32m'    at PassengerInfoPage.clickWhenReady (C:\\\\Users\\\\2853064\\\\Documents\\\\Testing\\\\Automation\\\\SingleBase\\\\pages\\\\BasePage.ts:86:16)\\n'\u001b[39m +\n        \u001b[32m'    at PassengerInfoPage.continueToNextStep (C:\\\\Users\\\\2853064\\\\Documents\\\\Testing\\\\Automation\\\\SingleBase\\\\pages\\\\PassengerInfoPage.ts:362:16)\\n'\u001b[39m +\n        \u001b[32m'    at PassengerInfoPage.fillPassengers (C:\\\\Users\\\\2853064\\\\Documents\\\\Testing\\\\Automation\\\\SingleBase\\\\pages\\\\PassengerInfoPage.ts:84:7)\\n'\u001b[39m +\n        \u001b[32m'    at executeScenario (C:\\\\Users\\\\2853064\\\\Documents\\\\Testing\\\\Automation\\\\SingleBase\\\\tests\\\\comprehensive-e2e.spec.ts:344:5)\\n'\u001b[39m +\n        \u001b[32m'    at C:\\\\Users\\\\2853064\\\\Documents\\\\Testing\\\\Automation\\\\SingleBase\\\\tests\\\\comprehensive-e2e.spec.ts:96:9'\u001b[39m,\n      cause: \u001b[90mundefined\u001b[39m\n    }\n  }\n}\n"
-                        },
-                        {
-                          "text": "❌ Unhandled error in scenario execution: Error: Passenger info failed: TimeoutError: locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('//button[@data-testid=\"guestdetails_child_continuebtn\"]').first() to be visible\u001b[22m\n\n    at executeScenario \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mtests\\comprehensive-e2e.spec.ts:346:11\u001b[90m)\u001b[39m\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mtests\\comprehensive-e2e.spec.ts:96:9\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:310:9\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\testInfo.js:305:11\n    at TimeoutManager.withRunnable \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\timeoutManager.js:67:14\u001b[90m)\u001b[39m\n    at TestInfoImpl._runWithTimeout \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\testInfo.js:303:7\u001b[90m)\u001b[39m\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:308:7\n    at WorkerMain._runTest \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:283:5\u001b[90m)\u001b[39m\n    at WorkerMain.runTestGroup \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:198:11\u001b[90m)\u001b[39m\n    at process.<anonymous> \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\common\\process.js:65:22\u001b[90m)\u001b[39m\n"
-                        },
-                        {
-                          "text": "❌ Scenario REG_002 failed: Passenger info failed: TimeoutError: locator.waitFor: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('//button[@data-testid=\"guestdetails_child_continuebtn\"]').first() to be visible\u001b[22m\n\n"
-                        },
-                        {
-                          "text": "Input validation failed. Expected: \"Adult1\", Actual: \"\"\n"
-                        },
-                        {
-                          "text": "Input validation failed. Expected: \"Test State\", Actual: \"\"\n"
-                        },
-                        {
-                          "text": "Input validation failed. Expected: \"Adult2\", Actual: \"\"\n"
-                        },
-                        {
-                          "text": "Input validation failed. Expected: \"Test State\", Actual: \"\"\n"
-                        },
-                        {
-                          "text": "Input validation failed. Expected: \"Adult3\", Actual: \"\"\n"
-                        },
-                        {
-                          "text": "Input validation failed. Expected: \"Test State\", Actual: \"\"\n"
-                        },
-                        {
-                          "text": "Input validation failed. Expected: \"Child1\", Actual: \"\"\n"
-                        },
-                        {
-                          "text": "Input validation failed. Expected: \"Infant1\", Actual: \"\"\n"
-                        },
-                        {
-                          "text": "Failed to fill passenger information: ExpectError: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeEnabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('//button[@data-testid=\"guestdetails_child_continuebtn\"]').first()\nExpected: enabled\nReceived: disabled\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeEnabled\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('//button[@data-testid=\"guestdetails_child_continuebtn\"]').first()\u001b[22m\n\u001b[2m    9 × locator resolved to <button disabled class=\"_1maotrv0 _1maotrv2 _1maotrv8\" data-testid=\"guestdetails_child_continuebtn\">…</button>\u001b[22m\n\u001b[2m      - unexpected value \"disabled\"\u001b[22m\n\n    at PassengerInfoPage.clickWhenReady \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mpages\\BasePage.ts:91:27\u001b[90m)\u001b[39m\n    at PassengerInfoPage.continueToNextStep \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mpages\\PassengerInfoPage.ts:362:5\u001b[90m)\u001b[39m\n    at PassengerInfoPage.fillPassengers \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mpages\\PassengerInfoPage.ts:84:7\u001b[90m)\u001b[39m\n    at executeScenario \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mtests\\comprehensive-e2e.spec.ts:344:5\u001b[90m)\u001b[39m\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mtests\\comprehensive-e2e.spec.ts:96:9 {\n  matcherResult: {\n    message: \u001b[32m'\\x1B[2mexpect(\\x1B[22m\\x1B[31mlocator\\x1B[39m\\x1B[2m).\\x1B[22mtoBeEnabled\\x1B[2m(\\x1B[22m\\x1B[2m)\\x1B[22m failed\\n'\u001b[39m +\n      \u001b[32m'\\n'\u001b[39m +\n      \u001b[32m`Locator:  locator('//button[@data-testid=\"guestdetails_child_continuebtn\"]').first()\\n`\u001b[39m +\n      \u001b[32m'Expected: enabled\\n'\u001b[39m +\n      \u001b[32m'Received: disabled\\n'\u001b[39m +\n      \u001b[32m'Timeout:  5000ms\\n'\u001b[39m +\n      \u001b[32m'\\n'\u001b[39m +\n      \u001b[32m'Call log:\\n'\u001b[39m +\n      \u001b[32m'\\x1B[2m  - Expect \"toBeEnabled\" with timeout 5000ms\\x1B[22m\\n'\u001b[39m +\n      \u001b[32m`\\x1B[2m  - waiting for locator('//button[@data-testid=\"guestdetails_child_continuebtn\"]').first()\\x1B[22m\\n`\u001b[39m +\n      \u001b[32m'\\x1B[2m    9 × locator resolved to <button disabled class=\"_1maotrv0 _1maotrv2 _1maotrv8\" data-testid=\"guestdetails_child_continuebtn\">…</button>\\x1B[22m\\n'\u001b[39m +\n      \u001b[32m'\\x1B[2m      - unexpected value \"disabled\"\\x1B[22m\\n'\u001b[39m,\n    pass: \u001b[33mfalse\u001b[39m,\n    actual: \u001b[32m'disabled'\u001b[39m,\n    name: \u001b[32m'toBeEnabled'\u001b[39m,\n    expected: \u001b[32m'enabled'\u001b[39m,\n    log: [\n      \u001b[32m'  - Expect \"toBeEnabled\" with timeout 5000ms'\u001b[39m,\n      \u001b[32m`  - waiting for locator('//button[@data-testid=\"guestdetails_child_continuebtn\"]').first()`\u001b[39m,\n      \u001b[32m'    9 × locator resolved to <button disabled class=\"_1maotrv0 _1maotrv2 _1maotrv8\" data-testid=\"guestdetails_child_continuebtn\">…</button>'\u001b[39m,\n      \u001b[32m'      - unexpected value \"disabled\"'\u001b[39m\n    ],\n    timeout: \u001b[33m5000\u001b[39m\n  },\n  [\u001b[32mSymbol(step)\u001b[39m]: {\n    category: \u001b[32m'expect'\u001b[39m,\n    apiName: \u001b[32m'expect.toBeEnabled'\u001b[39m,\n    title: \u001b[32m'Expect \"toBeEnabled\"'\u001b[39m,\n    params: { expected: \u001b[36m[Object]\u001b[39m },\n    infectParentStepsWithError: \u001b[90mundefined\u001b[39m,\n    stepId: \u001b[32m'expect@1361'\u001b[39m,\n    group: \u001b[90mundefined\u001b[39m,\n    boxedStack: \u001b[90mundefined\u001b[39m,\n    location: {\n      file: \u001b[32m'C:\\\\Users\\\\2853064\\\\Documents\\\\Testing\\\\Automation\\\\SingleBase\\\\pages\\\\BasePage.ts'\u001b[39m,\n      line: \u001b[33m91\u001b[39m,\n      column: \u001b[33m27\u001b[39m,\n      function: \u001b[32m'PassengerInfoPage.clickWhenReady'\u001b[39m\n    },\n    steps: [],\n    attachmentIndices: [],\n    info: TestStepInfoImpl {\n      annotations: [],\n      _testInfo: \u001b[36m[TestInfoImpl]\u001b[39m,\n      _stepId: \u001b[32m'expect@1361'\u001b[39m,\n      _title: \u001b[32m'Expect \"toBeEnabled\"'\u001b[39m,\n      _parentStep: \u001b[90mundefined\u001b[39m,\n      skip: \u001b[36m[Function (anonymous)]\u001b[39m\n    },\n    complete: \u001b[36m[Function: complete]\u001b[39m,\n    endWallTime: \u001b[33m1764254436077\u001b[39m,\n    error: {\n      message: \u001b[32m'Error: \\x1B[2mexpect(\\x1B[22m\\x1B[31mlocator\\x1B[39m\\x1B[2m).\\x1B[22mtoBeEnabled\\x1B[2m(\\x1B[22m\\x1B[2m)\\x1B[22m failed\\n'\u001b[39m +\n        \u001b[32m'\\n'\u001b[39m +\n        \u001b[32m`Locator:  locator('//button[@data-testid=\"guestdetails_child_continuebtn\"]').first()\\n`\u001b[39m +\n        \u001b[32m'Expected: enabled\\n'\u001b[39m +\n        \u001b[32m'Received: disabled\\n'\u001b[39m +\n        \u001b[32m'Timeout:  5000ms\\n'\u001b[39m +\n        \u001b[32m'\\n'\u001b[39m +\n        \u001b[32m'Call log:\\n'\u001b[39m +\n        \u001b[32m'\\x1B[2m  - Expect \"toBeEnabled\" with timeout 5000ms\\x1B[22m\\n'\u001b[39m +\n        \u001b[32m`\\x1B[2m  - waiting for locator('//button[@data-testid=\"guestdetails_child_continuebtn\"]').first()\\x1B[22m\\n`\u001b[39m +\n        \u001b[32m'\\x1B[2m    9 × locator resolved to <button disabled class=\"_1maotrv0 _1maotrv2 _1maotrv8\" data-testid=\"guestdetails_child_continuebtn\">…</button>\\x1B[22m\\n'\u001b[39m +\n        \u001b[32m'\\x1B[2m      - unexpected value \"disabled\"\\x1B[22m\\n'\u001b[39m,\n      stack: \u001b[32m'Error: \\x1B[2mexpect(\\x1B[22m\\x1B[31mlocator\\x1B[39m\\x1B[2m).\\x1B[22mtoBeEnabled\\x1B[2m(\\x1B[22m\\x1B[2m)\\x1B[22m failed\\n'\u001b[39m +\n        \u001b[32m'\\n'\u001b[39m +\n        \u001b[32m`Locator:  locator('//button[@data-testid=\"guestdetails_child_continuebtn\"]').first()\\n`\u001b[39m +\n        \u001b[32m'Expected: enabled\\n'\u001b[39m +\n        \u001b[32m'Received: disabled\\n'\u001b[39m +\n        \u001b[32m'Timeout:  5000ms\\n'\u001b[39m +\n        \u001b[32m'\\n'\u001b[39m +\n        \u001b[32m'Call log:\\n'\u001b[39m +\n        \u001b[32m'\\x1B[2m  - Expect \"toBeEnabled\" with timeout 5000ms\\x1B[22m\\n'\u001b[39m +\n        \u001b[32m`\\x1B[2m  - waiting for locator('//button[@data-testid=\"guestdetails_child_continuebtn\"]').first()\\x1B[22m\\n`\u001b[39m +\n        \u001b[32m'\\x1B[2m    9 × locator resolved to <button disabled class=\"_1maotrv0 _1maotrv2 _1maotrv8\" data-testid=\"guestdetails_child_continuebtn\">…</button>\\x1B[22m\\n'\u001b[39m +\n        \u001b[32m'\\x1B[2m      - unexpected value \"disabled\"\\x1B[22m\\n'\u001b[39m +\n        \u001b[32m'\\n'\u001b[39m +\n        \u001b[32m'    at PassengerInfoPage.clickWhenReady (C:\\\\Users\\\\2853064\\\\Documents\\\\Testing\\\\Automation\\\\SingleBase\\\\pages\\\\BasePage.ts:91:27)\\n'\u001b[39m +\n        \u001b[32m'    at PassengerInfoPage.continueToNextStep (C:\\\\Users\\\\2853064\\\\Documents\\\\Testing\\\\Automation\\\\SingleBase\\\\pages\\\\PassengerInfoPage.ts:362:5)\\n'\u001b[39m +\n        \u001b[32m'    at PassengerInfoPage.fillPassengers (C:\\\\Users\\\\2853064\\\\Documents\\\\Testing\\\\Automation\\\\SingleBase\\\\pages\\\\PassengerInfoPage.ts:84:7)\\n'\u001b[39m +\n        \u001b[32m'    at executeScenario (C:\\\\Users\\\\2853064\\\\Documents\\\\Testing\\\\Automation\\\\SingleBase\\\\tests\\\\comprehensive-e2e.spec.ts:344:5)\\n'\u001b[39m +\n        \u001b[32m'    at C:\\\\Users\\\\2853064\\\\Documents\\\\Testing\\\\Automation\\\\SingleBase\\\\tests\\\\comprehensive-e2e.spec.ts:96:9'\u001b[39m,\n      cause: \u001b[90mundefined\u001b[39m\n    }\n  }\n}\n"
-                        },
-                        {
-                          "text": "❌ Unhandled error in scenario execution: Error: Passenger info failed: Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeEnabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('//button[@data-testid=\"guestdetails_child_continuebtn\"]').first()\nExpected: enabled\nReceived: disabled\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeEnabled\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('//button[@data-testid=\"guestdetails_child_continuebtn\"]').first()\u001b[22m\n\u001b[2m    9 × locator resolved to <button disabled class=\"_1maotrv0 _1maotrv2 _1maotrv8\" data-testid=\"guestdetails_child_continuebtn\">…</button>\u001b[22m\n\u001b[2m      - unexpected value \"disabled\"\u001b[22m\n\n    at executeScenario \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mtests\\comprehensive-e2e.spec.ts:346:11\u001b[90m)\u001b[39m\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mtests\\comprehensive-e2e.spec.ts:96:9\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:310:9\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\testInfo.js:305:11\n    at TimeoutManager.withRunnable \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\timeoutManager.js:67:14\u001b[90m)\u001b[39m\n    at TestInfoImpl._runWithTimeout \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\testInfo.js:303:7\u001b[90m)\u001b[39m\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:308:7\n    at WorkerMain._runTest \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:283:5\u001b[90m)\u001b[39m\n    at WorkerMain.runTestGroup \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:198:11\u001b[90m)\u001b[39m\n    at process.<anonymous> \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\common\\process.js:65:22\u001b[90m)\u001b[39m\n"
-                        },
-                        {
-                          "text": "❌ Scenario REG_003 failed: Passenger info failed: Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeEnabled\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator:  locator('//button[@data-testid=\"guestdetails_child_continuebtn\"]').first()\nExpected: enabled\nReceived: disabled\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toBeEnabled\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('//button[@data-testid=\"guestdetails_child_continuebtn\"]').first()\u001b[22m\n\u001b[2m    9 × locator resolved to <button disabled class=\"_1maotrv0 _1maotrv2 _1maotrv8\" data-testid=\"guestdetails_child_continuebtn\">…</button>\u001b[22m\n\u001b[2m      - unexpected value \"disabled\"\u001b[22m\n\n"
-                        },
-                        {
-                          "text": "Input validation failed. Expected: \"Adult1\", Actual: \"\"\n"
-                        },
-                        {
-                          "text": "Input validation failed. Expected: \"Test State\", Actual: \"\"\n"
+                          "text": "Input validation failed. Expected: \"02/06/2025\", Actual: \"02\"\n"
                         }
                       ],
                       "retry": 0,
-                      "startTime": "2025-11-27T14:33:53.569Z",
+                      "startTime": "2025-12-02T10:15:22.282Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1216,171 +948,7 @@
               ],
               "id": "ceae8d42728a3fcdf4bb-6b566aedc91552ae0b8f",
               "file": "comprehensive-e2e.spec.ts",
-              "line": 26,
-              "column": 7
-            }
-          ]
-        },
-        {
-          "title": "Individual Scenario Tests",
-          "file": "comprehensive-e2e.spec.ts",
-          "line": 382,
-          "column": 15,
-          "specs": [
-            {
-              "title": "Smoke Test - Basic Booking Flow",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 120000,
-                  "annotations": [
-                    {
-                      "type": "skip",
-                      "location": {
-                        "file": "C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\tests\\comprehensive-e2e.spec.ts",
-                        "line": 382,
-                        "column": 15
-                      }
-                    }
-                  ],
-                  "expectedStatus": "skipped",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "skipped",
-                      "duration": 0,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-11-27T14:41:12.721Z",
-                      "annotations": [
-                        {
-                          "type": "skip",
-                          "location": {
-                            "file": "C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\tests\\comprehensive-e2e.spec.ts",
-                            "line": 382,
-                            "column": 15
-                          }
-                        }
-                      ],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "skipped"
-                }
-              ],
-              "id": "ceae8d42728a3fcdf4bb-3e978e0a47c7ecebd67c",
-              "file": "comprehensive-e2e.spec.ts",
-              "line": 385,
-              "column": 7
-            },
-            {
-              "title": "Multi-Passenger Booking",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 120000,
-                  "annotations": [
-                    {
-                      "type": "skip",
-                      "location": {
-                        "file": "C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\tests\\comprehensive-e2e.spec.ts",
-                        "line": 382,
-                        "column": 15
-                      }
-                    }
-                  ],
-                  "expectedStatus": "skipped",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "skipped",
-                      "duration": 0,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-11-27T14:41:12.722Z",
-                      "annotations": [
-                        {
-                          "type": "skip",
-                          "location": {
-                            "file": "C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\tests\\comprehensive-e2e.spec.ts",
-                            "line": 382,
-                            "column": 15
-                          }
-                        }
-                      ],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "skipped"
-                }
-              ],
-              "id": "ceae8d42728a3fcdf4bb-82bb7f57a86c79f9373a",
-              "file": "comprehensive-e2e.spec.ts",
-              "line": 421,
-              "column": 7
-            },
-            {
-              "title": "Negative Test - Same Origin and Destination",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 120000,
-                  "annotations": [
-                    {
-                      "type": "skip",
-                      "location": {
-                        "file": "C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\tests\\comprehensive-e2e.spec.ts",
-                        "line": 382,
-                        "column": 15
-                      }
-                    }
-                  ],
-                  "expectedStatus": "skipped",
-                  "projectId": "chromium",
-                  "projectName": "chromium",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "skipped",
-                      "duration": 0,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2025-11-27T14:41:12.722Z",
-                      "annotations": [
-                        {
-                          "type": "skip",
-                          "location": {
-                            "file": "C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\tests\\comprehensive-e2e.spec.ts",
-                            "line": 382,
-                            "column": 15
-                          }
-                        }
-                      ],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "skipped"
-                }
-              ],
-              "id": "ceae8d42728a3fcdf4bb-a8b8edb639c27ee1affa",
-              "file": "comprehensive-e2e.spec.ts",
-              "line": 463,
+              "line": 27,
               "column": 7
             }
           ]
@@ -1390,10 +958,10 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-11-27T14:33:50.792Z",
-    "duration": 442346.18700000003,
+    "startTime": "2025-12-02T10:15:20.581Z",
+    "duration": 254171.97400000002,
     "expected": 1,
-    "skipped": 4,
+    "skipped": 0,
     "unexpected": 0,
     "flaky": 0
   }

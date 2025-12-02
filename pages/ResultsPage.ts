@@ -28,49 +28,7 @@ export class ResultsPage extends BasePage {
     this.locators = new FlightSearchLocators(page);
   }
 
-  async verifySearchProcessed(): Promise<boolean> {
-    console.log('Verifying search was processed - looking for Flights text');
-
-    try {
-      // Wait for the "Flights" text to be visible using the specific XPath
-      const FlightsTextLocator = this.locators.verifySearchResultPage;
-
-      // Wait up to 15 seconds for the Flights text to appear
-      await FlightsTextLocator.waitFor({ state: 'visible', timeout: 15000 });
-
-      // Get the text content to verify it contains "Flights"
-      const FlightsText = await FlightsTextLocator.textContent();
-
-      if (FlightsText) {
-        console.info(`✅ Found Flights text: "${FlightsText}"`);
-        return true;
-      } else {
-        throw new Error('Flights text is null or empty');
-      }
-
-    } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : String(error);
-      console.error(`Failed to get Flights text: ${errorMessage}`);
-      
-      // Take a screenshot for debugging
-      await this.captureScreenshot('search-results-not-found');
-      throw error;
-    }
-  }
-
-  async waitForResults(): Promise<void> {
-    console.log('Waiting for search results to load...');
-    try {
-      await this.verifySearchProcessed();
-      
-      // Additional wait to ensure page is stable
-      await this.page.waitForTimeout(2000);
-      console.info('✅ Search results loaded successfully');
-    } catch (error) {
-      console.error(`Failed to wait for results: ${error instanceof Error ? error.message : String(error)}`);
-      throw error;
-    }
-  }
+ 
 
 
   async selectFlight(flightSelection?: FlightSelection, tripType?: TripType): Promise<void> {
@@ -127,22 +85,22 @@ export class ResultsPage extends BasePage {
     }
   }
 
-  async fareFamilySelection(cabinClass: CabinClass): Promise<void> {
-    console.log(`Selecting fare family for cabin class: ${cabinClass}`);
-    try {
-      if (cabinClass === 'Economy') {
-        await this.locators.selectEconomyCard.click();
-        console.log('✅ Economy Flight Selected');
-      }
-      else if (cabinClass === 'Business') {
-        await this.locators.selectBusinessCard.click();
-        console.log('✅ Business Flight Selected');
-      }
-    } catch (error) {
-      console.error(`Failed to select fare family: ${error instanceof Error ? error.message : String(error)}`);
-      throw error;
-    }
-  }
+  // async fareFamilySelection(cabinClass: CabinClass): Promise<void> {
+  //   console.log(`Selecting fare family for cabin class: ${cabinClass}`);
+  //   try {
+  //     if (cabinClass === 'Economy') {
+  //       await this.locators.selectEconomyCard.click();
+  //       console.log('✅ Economy Flight Selected');
+  //     }
+  //     else if (cabinClass === 'Business') {
+  //       await this.locators.selectBusinessCard.click();
+  //       console.log('✅ Business Flight Selected');
+  //     }
+  //   } catch (error) {
+  //     console.error(`Failed to select fare family: ${error instanceof Error ? error.message : String(error)}`);
+  //     throw error;
+  //   }
+  // }
 
   async continueToBooking(tripType?: TripType): Promise<void> {
     console.log('Clicking Continue to proceed to booking');

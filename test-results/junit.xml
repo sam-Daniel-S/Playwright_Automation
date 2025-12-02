@@ -1,83 +1,76 @@
-<testsuites id="" name="" tests="5" failures="0" skipped="4" errors="0" time="442.34618700000004">
-<testsuite name="comprehensive-e2e.spec.ts" timestamp="2025-11-27T14:33:51.374Z" hostname="chromium" tests="5" failures="0" skipped="4" time="438.122" errors="0">
-<testcase name="Airline Booking - All Scenarios E2E › Execute all booking scenarios from test data" classname="comprehensive-e2e.spec.ts" time="438.122">
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="254.171974">
+<testsuite name="comprehensive-e2e.spec.ts" timestamp="2025-12-02T10:15:20.912Z" hostname="chromium" tests="1" failures="0" skipped="0" time="251.57" errors="0">
+<testcase name="Airline Booking - All Scenarios E2E › Execute all booking scenarios from test data" classname="comprehensive-e2e.spec.ts" time="251.57">
 <system-out>
 <![CDATA[🚀 Starting comprehensive E2E test execution...
-📝 No saved auth state found, performing initial login...
-🔑 Starting authentication process...
-🔐 Starting Microsoft authentication process...
-📍 Navigated to login page
-⚠️  No login button found, checking if login form is present
-📧 Found email input, attempting automated login...
-🤖 Starting automated Microsoft login...
-📧 Filling email field...
-➡️ Clicking Next button...
-🔐 Filling password field...
-🔑 Clicking Sign In button...
-✅ Clicking Stay signed in...
-⏳ Waiting for login completion...
-🔄 Navigating to main application...
-📍 Navigated to: https://app-test-finnair-fra-frontend-f7byg3hef7abafat.germanywestcentral-01.azurewebsites.net/en
-✅ Automated login completed successfully!
-📍 Successfully accessed main application
-✅ Detected /en redirect - User is logged in
-✅ Authentication successful
-💾 Authentication state saved
+🔧 Setting up authentication for test execution...
+🔑 Setting authentication cookie...
+📋 Post-authentication status:
+   URL: https://app-test-finnair-fra-frontend-f7byg3hef7abafat.germanywestcentral-01.azurewebsites.net/en
+   Title: Amadeus Nevio | Finnair
+✅ Cookie authentication successful!
 💾 Authentication state saved for future test runs
 📊 Loading test scenarios...
 Reading Excel file: C:\Users\2853064\Documents\Testing\Automation\SingleBase\test-data\scenarios.xlsx, sheet: scenarios
 Attempting CSV fallback: C:\Users\2853064\Documents\Testing\Automation\SingleBase\test-data\scenarios.csv
 Reading CSV file: C:\Users\2853064\Documents\Testing\Automation\SingleBase\test-data\scenarios.csv
-Found 6 scenario(s) with headers: scenarioid, triptype, origin, destination, passengers, cabin, farefamily, dates, tags, expectedresult, timeout
-Successfully parsed 6 scenarios
-✅ Loaded 6 test scenarios
+Found 4 scenario(s) with headers: scenario id, action, trip type, origin, destination, date, passengers (ptc), class type, promo code, discounts, loyalty program, member id
+Successfully parsed 4 scenarios
+✅ Loaded 4 test scenarios
+📋 Scenario 1: ID="scenario_2", Action="Search", HEL→LHR
+📋 Scenario 2: ID="scenario_3", Action="Results", HEL→LHR
+📋 Scenario 3: ID="scenario_4", Action="PassengerInfo", LHR→MAA
+📋 Scenario 4: ID="scenario_5", Action="Booking", HEL→JFK
 
-🧪 Executing Scenario: SMOKE_001
-📋 One-way | HEL → LHR | Economy | 1 ADT
-   ⏱️  Setting timeout to 90000ms
-   📍 Step 1: Filling search form...
+📊 Processing scenario 1 of 4
+
+🧪 Executing Scenario: scenario_2
+📋 Round-trip | HEL → LHR | Economy | 1ADT
+🔍 Checking browser state for scenario scenario_2...
+✅ Browser state is valid for scenario scenario_2
+   ⏱️  Setting fresh timeout to 18000000ms (18000 seconds) for this scenario
+   🚀 Scenario execution started at: 2025-12-02T10:15:36.913Z
+   ⏱️  Starting scenario execution with detailed time tracking
+   🎯 Executing Action: Search
+   📍 Step 1: Filling and submitting search form...
 Flight search page loaded successfully
-Filling search form for scenario: SMOKE_001
+Filling search form for scenario: scenario_2
 Economy is default - opening and closing dropdown
 Configuring passengers for search: [ { type: [32m'ADT'[39m, count: [33m1[39m } ]
 Passengers needed: 1 adults, 0 children, 0 infants
 Setting 1 adults in slot 1
 ✅ Passenger configuration completed
+Checking for optional promotional and loyalty fields...
+ℹ️ No optional promotional or loyalty fields specified in scenario
 Search form filled successfully
 Submitting flight search...
 Search submitted successfully
-   ✈️  Step 2: Processing search results...
 Waiting for search results to load...
-About to call selectFlight...
-Select a flight from the flight results
-Checking if flight selection element is visible...
-✅ Found flight using original locator
-✅ Outbound Flight Selected using original locator
-Clicking Continue to proceed to booking
-✅ Clicked Continue to proceed to booking
-   👤 Step 3: Filling passenger information...
-Filling passenger information for 1 passengers
-Filling 1 adult passenger(s)
-Filling adult passenger 1
-Filling adult form 1
-✅ Adult passenger 1 form completed
-Passenger information filled successfully
-   💳 Step 5: Processing payment with enhanced flow...
-Attempting to click Proceed to Payment button
-✅ Country set to India
-✅ Language set to English
-Proceed to Payment clicked, waiting for Confirm Payment button
-✅ Payment flow ready
-   ✅ Enhanced payment flow completed successfully
-✅ Scenario SMOKE_001 completed successfully
-✅ Scenario SMOKE_001 cleanup completed
+Verifying search was processed - looking for Flights text
+✅ Found Flights text: "Flights"
+✅ Search results loaded successfully
+   ✅ Search completed successfully
+   ⏱️  Scenario execution phase completed in 23592ms
+   ⏱️  Total scenario time so far: 23593ms (24 seconds)
+   ⏱️  Scenario completed in 23593ms (24 seconds)
+✅ Scenario scenario_2 completed successfully
+🔄 Starting cleanup and reset for next scenario...
+🏠 Navigated to home page for fresh start
+✅ Scenario scenario_2 cleanup completed in 8117ms
 
-🧪 Executing Scenario: SMOKE_002
-📋 Round-trip | LHR → MAA | Business | 2 ADT
-   ⏱️  Setting timeout to 90000ms
-   📍 Step 1: Filling search form...
+📊 Processing scenario 2 of 4
+
+🧪 Executing Scenario: scenario_3
+📋 One-way | HEL → LHR | Business | 2ADT
+🔍 Checking browser state for scenario scenario_3...
+✅ Browser state is valid for scenario scenario_3
+   ⏱️  Setting fresh timeout to 18000000ms (18000 seconds) for this scenario
+   🚀 Scenario execution started at: 2025-12-02T10:16:08.630Z
+   ⏱️  Starting scenario execution with detailed time tracking
+   🎯 Executing Action: Results
+   📍 Step 1: Filling and submitting search form...
 Flight search page loaded successfully
-Filling search form for scenario: SMOKE_002
+Filling search form for scenario: scenario_3
 Selecting Business class - deselecting Economy first
 Configuring passengers for search: [ { type: [32m'ADT'[39m, count: [33m2[39m } ]
 Passengers needed: 2 adults, 0 children, 0 infants
@@ -86,9 +79,16 @@ Increasing passenger count in slot 1 by 1
 Plus clicked 1/1 for slot 1
 ✅ Passenger count in slot 1 increased by 1
 ✅ Passenger configuration completed
+Checking for optional promotional and loyalty fields...
+ℹ️ No optional promotional or loyalty fields specified in scenario
 Search form filled successfully
 Submitting flight search...
 Search submitted successfully
+Waiting for search results to load...
+Verifying search was processed - looking for Flights text
+✅ Found Flights text: "Flights"
+✅ Search results loaded successfully
+   ✅ Search completed successfully
    ✈️  Step 2: Processing search results...
 Waiting for search results to load...
 About to call selectFlight...
@@ -98,35 +98,28 @@ Checking if flight selection element is visible...
 ✅ Outbound Flight Selected using original locator
 Clicking Continue to proceed to booking
 ✅ Clicked Continue to proceed to booking
-Round trip detected - handling inbound flight selection
-Waited 3 seconds after inbound selection
-✅ Clicked Continue again for round trip inbound flight
-   👤 Step 3: Filling passenger information...
-Filling passenger information for 2 passengers
-Filling 2 adult passenger(s)
-Filling adult passenger 1
-Filling adult form 1
-✅ Adult passenger 1 form completed
-Filling adult passenger 2
-Filling adult form 2
-✅ Adult passenger 2 form completed
-Passenger information filled successfully
-   💳 Step 5: Processing payment with enhanced flow...
-Attempting to click Proceed to Payment button
-✅ Country set to India
-✅ Language set to English
-Proceed to Payment clicked, waiting for Confirm Payment button
-✅ Payment flow ready
-   ✅ Enhanced payment flow completed successfully
-✅ Scenario SMOKE_002 completed successfully
-✅ Scenario SMOKE_002 cleanup completed
+   ✅ Results processing completed successfully
+   ⏱️  Scenario execution phase completed in 25166ms
+   ⏱️  Total scenario time so far: 25166ms (25 seconds)
+   ⏱️  Scenario completed in 25166ms (25 seconds)
+✅ Scenario scenario_3 completed successfully
+🔄 Starting cleanup and reset for next scenario...
+🏠 Navigated to home page for fresh start
+✅ Scenario scenario_3 cleanup completed in 8327ms
 
-🧪 Executing Scenario: REG_001
-📋 One-way | HEL → LHR | Business | 1 ADT,1 CHD
-   ⏱️  Setting timeout to 90000ms
-   📍 Step 1: Filling search form...
+📊 Processing scenario 3 of 4
+
+🧪 Executing Scenario: scenario_4
+📋 One-way | LHR → MAA | Business | 1ADT,1CHD
+🔍 Checking browser state for scenario scenario_4...
+✅ Browser state is valid for scenario scenario_4
+   ⏱️  Setting fresh timeout to 18000000ms (18000 seconds) for this scenario
+   🚀 Scenario execution started at: 2025-12-02T10:16:42.136Z
+   ⏱️  Starting scenario execution with detailed time tracking
+   🎯 Executing Action: PassengerInfo
+   📍 Step 1: Filling and submitting search form...
 Flight search page loaded successfully
-Filling search form for scenario: REG_001
+Filling search form for scenario: scenario_4
 Selecting Business class - deselecting Economy first
 Configuring passengers for search: [ { type: [32m'ADT'[39m, count: [33m1[39m }, { type: [32m'CHD'[39m, count: [33m1[39m } ]
 Passengers needed: 1 adults, 1 children, 0 infants
@@ -135,9 +128,16 @@ Adding and configuring 1 children
 Setting passenger type in slot 2 to Child
 ✅ Slot 2 type set to Child
 ✅ Passenger configuration completed
+Checking for optional promotional and loyalty fields...
+ℹ️ No optional promotional or loyalty fields specified in scenario
 Search form filled successfully
 Submitting flight search...
 Search submitted successfully
+Waiting for search results to load...
+Verifying search was processed - looking for Flights text
+✅ Found Flights text: "Flights"
+✅ Search results loaded successfully
+   ✅ Search completed successfully
    ✈️  Step 2: Processing search results...
 Waiting for search results to load...
 About to call selectFlight...
@@ -147,6 +147,7 @@ Checking if flight selection element is visible...
 ✅ Outbound Flight Selected using original locator
 Clicking Continue to proceed to booking
 ✅ Clicked Continue to proceed to booking
+   ✅ Results processing completed successfully
    👤 Step 3: Filling passenger information...
 Filling passenger information for 2 passengers
 Filling 1 adult passenger(s)
@@ -157,36 +158,62 @@ Filling 1 child passenger(s)
 Filling child passenger 1
 ✅ Child passenger 1 form completed
 Passenger information filled successfully
-   💳 Step 5: Processing payment with enhanced flow...
-Attempting to click Proceed to Payment button
-✅ Country set to India
-✅ Language set to English
-Proceed to Payment clicked, waiting for Confirm Payment button
-✅ Payment flow ready
-   ✅ Enhanced payment flow completed successfully
-✅ Scenario REG_001 completed successfully
-✅ Scenario REG_001 cleanup completed
+   ✅ Passenger information completed successfully
+   ⏱️  Scenario execution phase completed in 45216ms
+   ⏱️  Total scenario time so far: 45217ms (45 seconds)
+   ⏱️  Scenario completed in 45217ms (45 seconds)
+✅ Scenario scenario_4 completed successfully
+🔄 Starting cleanup and reset for next scenario...
+🏠 Navigated to home page for fresh start
+✅ Scenario scenario_4 cleanup completed in 8759ms
 
-🧪 Executing Scenario: REG_002
-📋 Round-trip | MAA → LHR | Economy | 2 ADT,1 INF
-   ⏱️  Setting timeout to 90000ms
-   📍 Step 1: Filling search form...
+📊 Processing scenario 4 of 4
+
+🧪 Executing Scenario: scenario_5
+📋 One-way | HEL → JFK | Economy | 2ADT,2CHD,2INF
+🔍 Checking browser state for scenario scenario_5...
+✅ Browser state is valid for scenario scenario_5
+   ⏱️  Setting fresh timeout to 18000000ms (18000 seconds) for this scenario
+   🚀 Scenario execution started at: 2025-12-02T10:17:36.125Z
+   ⏱️  Starting scenario execution with detailed time tracking
+   🎯 Executing Action: Booking
+   📍 Step 1: Filling and submitting search form...
 Flight search page loaded successfully
-Filling search form for scenario: REG_002
+Filling search form for scenario: scenario_5
 Economy is default - opening and closing dropdown
-Configuring passengers for search: [ { type: [32m'ADT'[39m, count: [33m2[39m }, { type: [32m'INF'[39m, count: [33m1[39m } ]
-Passengers needed: 2 adults, 0 children, 1 infants
+Configuring passengers for search: [
+  { type: [32m'ADT'[39m, count: [33m2[39m },
+  { type: [32m'CHD'[39m, count: [33m2[39m },
+  { type: [32m'INF'[39m, count: [33m2[39m }
+]
+Passengers needed: 2 adults, 2 children, 2 infants
 Setting 2 adults in slot 1
 Increasing passenger count in slot 1 by 1
 Plus clicked 1/1 for slot 1
 ✅ Passenger count in slot 1 increased by 1
-Adding and configuring 1 infants
-Setting passenger type in slot 2 to Infant
-✅ Slot 2 type set to Infant
+Adding and configuring 2 children
+Setting passenger type in slot 2 to Child
+✅ Slot 2 type set to Child
+Increasing passenger count in slot 2 by 1
+Plus clicked 1/1 for slot 2
+✅ Passenger count in slot 2 increased by 1
+Adding and configuring 2 infants
+Setting passenger type in slot 3 to Infant
+✅ Slot 3 type set to Infant
+Increasing passenger count in slot 3 by 1
+Plus clicked 1/1 for slot 3
+✅ Passenger count in slot 3 increased by 1
 ✅ Passenger configuration completed
+Checking for optional promotional and loyalty fields...
+ℹ️ No optional promotional or loyalty fields specified in scenario
 Search form filled successfully
 Submitting flight search...
 Search submitted successfully
+Waiting for search results to load...
+Verifying search was processed - looking for Flights text
+✅ Found Flights text: "Flights"
+✅ Search results loaded successfully
+   ✅ Search completed successfully
    ✈️  Step 2: Processing search results...
 Waiting for search results to load...
 About to call selectFlight...
@@ -196,11 +223,9 @@ Checking if flight selection element is visible...
 ✅ Outbound Flight Selected using original locator
 Clicking Continue to proceed to booking
 ✅ Clicked Continue to proceed to booking
-Round trip detected - handling inbound flight selection
-Waited 3 seconds after inbound selection
-✅ Clicked Continue again for round trip inbound flight
+   ✅ Results processing completed successfully
    👤 Step 3: Filling passenger information...
-Filling passenger information for 3 passengers
+Filling passenger information for 6 passengers
 Filling 2 adult passenger(s)
 Filling adult passenger 1
 Filling adult form 1
@@ -208,134 +233,42 @@ Filling adult form 1
 Filling adult passenger 2
 Filling adult form 2
 ✅ Adult passenger 2 form completed
-Filling 1 infant passenger(s)
-Filling infant passenger 1
-✅ Infant passenger 1 form completed
-Analyzing failing selector: //button[@data-testid="guestdetails_child_continuebtn"]
-🔄 Continuing to next scenario...
-✅ Scenario REG_002 cleanup completed
-
-🧪 Executing Scenario: REG_003
-📋 One-way | HEL → JFK | Business | 3 ADT,1 CHD,1 INF
-   ⏱️  Setting timeout to 90000ms
-   📍 Step 1: Filling search form...
-Flight search page loaded successfully
-Filling search form for scenario: REG_003
-Selecting Business class - deselecting Economy first
-Configuring passengers for search: [
-  { type: [32m'ADT'[39m, count: [33m3[39m },
-  { type: [32m'CHD'[39m, count: [33m1[39m },
-  { type: [32m'INF'[39m, count: [33m1[39m }
-]
-Passengers needed: 3 adults, 1 children, 1 infants
-Setting 3 adults in slot 1
-Increasing passenger count in slot 1 by 2
-Plus clicked 1/2 for slot 1
-Plus clicked 2/2 for slot 1
-✅ Passenger count in slot 1 increased by 2
-Adding and configuring 1 children
-Setting passenger type in slot 2 to Child
-✅ Slot 2 type set to Child
-Adding and configuring 1 infants
-Setting passenger type in slot 3 to Infant
-✅ Slot 3 type set to Infant
-✅ Passenger configuration completed
-Search form filled successfully
-Submitting flight search...
-Search submitted successfully
-   ✈️  Step 2: Processing search results...
-Waiting for search results to load...
-About to call selectFlight...
-Select a flight from the flight results
-Checking if flight selection element is visible...
-✅ Found flight using original locator
-✅ Outbound Flight Selected using original locator
-Clicking Continue to proceed to booking
-✅ Clicked Continue to proceed to booking
-   👤 Step 3: Filling passenger information...
-Filling passenger information for 5 passengers
-Filling 3 adult passenger(s)
-Filling adult passenger 1
-Filling adult form 1
-✅ Adult passenger 1 form completed
-Filling adult passenger 2
-Filling adult form 2
-✅ Adult passenger 2 form completed
-Filling adult passenger 3
-Filling adult form 3
-✅ Adult passenger 3 form completed
-Filling 1 child passenger(s)
+Filling 2 child passenger(s)
 Filling child passenger 1
 ✅ Child passenger 1 form completed
-Filling 1 infant passenger(s)
+Filling child passenger 2
+✅ Child passenger 2 form completed
+Filling 2 infant passenger(s)
 Filling infant passenger 1
 ✅ Infant passenger 1 form completed
-🔄 Continuing to next scenario...
-✅ Scenario REG_003 cleanup completed
-
-🧪 Executing Scenario: NEG_001
-📋 One-way | HEL → JFK | Economy | 1 ADT
-   ⏱️  Setting timeout to 90000ms
-   📍 Step 1: Filling search form...
-Flight search page loaded successfully
-Filling search form for scenario: NEG_001
-Economy is default - opening and closing dropdown
-Configuring passengers for search: [ { type: [32m'ADT'[39m, count: [33m1[39m } ]
-Passengers needed: 1 adults, 0 children, 0 infants
-Setting 1 adults in slot 1
-✅ Passenger configuration completed
-Search form filled successfully
-Submitting flight search...
-Search submitted successfully
-   ✈️  Step 2: Processing search results...
-Waiting for search results to load...
-About to call selectFlight...
-Select a flight from the flight results
-Checking if flight selection element is visible...
-✅ Found flight using original locator
-✅ Outbound Flight Selected using original locator
-Clicking Continue to proceed to booking
-✅ Clicked Continue to proceed to booking
-   👤 Step 3: Filling passenger information...
-Filling passenger information for 1 passengers
-Filling 1 adult passenger(s)
-Filling adult passenger 1
-Filling adult form 1
-✅ Adult passenger 1 form completed
+Filling infant passenger 2
+✅ Infant passenger 2 form completed
 Passenger information filled successfully
-✅ Scenario NEG_001 completed successfully
-✅ Scenario NEG_001 cleanup completed
+   ✅ Passenger information completed successfully
+Attempting to click Proceed to Payment button
+✅ Country set to India
+✅ Language set to English
+Proceed to Payment clicked, waiting for Confirm Payment button
+✅ Payment flow ready
+   ⏱️  Scenario execution phase completed in 109985ms
+   ⏱️  Total scenario time so far: 109985ms (110 seconds)
+   ⏱️  Scenario completed in 109985ms (110 seconds)
+✅ Scenario scenario_5 completed successfully
+🔄 Starting cleanup and reset for next scenario...
+🏠 Navigated to home page for fresh start
+✅ Scenario scenario_5 cleanup completed in 7932ms
 
 📊 Test Execution Summary:
-   Total Scenarios: 6
+   Total Scenarios: 4
    Passed: 4
-   Failed: 2
-   Success Rate: 66.7%
+   Failed: 0
+   Success Rate: 100.0%
 
 📋 Detailed Results:
-   ✅ SMOKE_001: PASSED
-   ✅ SMOKE_002: PASSED
-   ✅ REG_001: PASSED
-   ❌ REG_002: FAILED
-      Error: Passenger info failed: TimeoutError: locator.waitFor: Timeout 30000ms exceeded.
-Call log:
-[2m  - waiting for locator('//button[@data-testid="guestdetails_child_continuebtn"]').first() to be visible[22m
-
-   ❌ REG_003: FAILED
-      Error: Passenger info failed: Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeEnabled[2m([22m[2m)[22m failed
-
-Locator:  locator('//button[@data-testid="guestdetails_child_continuebtn"]').first()
-Expected: enabled
-Received: disabled
-Timeout:  5000ms
-
-Call log:
-[2m  - Expect "toBeEnabled" with timeout 5000ms[22m
-[2m  - waiting for locator('//button[@data-testid="guestdetails_child_continuebtn"]').first()[22m
-[2m    9 × locator resolved to <button disabled class="_1maotrv0 _1maotrv2 _1maotrv8" data-testid="guestdetails_child_continuebtn">…</button>[22m
-[2m      - unexpected value "disabled"[22m
-
-   ✅ NEG_001: PASSED
+   ✅ scenario_2: PASSED
+   ✅ scenario_3: PASSED
+   ✅ scenario_4: PASSED
+   ✅ scenario_5: PASSED
 🏁 Comprehensive E2E test completed!
 ]]>
 </system-out>
@@ -348,7 +281,7 @@ Call log:
     at Object.readFile [as readFileSync] [90m(C:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mnode_modules\[4mxlsx[24m\xlsx.js:23738:9[90m)[39m
     at Function.readFromExcel [90m(C:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mlib\excel\excelReader.ts:51:27[90m)[39m
     at Function.readScenarios [90m(C:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mlib\excel\excelReader.ts:21:21[90m)[39m
-    at [90mC:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mtests\comprehensive-e2e.spec.ts:43:37
+    at [90mC:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mtests\comprehensive-e2e.spec.ts:44:37
     at [90mC:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mnode_modules\[4mplaywright[24m\lib\worker\workerMain.js:310:9
     at [90mC:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mnode_modules\[4mplaywright[24m\lib\worker\testInfo.js:305:11
     at TimeoutManager.withRunnable [90m(C:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mnode_modules\[4mplaywright[24m\lib\worker\timeoutManager.js:67:14[90m)[39m
@@ -362,285 +295,19 @@ Call log:
   syscall: [32m'open'[39m,
   path: [32m'C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\test-data\\scenarios.xlsx'[39m
 }
-Input validation failed. Expected: "Adult1", Actual: ""
+Input validation failed. Expected: "21/09/1945", Actual: "21"
 Input validation failed. Expected: "Test State", Actual: ""
-Input validation failed. Expected: "Adult1", Actual: ""
+Input validation failed. Expected: "26/05/2020", Actual: "26"
+Input validation failed. Expected: "07/03/1969", Actual: "07"
 Input validation failed. Expected: "Test State", Actual: ""
-Input validation failed. Expected: "Adult2", Actual: ""
+Input validation failed. Expected: "16/10/1970", Actual: "16"
 Input validation failed. Expected: "Test State", Actual: ""
-Input validation failed. Expected: "Adult1", Actual: ""
-Input validation failed. Expected: "Test State", Actual: ""
-Input validation failed. Expected: "Child1", Actual: ""
-Input validation failed. Expected: "Adult1", Actual: ""
-Input validation failed. Expected: "Test State", Actual: ""
-Input validation failed. Expected: "Adult2", Actual: ""
-Input validation failed. Expected: "Test State", Actual: ""
-Input validation failed. Expected: "Infant1", Actual: ""
-Wait failed for selector: //button[@data-testid="guestdetails_child_continuebtn"]
-Failed to fill passenger information: locator.waitFor: Timeout 30000ms exceeded.
-Call log:
-[2m  - waiting for locator('//button[@data-testid="guestdetails_child_continuebtn"]').first() to be visible[22m
-
-    at PassengerInfoPage.waitFor [90m(C:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mpages\BasePage.ts:46:36[90m)[39m
-    at PassengerInfoPage.clickWhenReady [90m(C:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mpages\BasePage.ts:86:16[90m)[39m
-    at PassengerInfoPage.continueToNextStep [90m(C:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mpages\PassengerInfoPage.ts:362:16[90m)[39m
-    at PassengerInfoPage.fillPassengers [90m(C:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mpages\PassengerInfoPage.ts:84:7[90m)[39m
-    at executeScenario [90m(C:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mtests\comprehensive-e2e.spec.ts:344:5[90m)[39m
-    at [90mC:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mtests\comprehensive-e2e.spec.ts:96:9 {
-  name: [32m'TimeoutError'[39m,
-  [[32mSymbol(step)[39m]: {
-    location: {
-      file: [32m'C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\pages\\BasePage.ts'[39m,
-      line: [33m46[39m,
-      column: [33m36[39m,
-      function: [32m'PassengerInfoPage.waitFor'[39m
-    },
-    category: [32m'pw:api'[39m,
-    title: [32m`Wait for selector locator('//button[@data-testid="guestdetails_child_continuebtn"]').first()`[39m,
-    apiName: [32m'locator.waitFor'[39m,
-    params: {
-      selector: [32m'//button[@data-testid="guestdetails_child_continuebtn"] >> nth=0'[39m,
-      strict: [33mtrue[39m,
-      omitReturnValue: [33mtrue[39m,
-      state: [32m'visible'[39m,
-      timeout: [33m30000[39m
-    },
-    group: [90mundefined[39m,
-    stepId: [32m'pw:api@972'[39m,
-    boxedStack: [90mundefined[39m,
-    steps: [],
-    attachmentIndices: [],
-    info: TestStepInfoImpl {
-      annotations: [],
-      _testInfo: [36m[TestInfoImpl][39m,
-      _stepId: [32m'pw:api@972'[39m,
-      _title: [32m`Wait for selector locator('//button[@data-testid="guestdetails_child_continuebtn"]').first()`[39m,
-      _parentStep: [90mundefined[39m,
-      skip: [36m[Function (anonymous)][39m
-    },
-    complete: [36m[Function: complete][39m,
-    endWallTime: [33m1764254363811[39m,
-    error: {
-      message: [32m'TimeoutError: locator.waitFor: Timeout 30000ms exceeded.\n'[39m +
-        [32m'Call log:\n'[39m +
-        [32m`\x1B[2m  - waiting for locator('//button[@data-testid="guestdetails_child_continuebtn"]').first() to be visible\x1B[22m\n`[39m,
-      stack: [32m'TimeoutError: locator.waitFor: Timeout 30000ms exceeded.\n'[39m +
-        [32m'Call log:\n'[39m +
-        [32m`\x1B[2m  - waiting for locator('//button[@data-testid="guestdetails_child_continuebtn"]').first() to be visible\x1B[22m\n`[39m +
-        [32m'\n'[39m +
-        [32m'    at PassengerInfoPage.waitFor (C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\pages\\BasePage.ts:46:36)\n'[39m +
-        [32m'    at PassengerInfoPage.clickWhenReady (C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\pages\\BasePage.ts:86:16)\n'[39m +
-        [32m'    at PassengerInfoPage.continueToNextStep (C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\pages\\PassengerInfoPage.ts:362:16)\n'[39m +
-        [32m'    at PassengerInfoPage.fillPassengers (C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\pages\\PassengerInfoPage.ts:84:7)\n'[39m +
-        [32m'    at executeScenario (C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\tests\\comprehensive-e2e.spec.ts:344:5)\n'[39m +
-        [32m'    at C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\tests\\comprehensive-e2e.spec.ts:96:9'[39m,
-      cause: [90mundefined[39m
-    }
-  }
-}
-❌ Unhandled error in scenario execution: Error: Passenger info failed: TimeoutError: locator.waitFor: Timeout 30000ms exceeded.
-Call log:
-[2m  - waiting for locator('//button[@data-testid="guestdetails_child_continuebtn"]').first() to be visible[22m
-
-    at executeScenario [90m(C:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mtests\comprehensive-e2e.spec.ts:346:11[90m)[39m
-    at [90mC:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mtests\comprehensive-e2e.spec.ts:96:9
-    at [90mC:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mnode_modules\[4mplaywright[24m\lib\worker\workerMain.js:310:9
-    at [90mC:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mnode_modules\[4mplaywright[24m\lib\worker\testInfo.js:305:11
-    at TimeoutManager.withRunnable [90m(C:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mnode_modules\[4mplaywright[24m\lib\worker\timeoutManager.js:67:14[90m)[39m
-    at TestInfoImpl._runWithTimeout [90m(C:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mnode_modules\[4mplaywright[24m\lib\worker\testInfo.js:303:7[90m)[39m
-    at [90mC:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mnode_modules\[4mplaywright[24m\lib\worker\workerMain.js:308:7
-    at WorkerMain._runTest [90m(C:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mnode_modules\[4mplaywright[24m\lib\worker\workerMain.js:283:5[90m)[39m
-    at WorkerMain.runTestGroup [90m(C:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mnode_modules\[4mplaywright[24m\lib\worker\workerMain.js:198:11[90m)[39m
-    at process.<anonymous> [90m(C:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mnode_modules\[4mplaywright[24m\lib\common\process.js:65:22[90m)[39m
-❌ Scenario REG_002 failed: Passenger info failed: TimeoutError: locator.waitFor: Timeout 30000ms exceeded.
-Call log:
-[2m  - waiting for locator('//button[@data-testid="guestdetails_child_continuebtn"]').first() to be visible[22m
-
-Input validation failed. Expected: "Adult1", Actual: ""
-Input validation failed. Expected: "Test State", Actual: ""
-Input validation failed. Expected: "Adult2", Actual: ""
-Input validation failed. Expected: "Test State", Actual: ""
-Input validation failed. Expected: "Adult3", Actual: ""
-Input validation failed. Expected: "Test State", Actual: ""
-Input validation failed. Expected: "Child1", Actual: ""
-Input validation failed. Expected: "Infant1", Actual: ""
-Failed to fill passenger information: ExpectError: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeEnabled[2m([22m[2m)[22m failed
-
-Locator:  locator('//button[@data-testid="guestdetails_child_continuebtn"]').first()
-Expected: enabled
-Received: disabled
-Timeout:  5000ms
-
-Call log:
-[2m  - Expect "toBeEnabled" with timeout 5000ms[22m
-[2m  - waiting for locator('//button[@data-testid="guestdetails_child_continuebtn"]').first()[22m
-[2m    9 × locator resolved to <button disabled class="_1maotrv0 _1maotrv2 _1maotrv8" data-testid="guestdetails_child_continuebtn">…</button>[22m
-[2m      - unexpected value "disabled"[22m
-
-    at PassengerInfoPage.clickWhenReady [90m(C:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mpages\BasePage.ts:91:27[90m)[39m
-    at PassengerInfoPage.continueToNextStep [90m(C:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mpages\PassengerInfoPage.ts:362:5[90m)[39m
-    at PassengerInfoPage.fillPassengers [90m(C:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mpages\PassengerInfoPage.ts:84:7[90m)[39m
-    at executeScenario [90m(C:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mtests\comprehensive-e2e.spec.ts:344:5[90m)[39m
-    at [90mC:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mtests\comprehensive-e2e.spec.ts:96:9 {
-  matcherResult: {
-    message: [32m'\x1B[2mexpect(\x1B[22m\x1B[31mlocator\x1B[39m\x1B[2m).\x1B[22mtoBeEnabled\x1B[2m(\x1B[22m\x1B[2m)\x1B[22m failed\n'[39m +
-      [32m'\n'[39m +
-      [32m`Locator:  locator('//button[@data-testid="guestdetails_child_continuebtn"]').first()\n`[39m +
-      [32m'Expected: enabled\n'[39m +
-      [32m'Received: disabled\n'[39m +
-      [32m'Timeout:  5000ms\n'[39m +
-      [32m'\n'[39m +
-      [32m'Call log:\n'[39m +
-      [32m'\x1B[2m  - Expect "toBeEnabled" with timeout 5000ms\x1B[22m\n'[39m +
-      [32m`\x1B[2m  - waiting for locator('//button[@data-testid="guestdetails_child_continuebtn"]').first()\x1B[22m\n`[39m +
-      [32m'\x1B[2m    9 × locator resolved to <button disabled class="_1maotrv0 _1maotrv2 _1maotrv8" data-testid="guestdetails_child_continuebtn">…</button>\x1B[22m\n'[39m +
-      [32m'\x1B[2m      - unexpected value "disabled"\x1B[22m\n'[39m,
-    pass: [33mfalse[39m,
-    actual: [32m'disabled'[39m,
-    name: [32m'toBeEnabled'[39m,
-    expected: [32m'enabled'[39m,
-    log: [
-      [32m'  - Expect "toBeEnabled" with timeout 5000ms'[39m,
-      [32m`  - waiting for locator('//button[@data-testid="guestdetails_child_continuebtn"]').first()`[39m,
-      [32m'    9 × locator resolved to <button disabled class="_1maotrv0 _1maotrv2 _1maotrv8" data-testid="guestdetails_child_continuebtn">…</button>'[39m,
-      [32m'      - unexpected value "disabled"'[39m
-    ],
-    timeout: [33m5000[39m
-  },
-  [[32mSymbol(step)[39m]: {
-    category: [32m'expect'[39m,
-    apiName: [32m'expect.toBeEnabled'[39m,
-    title: [32m'Expect "toBeEnabled"'[39m,
-    params: { expected: [36m[Object][39m },
-    infectParentStepsWithError: [90mundefined[39m,
-    stepId: [32m'expect@1361'[39m,
-    group: [90mundefined[39m,
-    boxedStack: [90mundefined[39m,
-    location: {
-      file: [32m'C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\pages\\BasePage.ts'[39m,
-      line: [33m91[39m,
-      column: [33m27[39m,
-      function: [32m'PassengerInfoPage.clickWhenReady'[39m
-    },
-    steps: [],
-    attachmentIndices: [],
-    info: TestStepInfoImpl {
-      annotations: [],
-      _testInfo: [36m[TestInfoImpl][39m,
-      _stepId: [32m'expect@1361'[39m,
-      _title: [32m'Expect "toBeEnabled"'[39m,
-      _parentStep: [90mundefined[39m,
-      skip: [36m[Function (anonymous)][39m
-    },
-    complete: [36m[Function: complete][39m,
-    endWallTime: [33m1764254436077[39m,
-    error: {
-      message: [32m'Error: \x1B[2mexpect(\x1B[22m\x1B[31mlocator\x1B[39m\x1B[2m).\x1B[22mtoBeEnabled\x1B[2m(\x1B[22m\x1B[2m)\x1B[22m failed\n'[39m +
-        [32m'\n'[39m +
-        [32m`Locator:  locator('//button[@data-testid="guestdetails_child_continuebtn"]').first()\n`[39m +
-        [32m'Expected: enabled\n'[39m +
-        [32m'Received: disabled\n'[39m +
-        [32m'Timeout:  5000ms\n'[39m +
-        [32m'\n'[39m +
-        [32m'Call log:\n'[39m +
-        [32m'\x1B[2m  - Expect "toBeEnabled" with timeout 5000ms\x1B[22m\n'[39m +
-        [32m`\x1B[2m  - waiting for locator('//button[@data-testid="guestdetails_child_continuebtn"]').first()\x1B[22m\n`[39m +
-        [32m'\x1B[2m    9 × locator resolved to <button disabled class="_1maotrv0 _1maotrv2 _1maotrv8" data-testid="guestdetails_child_continuebtn">…</button>\x1B[22m\n'[39m +
-        [32m'\x1B[2m      - unexpected value "disabled"\x1B[22m\n'[39m,
-      stack: [32m'Error: \x1B[2mexpect(\x1B[22m\x1B[31mlocator\x1B[39m\x1B[2m).\x1B[22mtoBeEnabled\x1B[2m(\x1B[22m\x1B[2m)\x1B[22m failed\n'[39m +
-        [32m'\n'[39m +
-        [32m`Locator:  locator('//button[@data-testid="guestdetails_child_continuebtn"]').first()\n`[39m +
-        [32m'Expected: enabled\n'[39m +
-        [32m'Received: disabled\n'[39m +
-        [32m'Timeout:  5000ms\n'[39m +
-        [32m'\n'[39m +
-        [32m'Call log:\n'[39m +
-        [32m'\x1B[2m  - Expect "toBeEnabled" with timeout 5000ms\x1B[22m\n'[39m +
-        [32m`\x1B[2m  - waiting for locator('//button[@data-testid="guestdetails_child_continuebtn"]').first()\x1B[22m\n`[39m +
-        [32m'\x1B[2m    9 × locator resolved to <button disabled class="_1maotrv0 _1maotrv2 _1maotrv8" data-testid="guestdetails_child_continuebtn">…</button>\x1B[22m\n'[39m +
-        [32m'\x1B[2m      - unexpected value "disabled"\x1B[22m\n'[39m +
-        [32m'\n'[39m +
-        [32m'    at PassengerInfoPage.clickWhenReady (C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\pages\\BasePage.ts:91:27)\n'[39m +
-        [32m'    at PassengerInfoPage.continueToNextStep (C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\pages\\PassengerInfoPage.ts:362:5)\n'[39m +
-        [32m'    at PassengerInfoPage.fillPassengers (C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\pages\\PassengerInfoPage.ts:84:7)\n'[39m +
-        [32m'    at executeScenario (C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\tests\\comprehensive-e2e.spec.ts:344:5)\n'[39m +
-        [32m'    at C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\tests\\comprehensive-e2e.spec.ts:96:9'[39m,
-      cause: [90mundefined[39m
-    }
-  }
-}
-❌ Unhandled error in scenario execution: Error: Passenger info failed: Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeEnabled[2m([22m[2m)[22m failed
-
-Locator:  locator('//button[@data-testid="guestdetails_child_continuebtn"]').first()
-Expected: enabled
-Received: disabled
-Timeout:  5000ms
-
-Call log:
-[2m  - Expect "toBeEnabled" with timeout 5000ms[22m
-[2m  - waiting for locator('//button[@data-testid="guestdetails_child_continuebtn"]').first()[22m
-[2m    9 × locator resolved to <button disabled class="_1maotrv0 _1maotrv2 _1maotrv8" data-testid="guestdetails_child_continuebtn">…</button>[22m
-[2m      - unexpected value "disabled"[22m
-
-    at executeScenario [90m(C:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mtests\comprehensive-e2e.spec.ts:346:11[90m)[39m
-    at [90mC:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mtests\comprehensive-e2e.spec.ts:96:9
-    at [90mC:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mnode_modules\[4mplaywright[24m\lib\worker\workerMain.js:310:9
-    at [90mC:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mnode_modules\[4mplaywright[24m\lib\worker\testInfo.js:305:11
-    at TimeoutManager.withRunnable [90m(C:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mnode_modules\[4mplaywright[24m\lib\worker\timeoutManager.js:67:14[90m)[39m
-    at TestInfoImpl._runWithTimeout [90m(C:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mnode_modules\[4mplaywright[24m\lib\worker\testInfo.js:303:7[90m)[39m
-    at [90mC:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mnode_modules\[4mplaywright[24m\lib\worker\workerMain.js:308:7
-    at WorkerMain._runTest [90m(C:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mnode_modules\[4mplaywright[24m\lib\worker\workerMain.js:283:5[90m)[39m
-    at WorkerMain.runTestGroup [90m(C:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mnode_modules\[4mplaywright[24m\lib\worker\workerMain.js:198:11[90m)[39m
-    at process.<anonymous> [90m(C:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mnode_modules\[4mplaywright[24m\lib\common\process.js:65:22[90m)[39m
-❌ Scenario REG_003 failed: Passenger info failed: Error: [2mexpect([22m[31mlocator[39m[2m).[22mtoBeEnabled[2m([22m[2m)[22m failed
-
-Locator:  locator('//button[@data-testid="guestdetails_child_continuebtn"]').first()
-Expected: enabled
-Received: disabled
-Timeout:  5000ms
-
-Call log:
-[2m  - Expect "toBeEnabled" with timeout 5000ms[22m
-[2m  - waiting for locator('//button[@data-testid="guestdetails_child_continuebtn"]').first()[22m
-[2m    9 × locator resolved to <button disabled class="_1maotrv0 _1maotrv2 _1maotrv8" data-testid="guestdetails_child_continuebtn">…</button>[22m
-[2m      - unexpected value "disabled"[22m
-
-Input validation failed. Expected: "Adult1", Actual: ""
-Input validation failed. Expected: "Test State", Actual: ""
+Input validation failed. Expected: "19/10/2014", Actual: "19"
+Input validation failed. Expected: "08/08/2019", Actual: "08"
+Input validation failed. Expected: "02/02/2024", Actual: "02"
+Input validation failed. Expected: "02/06/2025", Actual: "02"
 ]]>
 </system-err>
-</testcase>
-<testcase name="Individual Scenario Tests › Smoke Test - Basic Booking Flow" classname="comprehensive-e2e.spec.ts" time="0">
-<properties>
-<property name="skip" value="">
-</property>
-</properties>
-<skipped>
-</skipped>
-</testcase>
-<testcase name="Individual Scenario Tests › Multi-Passenger Booking" classname="comprehensive-e2e.spec.ts" time="0">
-<properties>
-<property name="skip" value="">
-</property>
-</properties>
-<skipped>
-</skipped>
-</testcase>
-<testcase name="Individual Scenario Tests › Negative Test - Same Origin and Destination" classname="comprehensive-e2e.spec.ts" time="0">
-<properties>
-<property name="skip" value="">
-</property>
-</properties>
-<skipped>
-</skipped>
-</testcase>
-<testcase name="Debug - Application Access Check" classname="comprehensive-e2e.spec.ts" time="0">
-<properties>
-<property name="skip" value="">
-</property>
-</properties>
-<skipped>
-</skipped>
 </testcase>
 </testsuite>
 </testsuites>

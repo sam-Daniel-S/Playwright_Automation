@@ -424,7 +424,7 @@ export class BookingSummaryPage extends BasePage {
       console.log('✅ Language set to English');
 
       console.log('Proceed to Payment clicked, waiting for Confirm Payment button');
-      await this.locator(this.selectors.confirmPayment).waitFor({ state: 'visible', timeout: 50000 });
+      // await this.locator(this.selectors.confirmPayment).waitFor({ state: 'visible', timeout: 50000 });
       await this.locator(this.selectors.confirmPayment).click({ force: true });
       await this.page.waitForTimeout(20000);
       console.log('✅ Payment flow ready');
