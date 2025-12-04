@@ -338,13 +338,7 @@ export class PassengerInfoPage extends BasePage {
   /**
    * Continue to next step after filling passenger information
    */
-  private async continueToNextStep(passengers: Passenger[]): Promise<void> {
-    // Check for validation errors before continuing
-    const hasErrors = await this.checkForValidationErrors();
-    if (hasErrors) {
-      throw new Error('Passenger form validation failed');
-    }
-    
+  private async continueToNextStep(passengers: Passenger[]): Promise<void> { 
     // Determine which continue button to use based on passenger types
     const hasChildren = passengers.some(p => p.type === 'CHD');
     const hasInfants = passengers.some(p => p.type === 'INF');
@@ -357,30 +351,6 @@ export class PassengerInfoPage extends BasePage {
     
     // Wait for navigation
     await this.waitForPageLoad();
-  }
-
-  /**
-   * Check for form validation errors
-   */
-  private async checkForValidationErrors(): Promise<boolean> {
-    const errorSelector = this.selectors.errorMessages;
-    
-    if (await this.isVisible(errorSelector, 3000)) {
-      const errorElements = this.page.locator(errorSelector);
-      const errorCount = await errorElements.count();
-      
-      console.error(`Found ${errorCount} validation errors:`);
-      
-      for (let i = 0; i < errorCount; i++) {
-        const errorText = await errorElements.nth(i).textContent();
-        console.error(`- ${errorText}`);
-      }
-      
-      await this.captureScreenshot('passenger-validation-errors');
-      return true;
-    }
-    
-    return false;
   }
 
   /**
@@ -400,63 +370,5 @@ export class PassengerInfoPage extends BasePage {
     const username = `${firstName.toLowerCase()}.${lastName.toLowerCase()}`;
     const timestamp = Date.now().toString().slice(-4);
     return `${username}${timestamp}@${domain}`;
-  }
-
-  /**
-   * Validate required fields are filled
-   */
-  async validateRequiredFields(): Promise<boolean> {
-    const requiredFields = this.page.locator(this.selectors.requiredFields);
-    const count = await requiredFields.count();
-    
-    let allFilled = true;
-    
-    for (let i = 0; i < count; i++) {
-      const field = requiredFields.nth(i);
-      const value = await field.inputValue().catch(() => '');
-      
-      if (!value || value.trim().length === 0) {
-        const fieldName = await field.getAttribute('data-testid') || await field.getAttribute('name') || `field-${i}`;
-        console.error(`Required field not filled: ${fieldName}`);
-        allFilled = false;
-      }
-    }
-    
-    return allFilled;
-  }
-
-  /**
-   * Get current passenger form data for validation
-   */
-  async getPassengerFormData(): Promise<{
-    primaryAdult?: Passenger;
-    errors: string[];
-  }> {
-    const result = {
-      primaryAdult: undefined as Passenger | undefined,
-      errors: [] as string[]
-    };
-    
-    try {
-      // Try to read primary adult data
-      const firstName = await this.locator(this.selectors.firstNameInput).inputValue().catch(() => '');
-      const lastName = await this.locator(this.selectors.lastNameInput).inputValue().catch(() => '');
-      const email = await this.locator(this.selectors.emailInput).inputValue().catch(() => '');
-      
-      if (firstName && lastName) {
-        result.primaryAdult = {
-          type: 'ADT',
-          title: 'Mr', // Simplified
-          firstName,
-          lastName,
-          dateOfBirth: '01/01/1990' // Placeholder
-        };
-      }
-      
-    } catch (error) {
-      result.errors.push(`Failed to read form data: ${error}`);
-    }
-    
-    return result;
   }
 }

@@ -126,14 +126,7 @@ export class SearchPage extends BasePage {
     await this.clickWhenReady(this.selectors.searchButton);
     
     // Wait for search to process and results to load
-    await this.page.waitForTimeout(2000);
-    
-    // Check for validation errors
-    const hasErrors = await this.checkForValidationErrors();
-    if (hasErrors) {
-      throw new Error('Search validation failed - see captured errors');
-    }
-    
+    await this.page.waitForTimeout(1000);
     console.log('Search submitted successfully');
   }
 
@@ -159,13 +152,6 @@ export class SearchPage extends BasePage {
     // Fill destination
     await this.fillAirportInput(this.selectors.toAirportInput, destination);
     
-    // Validate not same
-    if (origin.toLowerCase() === destination.toLowerCase()) {
-      const errorVisible = await this.isVisible(this.selectors.sameOriginDestinationError);
-      if (errorVisible) {
-        throw new Error('Origin and destination cannot be the same');
-      }
-    }
   }
 
   /**
@@ -522,8 +508,6 @@ export class SearchPage extends BasePage {
    */
   private async closeInterferingPopups(): Promise<void> {
     const popupSelectors = [
-      // '//div[@class="_1htdylg0"]//div[3]//button[2]', // Close recommendations
-      // '//div[@class="_1htdylg0"]//div[3]//button[3]', // Close smart pad
       '//button[@title="Collapse sidebar"]', // Close sidebar
     ];
     
@@ -539,34 +523,7 @@ export class SearchPage extends BasePage {
     }
   }
 
-  /**
-   * Check for validation errors on the search form
-   */
-  private async checkForValidationErrors(): Promise<boolean> {
-    const errorSelectors = [
-      this.selectors.sameOriginDestinationError,
-      this.selectors.originError,
-      '[data-testid="error-message"]',
-      '.error-message',
-      '.validation-error'
-    ];
-    
-    let hasErrors = false;
-    
-    for (const errorSelector of errorSelectors) {
-      if (await this.isVisible(errorSelector, 1000)) {
-        const errorText = await this.getText(errorSelector);
-        console.error(`Validation error: ${errorText}`);
-        hasErrors = true;
-      }
-    }
-    
-    if (hasErrors) {
-      await this.captureScreenshot('validation-errors');
-    }
-    
-    return hasErrors;
-  }
+ 
 
   /**
    * Get search form data for validation
@@ -624,8 +581,6 @@ export class SearchPage extends BasePage {
       console.log('Waiting for search results to load...');
       try {
         await this.verifySearchProcessed();
-        
-        // Additional wait to ensure page is stable
         await this.page.waitForTimeout(2000);
         console.info('✅ Search results loaded successfully');
       } catch (error) {

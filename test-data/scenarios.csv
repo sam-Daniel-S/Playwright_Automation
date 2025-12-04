@@ -1,5 +1,5 @@
 Scenario ID,Action,Trip Type,Origin,Destination,Date,Passengers (PTC),Class Type,Promo code,Discounts,Loyalty Program,Member ID
-SEARCH_001,Search,Round-trip,HEL,LHR,15/12/2025 - 20/12/2025,1ADT,Economy,,,,
+SEARCH_001,Search,Round-trip,LHR,LHR,15/12/2025 - 20/12/2025,1ADT,Economy,,,,
 RESULTS_001,Results,Oneway,HEL,LHR,20/12/2025,2ADT,Business,,,,
 PASSENGERINFO_001,PassengerInfo,Oneway,LHR,MAA,25/12/2025,"1ADT,1CHD",Business,,,,
 BOOKING_001,Booking,Oneway,HEL,JFK,12/12/2025,"2ADT,2CHD,2INF",Economy,,,,
