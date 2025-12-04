@@ -1,6 +1,6 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="254.171974">
-<testsuite name="comprehensive-e2e.spec.ts" timestamp="2025-12-02T10:15:20.912Z" hostname="chromium" tests="1" failures="0" skipped="0" time="251.57" errors="0">
-<testcase name="Airline Booking - All Scenarios E2E › Execute all booking scenarios from test data" classname="comprehensive-e2e.spec.ts" time="251.57">
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="234.00068">
+<testsuite name="comprehensive-e2e.spec.ts" timestamp="2025-12-04T09:00:37.892Z" hostname="chromium" tests="1" failures="0" skipped="0" time="232.249" errors="0">
+<testcase name="Airline Booking - All Scenarios E2E › Execute all booking scenarios from test data" classname="comprehensive-e2e.spec.ts" time="232.249">
 <system-out>
 <![CDATA[🚀 Starting comprehensive E2E test execution...
 🔧 Setting up authentication for test execution...
@@ -29,7 +29,7 @@ Successfully parsed 4 scenarios
 🔍 Checking browser state for scenario scenario_2...
 ✅ Browser state is valid for scenario scenario_2
    ⏱️  Setting fresh timeout to 18000000ms (18000 seconds) for this scenario
-   🚀 Scenario execution started at: 2025-12-02T10:15:36.913Z
+   🚀 Scenario execution started at: 2025-12-04T09:00:47.357Z
    ⏱️  Starting scenario execution with detailed time tracking
    🎯 Executing Action: Search
    📍 Step 1: Filling and submitting search form...
@@ -50,13 +50,13 @@ Verifying search was processed - looking for Flights text
 ✅ Found Flights text: "Flights"
 ✅ Search results loaded successfully
    ✅ Search completed successfully
-   ⏱️  Scenario execution phase completed in 23592ms
-   ⏱️  Total scenario time so far: 23593ms (24 seconds)
-   ⏱️  Scenario completed in 23593ms (24 seconds)
+   ⏱️  Scenario execution phase completed in 22813ms
+   ⏱️  Total scenario time so far: 22814ms (23 seconds)
+   ⏱️  Scenario completed in 22814ms (23 seconds)
 ✅ Scenario scenario_2 completed successfully
 🔄 Starting cleanup and reset for next scenario...
 🏠 Navigated to home page for fresh start
-✅ Scenario scenario_2 cleanup completed in 8117ms
+✅ Scenario scenario_2 cleanup completed in 7221ms
 
 📊 Processing scenario 2 of 4
 
@@ -65,7 +65,7 @@ Verifying search was processed - looking for Flights text
 🔍 Checking browser state for scenario scenario_3...
 ✅ Browser state is valid for scenario scenario_3
    ⏱️  Setting fresh timeout to 18000000ms (18000 seconds) for this scenario
-   🚀 Scenario execution started at: 2025-12-02T10:16:08.630Z
+   🚀 Scenario execution started at: 2025-12-04T09:01:17.399Z
    ⏱️  Starting scenario execution with detailed time tracking
    🎯 Executing Action: Results
    📍 Step 1: Filling and submitting search form...
@@ -99,13 +99,13 @@ Checking if flight selection element is visible...
 Clicking Continue to proceed to booking
 ✅ Clicked Continue to proceed to booking
    ✅ Results processing completed successfully
-   ⏱️  Scenario execution phase completed in 25166ms
-   ⏱️  Total scenario time so far: 25166ms (25 seconds)
-   ⏱️  Scenario completed in 25166ms (25 seconds)
+   ⏱️  Scenario execution phase completed in 23799ms
+   ⏱️  Total scenario time so far: 23799ms (24 seconds)
+   ⏱️  Scenario completed in 23799ms (24 seconds)
 ✅ Scenario scenario_3 completed successfully
 🔄 Starting cleanup and reset for next scenario...
 🏠 Navigated to home page for fresh start
-✅ Scenario scenario_3 cleanup completed in 8327ms
+✅ Scenario scenario_3 cleanup completed in 6876ms
 
 📊 Processing scenario 3 of 4
 
@@ -114,7 +114,7 @@ Clicking Continue to proceed to booking
 🔍 Checking browser state for scenario scenario_4...
 ✅ Browser state is valid for scenario scenario_4
    ⏱️  Setting fresh timeout to 18000000ms (18000 seconds) for this scenario
-   🚀 Scenario execution started at: 2025-12-02T10:16:42.136Z
+   🚀 Scenario execution started at: 2025-12-04T09:01:48.078Z
    ⏱️  Starting scenario execution with detailed time tracking
    🎯 Executing Action: PassengerInfo
    📍 Step 1: Filling and submitting search form...
@@ -159,13 +159,13 @@ Filling child passenger 1
 ✅ Child passenger 1 form completed
 Passenger information filled successfully
    ✅ Passenger information completed successfully
-   ⏱️  Scenario execution phase completed in 45216ms
-   ⏱️  Total scenario time so far: 45217ms (45 seconds)
-   ⏱️  Scenario completed in 45217ms (45 seconds)
+   ⏱️  Scenario execution phase completed in 42720ms
+   ⏱️  Total scenario time so far: 42720ms (43 seconds)
+   ⏱️  Scenario completed in 42721ms (43 seconds)
 ✅ Scenario scenario_4 completed successfully
 🔄 Starting cleanup and reset for next scenario...
 🏠 Navigated to home page for fresh start
-✅ Scenario scenario_4 cleanup completed in 8759ms
+✅ Scenario scenario_4 cleanup completed in 7584ms
 
 📊 Processing scenario 4 of 4
 
@@ -174,7 +174,7 @@ Passenger information filled successfully
 🔍 Checking browser state for scenario scenario_5...
 ✅ Browser state is valid for scenario scenario_5
    ⏱️  Setting fresh timeout to 18000000ms (18000 seconds) for this scenario
-   🚀 Scenario execution started at: 2025-12-02T10:17:36.125Z
+   🚀 Scenario execution started at: 2025-12-04T09:02:38.390Z
    ⏱️  Starting scenario execution with detailed time tracking
    🎯 Executing Action: Booking
    📍 Step 1: Filling and submitting search form...
@@ -250,13 +250,13 @@ Attempting to click Proceed to Payment button
 ✅ Language set to English
 Proceed to Payment clicked, waiting for Confirm Payment button
 ✅ Payment flow ready
-   ⏱️  Scenario execution phase completed in 109985ms
-   ⏱️  Total scenario time so far: 109985ms (110 seconds)
-   ⏱️  Scenario completed in 109985ms (110 seconds)
+   ⏱️  Scenario execution phase completed in 104829ms
+   ⏱️  Total scenario time so far: 104829ms (105 seconds)
+   ⏱️  Scenario completed in 104829ms (105 seconds)
 ✅ Scenario scenario_5 completed successfully
 🔄 Starting cleanup and reset for next scenario...
 🏠 Navigated to home page for fresh start
-✅ Scenario scenario_5 cleanup completed in 7932ms
+✅ Scenario scenario_5 cleanup completed in 7948ms
 
 📊 Test Execution Summary:
    Total Scenarios: 4
@@ -281,7 +281,7 @@ Proceed to Payment clicked, waiting for Confirm Payment button
     at Object.readFile [as readFileSync] [90m(C:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mnode_modules\[4mxlsx[24m\xlsx.js:23738:9[90m)[39m
     at Function.readFromExcel [90m(C:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mlib\excel\excelReader.ts:51:27[90m)[39m
     at Function.readScenarios [90m(C:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mlib\excel\excelReader.ts:21:21[90m)[39m
-    at [90mC:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mtests\comprehensive-e2e.spec.ts:44:37
+    at [90mC:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mtests\comprehensive-e2e.spec.ts:43:37
     at [90mC:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mnode_modules\[4mplaywright[24m\lib\worker\workerMain.js:310:9
     at [90mC:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mnode_modules\[4mplaywright[24m\lib\worker\testInfo.js:305:11
     at TimeoutManager.withRunnable [90m(C:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mnode_modules\[4mplaywright[24m\lib\worker\timeoutManager.js:67:14[90m)[39m
@@ -295,17 +295,17 @@ Proceed to Payment clicked, waiting for Confirm Payment button
   syscall: [32m'open'[39m,
   path: [32m'C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\test-data\\scenarios.xlsx'[39m
 }
-Input validation failed. Expected: "21/09/1945", Actual: "21"
+Input validation failed. Expected: "12/07/1939", Actual: "12"
 Input validation failed. Expected: "Test State", Actual: ""
-Input validation failed. Expected: "26/05/2020", Actual: "26"
-Input validation failed. Expected: "07/03/1969", Actual: "07"
+Input validation failed. Expected: "04/02/2020", Actual: "04"
+Input validation failed. Expected: "12/06/1957", Actual: "12"
 Input validation failed. Expected: "Test State", Actual: ""
-Input validation failed. Expected: "16/10/1970", Actual: "16"
+Input validation failed. Expected: "23/08/1933", Actual: "23"
 Input validation failed. Expected: "Test State", Actual: ""
-Input validation failed. Expected: "19/10/2014", Actual: "19"
-Input validation failed. Expected: "08/08/2019", Actual: "08"
-Input validation failed. Expected: "02/02/2024", Actual: "02"
-Input validation failed. Expected: "02/06/2025", Actual: "02"
+Input validation failed. Expected: "27/09/2020", Actual: "27"
+Input validation failed. Expected: "13/03/2020", Actual: "13"
+Input validation failed. Expected: "04/05/2025", Actual: "04"
+Input validation failed. Expected: "04/11/2025", Actual: "04"
 ]]>
 </system-err>
 </testcase>

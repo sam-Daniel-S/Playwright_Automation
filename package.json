@@ -12,11 +12,7 @@
     "test:debug": "playwright test --debug",
     "test:ui": "playwright test --ui",
     "install:browsers": "playwright install",
-    "report": "playwright show-report",
-    "allure:generate": "npx allure generate allure-results --clean",
-    "allure:open": "npx allure open allure-report",
-    "allure:serve": "npx allure serve allure-results",
-    "test:allure": "playwright test && npm run allure:serve"
+    "report": "playwright show-report"
   },
   "keywords": [
     "playwright",

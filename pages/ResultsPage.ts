@@ -28,17 +28,12 @@ export class ResultsPage extends BasePage {
     this.locators = new FlightSearchLocators(page);
   }
 
- 
-
-
   async selectFlight(flightSelection?: FlightSelection, tripType?: TripType): Promise<void> {
     console.log('Select a flight from the flight results');
 
     try {
       console.log('Checking if flight selection element is visible...');
 
-      
-      
       // Check if the flight selection element is visible
       const isFlightVisible = await this.locators.verifySearchResultPage.isVisible({ timeout: 5000 }).catch(() => false);
       
@@ -53,8 +48,8 @@ export class ResultsPage extends BasePage {
             await this.page.locator(this.selectors.priceForAdult).click();
             break;
       }
-      // await this.fareFamilySelection(flightSelection?.cabin!);
-        console.log('✅ Outbound Flight Selected using original locator');
+
+      console.log('✅ Outbound Flight Selected using original locator');
       } else {
         console.log('❌ Could not find flight selection element');
         

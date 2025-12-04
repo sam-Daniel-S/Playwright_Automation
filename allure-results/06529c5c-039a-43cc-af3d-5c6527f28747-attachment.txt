@@ -1,0 +1,7 @@
+Loading test scenarios...
+Reading Excel file: C:\Users\2853064\Documents\Testing\Automation\SingleBase\test-data\scenarios.xlsx, sheet: scenarios
+Attempting CSV fallback: C:\Users\2853064\Documents\Testing\Automation\SingleBase\test-data\scenarios.csv
+Reading CSV file: C:\Users\2853064\Documents\Testing\Automation\SingleBase\test-data\scenarios.csv
+Found 4 scenario(s) with headers: scenario id, action, trip type, origin, destination, date, passengers (ptc), class type, promo code, discounts, loyalty program, member id
+Successfully parsed 4 scenarios
+Loaded 4 test scenarios

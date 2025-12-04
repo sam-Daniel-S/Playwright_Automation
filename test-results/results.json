@@ -32,13 +32,6 @@
         {
           "outputFile": "test-results/results.json"
         }
-      ],
-      [
-        "C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\node_modules\\allure-playwright\\dist\\cjs\\index.js",
-        {
-          "outputFolder": "allure-results",
-          "suiteTitle": "Airline Booking E2E Tests"
-        }
       ]
     ],
     "reportSlowTests": {
@@ -114,7 +107,7 @@
         {
           "title": "Airline Booking - All Scenarios E2E",
           "file": "comprehensive-e2e.spec.ts",
-          "line": 25,
+          "line": 24,
           "column": 6,
           "specs": [
             {
@@ -133,7 +126,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 251570,
+                      "duration": 232249,
                       "errors": [],
                       "stdout": [
                         {
@@ -212,7 +205,7 @@
                           "text": "   ⏱️  Setting fresh timeout to 18000000ms (18000 seconds) for this scenario\n"
                         },
                         {
-                          "text": "   🚀 Scenario execution started at: 2025-12-02T10:15:36.913Z\n"
+                          "text": "   🚀 Scenario execution started at: 2025-12-04T09:00:47.357Z\n"
                         },
                         {
                           "text": "   ⏱️  Starting scenario execution with detailed time tracking\n"
@@ -275,13 +268,13 @@
                           "text": "   ✅ Search completed successfully\n"
                         },
                         {
-                          "text": "   ⏱️  Scenario execution phase completed in 23592ms\n"
+                          "text": "   ⏱️  Scenario execution phase completed in 22813ms\n"
                         },
                         {
-                          "text": "   ⏱️  Total scenario time so far: 23593ms (24 seconds)\n"
+                          "text": "   ⏱️  Total scenario time so far: 22814ms (23 seconds)\n"
                         },
                         {
-                          "text": "   ⏱️  Scenario completed in 23593ms (24 seconds)\n"
+                          "text": "   ⏱️  Scenario completed in 22814ms (23 seconds)\n"
                         },
                         {
                           "text": "✅ Scenario scenario_2 completed successfully\n"
@@ -293,7 +286,7 @@
                           "text": "🏠 Navigated to home page for fresh start\n"
                         },
                         {
-                          "text": "✅ Scenario scenario_2 cleanup completed in 8117ms\n"
+                          "text": "✅ Scenario scenario_2 cleanup completed in 7221ms\n"
                         },
                         {
                           "text": "\n📊 Processing scenario 2 of 4\n"
@@ -314,7 +307,7 @@
                           "text": "   ⏱️  Setting fresh timeout to 18000000ms (18000 seconds) for this scenario\n"
                         },
                         {
-                          "text": "   🚀 Scenario execution started at: 2025-12-02T10:16:08.630Z\n"
+                          "text": "   🚀 Scenario execution started at: 2025-12-04T09:01:17.399Z\n"
                         },
                         {
                           "text": "   ⏱️  Starting scenario execution with detailed time tracking\n"
@@ -416,13 +409,13 @@
                           "text": "   ✅ Results processing completed successfully\n"
                         },
                         {
-                          "text": "   ⏱️  Scenario execution phase completed in 25166ms\n"
+                          "text": "   ⏱️  Scenario execution phase completed in 23799ms\n"
                         },
                         {
-                          "text": "   ⏱️  Total scenario time so far: 25166ms (25 seconds)\n"
+                          "text": "   ⏱️  Total scenario time so far: 23799ms (24 seconds)\n"
                         },
                         {
-                          "text": "   ⏱️  Scenario completed in 25166ms (25 seconds)\n"
+                          "text": "   ⏱️  Scenario completed in 23799ms (24 seconds)\n"
                         },
                         {
                           "text": "✅ Scenario scenario_3 completed successfully\n"
@@ -434,7 +427,7 @@
                           "text": "🏠 Navigated to home page for fresh start\n"
                         },
                         {
-                          "text": "✅ Scenario scenario_3 cleanup completed in 8327ms\n"
+                          "text": "✅ Scenario scenario_3 cleanup completed in 6876ms\n"
                         },
                         {
                           "text": "\n📊 Processing scenario 3 of 4\n"
@@ -455,7 +448,7 @@
                           "text": "   ⏱️  Setting fresh timeout to 18000000ms (18000 seconds) for this scenario\n"
                         },
                         {
-                          "text": "   🚀 Scenario execution started at: 2025-12-02T10:16:42.136Z\n"
+                          "text": "   🚀 Scenario execution started at: 2025-12-04T09:01:48.078Z\n"
                         },
                         {
                           "text": "   ⏱️  Starting scenario execution with detailed time tracking\n"
@@ -590,13 +583,13 @@
                           "text": "   ✅ Passenger information completed successfully\n"
                         },
                         {
-                          "text": "   ⏱️  Scenario execution phase completed in 45216ms\n"
+                          "text": "   ⏱️  Scenario execution phase completed in 42720ms\n"
                         },
                         {
-                          "text": "   ⏱️  Total scenario time so far: 45217ms (45 seconds)\n"
+                          "text": "   ⏱️  Total scenario time so far: 42720ms (43 seconds)\n"
                         },
                         {
-                          "text": "   ⏱️  Scenario completed in 45217ms (45 seconds)\n"
+                          "text": "   ⏱️  Scenario completed in 42721ms (43 seconds)\n"
                         },
                         {
                           "text": "✅ Scenario scenario_4 completed successfully\n"
@@ -608,7 +601,7 @@
                           "text": "🏠 Navigated to home page for fresh start\n"
                         },
                         {
-                          "text": "✅ Scenario scenario_4 cleanup completed in 8759ms\n"
+                          "text": "✅ Scenario scenario_4 cleanup completed in 7584ms\n"
                         },
                         {
                           "text": "\n📊 Processing scenario 4 of 4\n"
@@ -629,7 +622,7 @@
                           "text": "   ⏱️  Setting fresh timeout to 18000000ms (18000 seconds) for this scenario\n"
                         },
                         {
-                          "text": "   🚀 Scenario execution started at: 2025-12-02T10:17:36.125Z\n"
+                          "text": "   🚀 Scenario execution started at: 2025-12-04T09:02:38.390Z\n"
                         },
                         {
                           "text": "   ⏱️  Starting scenario execution with detailed time tracking\n"
@@ -845,13 +838,13 @@
                           "text": "✅ Payment flow ready\n"
                         },
                         {
-                          "text": "   ⏱️  Scenario execution phase completed in 109985ms\n"
+                          "text": "   ⏱️  Scenario execution phase completed in 104829ms\n"
                         },
                         {
-                          "text": "   ⏱️  Total scenario time so far: 109985ms (110 seconds)\n"
+                          "text": "   ⏱️  Total scenario time so far: 104829ms (105 seconds)\n"
                         },
                         {
-                          "text": "   ⏱️  Scenario completed in 109985ms (110 seconds)\n"
+                          "text": "   ⏱️  Scenario completed in 104829ms (105 seconds)\n"
                         },
                         {
                           "text": "✅ Scenario scenario_5 completed successfully\n"
@@ -863,7 +856,7 @@
                           "text": "🏠 Navigated to home page for fresh start\n"
                         },
                         {
-                          "text": "✅ Scenario scenario_5 cleanup completed in 7932ms\n"
+                          "text": "✅ Scenario scenario_5 cleanup completed in 7948ms\n"
                         },
                         {
                           "text": "\n📊 Test Execution Summary:\n"
@@ -901,44 +894,44 @@
                       ],
                       "stderr": [
                         {
-                          "text": "Failed to read scenarios from C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\test-data\\scenarios.xlsx: Error: ENOENT: no such file or directory, open 'C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\test-data\\scenarios.xlsx'\n\u001b[90m    at Object.openSync (node:fs:573:18)\u001b[39m\n\u001b[90m    at Object.readFileSync (node:fs:452:35)\u001b[39m\n    at read_binary \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mxlsx\u001b[24m\\xlsx.js:3153:44\u001b[90m)\u001b[39m\n    at readSync \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mxlsx\u001b[24m\\xlsx.js:23698:69\u001b[90m)\u001b[39m\n    at Object.readFile [as readFileSync] \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mxlsx\u001b[24m\\xlsx.js:23738:9\u001b[90m)\u001b[39m\n    at Function.readFromExcel \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mlib\\excel\\excelReader.ts:51:27\u001b[90m)\u001b[39m\n    at Function.readScenarios \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mlib\\excel\\excelReader.ts:21:21\u001b[90m)\u001b[39m\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mtests\\comprehensive-e2e.spec.ts:44:37\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:310:9\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\testInfo.js:305:11\n    at TimeoutManager.withRunnable \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\timeoutManager.js:67:14\u001b[90m)\u001b[39m\n    at TestInfoImpl._runWithTimeout \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\testInfo.js:303:7\u001b[90m)\u001b[39m\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:308:7\n    at WorkerMain._runTest \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:283:5\u001b[90m)\u001b[39m\n    at WorkerMain.runTestGroup \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:198:11\u001b[90m)\u001b[39m\n    at process.<anonymous> \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\common\\process.js:65:22\u001b[90m)\u001b[39m {\n  errno: \u001b[33m-4058\u001b[39m,\n  code: \u001b[32m'ENOENT'\u001b[39m,\n  syscall: \u001b[32m'open'\u001b[39m,\n  path: \u001b[32m'C:\\\\Users\\\\2853064\\\\Documents\\\\Testing\\\\Automation\\\\SingleBase\\\\test-data\\\\scenarios.xlsx'\u001b[39m\n}\n"
+                          "text": "Failed to read scenarios from C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\test-data\\scenarios.xlsx: Error: ENOENT: no such file or directory, open 'C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\test-data\\scenarios.xlsx'\n\u001b[90m    at Object.openSync (node:fs:573:18)\u001b[39m\n\u001b[90m    at Object.readFileSync (node:fs:452:35)\u001b[39m\n    at read_binary \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mxlsx\u001b[24m\\xlsx.js:3153:44\u001b[90m)\u001b[39m\n    at readSync \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mxlsx\u001b[24m\\xlsx.js:23698:69\u001b[90m)\u001b[39m\n    at Object.readFile [as readFileSync] \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mxlsx\u001b[24m\\xlsx.js:23738:9\u001b[90m)\u001b[39m\n    at Function.readFromExcel \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mlib\\excel\\excelReader.ts:51:27\u001b[90m)\u001b[39m\n    at Function.readScenarios \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mlib\\excel\\excelReader.ts:21:21\u001b[90m)\u001b[39m\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mtests\\comprehensive-e2e.spec.ts:43:37\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:310:9\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\testInfo.js:305:11\n    at TimeoutManager.withRunnable \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\timeoutManager.js:67:14\u001b[90m)\u001b[39m\n    at TestInfoImpl._runWithTimeout \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\testInfo.js:303:7\u001b[90m)\u001b[39m\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:308:7\n    at WorkerMain._runTest \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:283:5\u001b[90m)\u001b[39m\n    at WorkerMain.runTestGroup \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:198:11\u001b[90m)\u001b[39m\n    at process.<anonymous> \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\common\\process.js:65:22\u001b[90m)\u001b[39m {\n  errno: \u001b[33m-4058\u001b[39m,\n  code: \u001b[32m'ENOENT'\u001b[39m,\n  syscall: \u001b[32m'open'\u001b[39m,\n  path: \u001b[32m'C:\\\\Users\\\\2853064\\\\Documents\\\\Testing\\\\Automation\\\\SingleBase\\\\test-data\\\\scenarios.xlsx'\u001b[39m\n}\n"
                         },
                         {
-                          "text": "Input validation failed. Expected: \"21/09/1945\", Actual: \"21\"\n"
-                        },
-                        {
-                          "text": "Input validation failed. Expected: \"Test State\", Actual: \"\"\n"
-                        },
-                        {
-                          "text": "Input validation failed. Expected: \"26/05/2020\", Actual: \"26\"\n"
-                        },
-                        {
-                          "text": "Input validation failed. Expected: \"07/03/1969\", Actual: \"07\"\n"
+                          "text": "Input validation failed. Expected: \"12/07/1939\", Actual: \"12\"\n"
                         },
                         {
                           "text": "Input validation failed. Expected: \"Test State\", Actual: \"\"\n"
                         },
                         {
-                          "text": "Input validation failed. Expected: \"16/10/1970\", Actual: \"16\"\n"
+                          "text": "Input validation failed. Expected: \"04/02/2020\", Actual: \"04\"\n"
+                        },
+                        {
+                          "text": "Input validation failed. Expected: \"12/06/1957\", Actual: \"12\"\n"
                         },
                         {
                           "text": "Input validation failed. Expected: \"Test State\", Actual: \"\"\n"
                         },
                         {
-                          "text": "Input validation failed. Expected: \"19/10/2014\", Actual: \"19\"\n"
+                          "text": "Input validation failed. Expected: \"23/08/1933\", Actual: \"23\"\n"
                         },
                         {
-                          "text": "Input validation failed. Expected: \"08/08/2019\", Actual: \"08\"\n"
+                          "text": "Input validation failed. Expected: \"Test State\", Actual: \"\"\n"
                         },
                         {
-                          "text": "Input validation failed. Expected: \"02/02/2024\", Actual: \"02\"\n"
+                          "text": "Input validation failed. Expected: \"27/09/2020\", Actual: \"27\"\n"
                         },
                         {
-                          "text": "Input validation failed. Expected: \"02/06/2025\", Actual: \"02\"\n"
+                          "text": "Input validation failed. Expected: \"13/03/2020\", Actual: \"13\"\n"
+                        },
+                        {
+                          "text": "Input validation failed. Expected: \"04/05/2025\", Actual: \"04\"\n"
+                        },
+                        {
+                          "text": "Input validation failed. Expected: \"04/11/2025\", Actual: \"04\"\n"
                         }
                       ],
                       "retry": 0,
-                      "startTime": "2025-12-02T10:15:22.282Z",
+                      "startTime": "2025-12-04T09:00:38.777Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -948,7 +941,7 @@
               ],
               "id": "ceae8d42728a3fcdf4bb-6b566aedc91552ae0b8f",
               "file": "comprehensive-e2e.spec.ts",
-              "line": 27,
+              "line": 26,
               "column": 7
             }
           ]
@@ -958,8 +951,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-12-02T10:15:20.581Z",
-    "duration": 254171.97400000002,
+    "startTime": "2025-12-04T09:00:37.752Z",
+    "duration": 234000.68,
     "expected": 1,
     "skipped": 0,
     "unexpected": 0,

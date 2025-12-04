@@ -1,0 +1,11 @@
+❌ Authentication setup failed: Error: Cookie authentication unsuccessful
+    at handleAuthentication (C:\Users\2853064\Documents\Testing\Automation\SingleBase\tests\comprehensive-e2e.spec.ts:257:13)
+    at C:\Users\2853064\Documents\Testing\Automation\SingleBase\tests\comprehensive-e2e.spec.ts:34:5
+    at C:\Users\2853064\Documents\Testing\Automation\SingleBase\node_modules\playwright\lib\worker\workerMain.js:310:9
+    at C:\Users\2853064\Documents\Testing\Automation\SingleBase\node_modules\playwright\lib\worker\testInfo.js:305:11
+    at TimeoutManager.withRunnable (C:\Users\2853064\Documents\Testing\Automation\SingleBase\node_modules\playwright\lib\worker\timeoutManager.js:67:14)
+    at TestInfoImpl._runWithTimeout (C:\Users\2853064\Documents\Testing\Automation\SingleBase\node_modules\playwright\lib\worker\testInfo.js:303:7)
+    at C:\Users\2853064\Documents\Testing\Automation\SingleBase\node_modules\playwright\lib\worker\workerMain.js:308:7
+    at WorkerMain._runTest (C:\Users\2853064\Documents\Testing\Automation\SingleBase\node_modules\playwright\lib\worker\workerMain.js:283:5)
+    at WorkerMain.runTestGroup (C:\Users\2853064\Documents\Testing\Automation\SingleBase\node_modules\playwright\lib\worker\workerMain.js:198:11)
+    at process.<anonymous> (C:\Users\2853064\Documents\Testing\Automation\SingleBase\node_modules\playwright\lib\common\process.js:65:22)
