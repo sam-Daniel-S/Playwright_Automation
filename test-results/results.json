@@ -126,7 +126,7 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 232249,
+                      "duration": 212117,
                       "errors": [],
                       "stdout": [
                         {
@@ -205,7 +205,7 @@
                           "text": "   ⏱️  Setting fresh timeout to 18000000ms (18000 seconds) for this scenario\n"
                         },
                         {
-                          "text": "   🚀 Scenario execution started at: 2025-12-04T09:00:47.357Z\n"
+                          "text": "   🚀 Scenario execution started at: 2025-12-04T09:12:07.828Z\n"
                         },
                         {
                           "text": "   ⏱️  Starting scenario execution with detailed time tracking\n"
@@ -268,13 +268,13 @@
                           "text": "   ✅ Search completed successfully\n"
                         },
                         {
-                          "text": "   ⏱️  Scenario execution phase completed in 22813ms\n"
+                          "text": "   ⏱️  Scenario execution phase completed in 22646ms\n"
                         },
                         {
-                          "text": "   ⏱️  Total scenario time so far: 22814ms (23 seconds)\n"
+                          "text": "   ⏱️  Total scenario time so far: 22647ms (23 seconds)\n"
                         },
                         {
-                          "text": "   ⏱️  Scenario completed in 22814ms (23 seconds)\n"
+                          "text": "   ⏱️  Scenario completed in 22647ms (23 seconds)\n"
                         },
                         {
                           "text": "✅ Scenario scenario_2 completed successfully\n"
@@ -286,7 +286,7 @@
                           "text": "🏠 Navigated to home page for fresh start\n"
                         },
                         {
-                          "text": "✅ Scenario scenario_2 cleanup completed in 7221ms\n"
+                          "text": "✅ Scenario scenario_2 cleanup completed in 7657ms\n"
                         },
                         {
                           "text": "\n📊 Processing scenario 2 of 4\n"
@@ -307,7 +307,7 @@
                           "text": "   ⏱️  Setting fresh timeout to 18000000ms (18000 seconds) for this scenario\n"
                         },
                         {
-                          "text": "   🚀 Scenario execution started at: 2025-12-04T09:01:17.399Z\n"
+                          "text": "   🚀 Scenario execution started at: 2025-12-04T09:12:38.363Z\n"
                         },
                         {
                           "text": "   ⏱️  Starting scenario execution with detailed time tracking\n"
@@ -409,13 +409,13 @@
                           "text": "   ✅ Results processing completed successfully\n"
                         },
                         {
-                          "text": "   ⏱️  Scenario execution phase completed in 23799ms\n"
+                          "text": "   ⏱️  Scenario execution phase completed in 24176ms\n"
                         },
                         {
-                          "text": "   ⏱️  Total scenario time so far: 23799ms (24 seconds)\n"
+                          "text": "   ⏱️  Total scenario time so far: 24177ms (24 seconds)\n"
                         },
                         {
-                          "text": "   ⏱️  Scenario completed in 23799ms (24 seconds)\n"
+                          "text": "   ⏱️  Scenario completed in 24178ms (24 seconds)\n"
                         },
                         {
                           "text": "✅ Scenario scenario_3 completed successfully\n"
@@ -427,7 +427,7 @@
                           "text": "🏠 Navigated to home page for fresh start\n"
                         },
                         {
-                          "text": "✅ Scenario scenario_3 cleanup completed in 6876ms\n"
+                          "text": "✅ Scenario scenario_3 cleanup completed in 7232ms\n"
                         },
                         {
                           "text": "\n📊 Processing scenario 3 of 4\n"
@@ -448,7 +448,7 @@
                           "text": "   ⏱️  Setting fresh timeout to 18000000ms (18000 seconds) for this scenario\n"
                         },
                         {
-                          "text": "   🚀 Scenario execution started at: 2025-12-04T09:01:48.078Z\n"
+                          "text": "   🚀 Scenario execution started at: 2025-12-04T09:13:09.781Z\n"
                         },
                         {
                           "text": "   ⏱️  Starting scenario execution with detailed time tracking\n"
@@ -583,13 +583,13 @@
                           "text": "   ✅ Passenger information completed successfully\n"
                         },
                         {
-                          "text": "   ⏱️  Scenario execution phase completed in 42720ms\n"
+                          "text": "   ⏱️  Scenario execution phase completed in 42728ms\n"
                         },
                         {
-                          "text": "   ⏱️  Total scenario time so far: 42720ms (43 seconds)\n"
+                          "text": "   ⏱️  Total scenario time so far: 42728ms (43 seconds)\n"
                         },
                         {
-                          "text": "   ⏱️  Scenario completed in 42721ms (43 seconds)\n"
+                          "text": "   ⏱️  Scenario completed in 42728ms (43 seconds)\n"
                         },
                         {
                           "text": "✅ Scenario scenario_4 completed successfully\n"
@@ -601,7 +601,7 @@
                           "text": "🏠 Navigated to home page for fresh start\n"
                         },
                         {
-                          "text": "✅ Scenario scenario_4 cleanup completed in 7584ms\n"
+                          "text": "✅ Scenario scenario_4 cleanup completed in 7082ms\n"
                         },
                         {
                           "text": "\n📊 Processing scenario 4 of 4\n"
@@ -622,7 +622,7 @@
                           "text": "   ⏱️  Setting fresh timeout to 18000000ms (18000 seconds) for this scenario\n"
                         },
                         {
-                          "text": "   🚀 Scenario execution started at: 2025-12-04T09:02:38.390Z\n"
+                          "text": "   🚀 Scenario execution started at: 2025-12-04T09:13:59.606Z\n"
                         },
                         {
                           "text": "   ⏱️  Starting scenario execution with detailed time tracking\n"
@@ -748,106 +748,7 @@
                           "text": "✅ Found flight using original locator\n"
                         },
                         {
-                          "text": "✅ Outbound Flight Selected using original locator\n"
-                        },
-                        {
-                          "text": "Clicking Continue to proceed to booking\n"
-                        },
-                        {
-                          "text": "✅ Clicked Continue to proceed to booking\n"
-                        },
-                        {
-                          "text": "   ✅ Results processing completed successfully\n"
-                        },
-                        {
-                          "text": "   👤 Step 3: Filling passenger information...\n"
-                        },
-                        {
-                          "text": "Filling passenger information for 6 passengers\n"
-                        },
-                        {
-                          "text": "Filling 2 adult passenger(s)\n"
-                        },
-                        {
-                          "text": "Filling adult passenger 1\n"
-                        },
-                        {
-                          "text": "Filling adult form 1\n"
-                        },
-                        {
-                          "text": "✅ Adult passenger 1 form completed\n"
-                        },
-                        {
-                          "text": "Filling adult passenger 2\n"
-                        },
-                        {
-                          "text": "Filling adult form 2\n"
-                        },
-                        {
-                          "text": "✅ Adult passenger 2 form completed\n"
-                        },
-                        {
-                          "text": "Filling 2 child passenger(s)\n"
-                        },
-                        {
-                          "text": "Filling child passenger 1\n"
-                        },
-                        {
-                          "text": "✅ Child passenger 1 form completed\n"
-                        },
-                        {
-                          "text": "Filling child passenger 2\n"
-                        },
-                        {
-                          "text": "✅ Child passenger 2 form completed\n"
-                        },
-                        {
-                          "text": "Filling 2 infant passenger(s)\n"
-                        },
-                        {
-                          "text": "Filling infant passenger 1\n"
-                        },
-                        {
-                          "text": "✅ Infant passenger 1 form completed\n"
-                        },
-                        {
-                          "text": "Filling infant passenger 2\n"
-                        },
-                        {
-                          "text": "✅ Infant passenger 2 form completed\n"
-                        },
-                        {
-                          "text": "Passenger information filled successfully\n"
-                        },
-                        {
-                          "text": "   ✅ Passenger information completed successfully\n"
-                        },
-                        {
-                          "text": "Attempting to click Proceed to Payment button\n"
-                        },
-                        {
-                          "text": "✅ Country set to India\n"
-                        },
-                        {
-                          "text": "✅ Language set to English\n"
-                        },
-                        {
-                          "text": "Proceed to Payment clicked, waiting for Confirm Payment button\n"
-                        },
-                        {
-                          "text": "✅ Payment flow ready\n"
-                        },
-                        {
-                          "text": "   ⏱️  Scenario execution phase completed in 104829ms\n"
-                        },
-                        {
-                          "text": "   ⏱️  Total scenario time so far: 104829ms (105 seconds)\n"
-                        },
-                        {
-                          "text": "   ⏱️  Scenario completed in 104829ms (105 seconds)\n"
-                        },
-                        {
-                          "text": "✅ Scenario scenario_5 completed successfully\n"
+                          "text": "🔄 Continuing to next scenario...\n"
                         },
                         {
                           "text": "🔄 Starting cleanup and reset for next scenario...\n"
@@ -856,7 +757,7 @@
                           "text": "🏠 Navigated to home page for fresh start\n"
                         },
                         {
-                          "text": "✅ Scenario scenario_5 cleanup completed in 7948ms\n"
+                          "text": "✅ Scenario scenario_5 cleanup completed in 8148ms\n"
                         },
                         {
                           "text": "\n📊 Test Execution Summary:\n"
@@ -865,13 +766,13 @@
                           "text": "   Total Scenarios: 4\n"
                         },
                         {
-                          "text": "   Passed: 4\n"
+                          "text": "   Passed: 3\n"
                         },
                         {
-                          "text": "   Failed: 0\n"
+                          "text": "   Failed: 1\n"
                         },
                         {
-                          "text": "   Success Rate: 100.0%\n"
+                          "text": "   Success Rate: 75.0%\n"
                         },
                         {
                           "text": "\n📋 Detailed Results:\n"
@@ -886,7 +787,10 @@
                           "text": "   ✅ scenario_4: PASSED\n"
                         },
                         {
-                          "text": "   ✅ scenario_5: PASSED\n"
+                          "text": "   ❌ scenario_5: FAILED\n"
+                        },
+                        {
+                          "text": "      Error: Search results failed: TimeoutError: locator.click: Timeout 50000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('xpath=(//div[text()=\"Price for 1 Adult\"])[1]')\u001b[22m\n\n"
                         },
                         {
                           "text": "🏁 Comprehensive E2E test completed!\n"
@@ -897,41 +801,29 @@
                           "text": "Failed to read scenarios from C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\test-data\\scenarios.xlsx: Error: ENOENT: no such file or directory, open 'C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\test-data\\scenarios.xlsx'\n\u001b[90m    at Object.openSync (node:fs:573:18)\u001b[39m\n\u001b[90m    at Object.readFileSync (node:fs:452:35)\u001b[39m\n    at read_binary \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mxlsx\u001b[24m\\xlsx.js:3153:44\u001b[90m)\u001b[39m\n    at readSync \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mxlsx\u001b[24m\\xlsx.js:23698:69\u001b[90m)\u001b[39m\n    at Object.readFile [as readFileSync] \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mxlsx\u001b[24m\\xlsx.js:23738:9\u001b[90m)\u001b[39m\n    at Function.readFromExcel \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mlib\\excel\\excelReader.ts:51:27\u001b[90m)\u001b[39m\n    at Function.readScenarios \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mlib\\excel\\excelReader.ts:21:21\u001b[90m)\u001b[39m\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mtests\\comprehensive-e2e.spec.ts:43:37\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:310:9\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\testInfo.js:305:11\n    at TimeoutManager.withRunnable \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\timeoutManager.js:67:14\u001b[90m)\u001b[39m\n    at TestInfoImpl._runWithTimeout \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\testInfo.js:303:7\u001b[90m)\u001b[39m\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:308:7\n    at WorkerMain._runTest \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:283:5\u001b[90m)\u001b[39m\n    at WorkerMain.runTestGroup \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:198:11\u001b[90m)\u001b[39m\n    at process.<anonymous> \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\common\\process.js:65:22\u001b[90m)\u001b[39m {\n  errno: \u001b[33m-4058\u001b[39m,\n  code: \u001b[32m'ENOENT'\u001b[39m,\n  syscall: \u001b[32m'open'\u001b[39m,\n  path: \u001b[32m'C:\\\\Users\\\\2853064\\\\Documents\\\\Testing\\\\Automation\\\\SingleBase\\\\test-data\\\\scenarios.xlsx'\u001b[39m\n}\n"
                         },
                         {
-                          "text": "Input validation failed. Expected: \"12/07/1939\", Actual: \"12\"\n"
+                          "text": "Input validation failed. Expected: \"18/07/1957\", Actual: \"18\"\n"
                         },
                         {
                           "text": "Input validation failed. Expected: \"Test State\", Actual: \"\"\n"
                         },
                         {
-                          "text": "Input validation failed. Expected: \"04/02/2020\", Actual: \"04\"\n"
+                          "text": "Input validation failed. Expected: \"03/07/2017\", Actual: \"03\"\n"
                         },
                         {
-                          "text": "Input validation failed. Expected: \"12/06/1957\", Actual: \"12\"\n"
+                          "text": "Failed to select flight: locator.click: Timeout 50000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('xpath=(//div[text()=\"Price for 1 Adult\"])[1]')\u001b[22m\n\n"
                         },
                         {
-                          "text": "Input validation failed. Expected: \"Test State\", Actual: \"\"\n"
+                          "text": "❌ Unhandled error in scenario execution: Error: Search results failed: TimeoutError: locator.click: Timeout 50000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('xpath=(//div[text()=\"Price for 1 Adult\"])[1]')\u001b[22m\n\n    at executeSearchAndResults \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mtests\\comprehensive-e2e.spec.ts:399:11\u001b[90m)\u001b[39m\n    at executeUntilPassengerInfo \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mtests\\comprehensive-e2e.spec.ts:413:3\u001b[90m)\u001b[39m\n    at executeUntilBookingSummary \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mtests\\comprehensive-e2e.spec.ts:441:3\u001b[90m)\u001b[39m\n    at executeFullBookingFlow \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mtests\\comprehensive-e2e.spec.ts:466:3\u001b[90m)\u001b[39m\n    at executeScenario \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mtests\\comprehensive-e2e.spec.ts:310:9\u001b[90m)\u001b[39m\n    at executeScenarioWithTimeTracking \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mtests\\comprehensive-e2e.spec.ts:341:5\u001b[90m)\u001b[39m\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mtests\\comprehensive-e2e.spec.ts:113:9\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:310:9\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\testInfo.js:305:11\n    at TimeoutManager.withRunnable \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\timeoutManager.js:67:14\u001b[90m)\u001b[39m\n    at TestInfoImpl._runWithTimeout \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\testInfo.js:303:7\u001b[90m)\u001b[39m\n    at \u001b[90mC:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:308:7\n    at WorkerMain._runTest \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:283:5\u001b[90m)\u001b[39m\n    at WorkerMain.runTestGroup \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\worker\\workerMain.js:198:11\u001b[90m)\u001b[39m\n    at process.<anonymous> \u001b[90m(C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\\u001b[39mnode_modules\\\u001b[4mplaywright\u001b[24m\\lib\\common\\process.js:65:22\u001b[90m)\u001b[39m\n"
                         },
                         {
-                          "text": "Input validation failed. Expected: \"23/08/1933\", Actual: \"23\"\n"
+                          "text": "   ⏱️  Scenario failed after 78663ms (79 seconds)\n"
                         },
                         {
-                          "text": "Input validation failed. Expected: \"Test State\", Actual: \"\"\n"
-                        },
-                        {
-                          "text": "Input validation failed. Expected: \"27/09/2020\", Actual: \"27\"\n"
-                        },
-                        {
-                          "text": "Input validation failed. Expected: \"13/03/2020\", Actual: \"13\"\n"
-                        },
-                        {
-                          "text": "Input validation failed. Expected: \"04/05/2025\", Actual: \"04\"\n"
-                        },
-                        {
-                          "text": "Input validation failed. Expected: \"04/11/2025\", Actual: \"04\"\n"
+                          "text": "❌ Scenario scenario_5 failed: Search results failed: TimeoutError: locator.click: Timeout 50000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('xpath=(//div[text()=\"Price for 1 Adult\"])[1]')\u001b[22m\n\n"
                         }
                       ],
                       "retry": 0,
-                      "startTime": "2025-12-04T09:00:38.777Z",
+                      "startTime": "2025-12-04T09:11:54.356Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -951,8 +843,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2025-12-04T09:00:37.752Z",
-    "duration": 234000.68,
+    "startTime": "2025-12-04T09:11:53.367Z",
+    "duration": 213792.089,
     "expected": 1,
     "skipped": 0,
     "unexpected": 0,

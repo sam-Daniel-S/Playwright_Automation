@@ -1,6 +1,6 @@
-<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="234.00068">
-<testsuite name="comprehensive-e2e.spec.ts" timestamp="2025-12-04T09:00:37.892Z" hostname="chromium" tests="1" failures="0" skipped="0" time="232.249" errors="0">
-<testcase name="Airline Booking - All Scenarios E2E › Execute all booking scenarios from test data" classname="comprehensive-e2e.spec.ts" time="232.249">
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="213.792089">
+<testsuite name="comprehensive-e2e.spec.ts" timestamp="2025-12-04T09:11:53.488Z" hostname="chromium" tests="1" failures="0" skipped="0" time="212.117" errors="0">
+<testcase name="Airline Booking - All Scenarios E2E › Execute all booking scenarios from test data" classname="comprehensive-e2e.spec.ts" time="212.117">
 <system-out>
 <![CDATA[🚀 Starting comprehensive E2E test execution...
 🔧 Setting up authentication for test execution...
@@ -29,7 +29,7 @@ Successfully parsed 4 scenarios
 🔍 Checking browser state for scenario scenario_2...
 ✅ Browser state is valid for scenario scenario_2
    ⏱️  Setting fresh timeout to 18000000ms (18000 seconds) for this scenario
-   🚀 Scenario execution started at: 2025-12-04T09:00:47.357Z
+   🚀 Scenario execution started at: 2025-12-04T09:12:07.828Z
    ⏱️  Starting scenario execution with detailed time tracking
    🎯 Executing Action: Search
    📍 Step 1: Filling and submitting search form...
@@ -50,13 +50,13 @@ Verifying search was processed - looking for Flights text
 ✅ Found Flights text: "Flights"
 ✅ Search results loaded successfully
    ✅ Search completed successfully
-   ⏱️  Scenario execution phase completed in 22813ms
-   ⏱️  Total scenario time so far: 22814ms (23 seconds)
-   ⏱️  Scenario completed in 22814ms (23 seconds)
+   ⏱️  Scenario execution phase completed in 22646ms
+   ⏱️  Total scenario time so far: 22647ms (23 seconds)
+   ⏱️  Scenario completed in 22647ms (23 seconds)
 ✅ Scenario scenario_2 completed successfully
 🔄 Starting cleanup and reset for next scenario...
 🏠 Navigated to home page for fresh start
-✅ Scenario scenario_2 cleanup completed in 7221ms
+✅ Scenario scenario_2 cleanup completed in 7657ms
 
 📊 Processing scenario 2 of 4
 
@@ -65,7 +65,7 @@ Verifying search was processed - looking for Flights text
 🔍 Checking browser state for scenario scenario_3...
 ✅ Browser state is valid for scenario scenario_3
    ⏱️  Setting fresh timeout to 18000000ms (18000 seconds) for this scenario
-   🚀 Scenario execution started at: 2025-12-04T09:01:17.399Z
+   🚀 Scenario execution started at: 2025-12-04T09:12:38.363Z
    ⏱️  Starting scenario execution with detailed time tracking
    🎯 Executing Action: Results
    📍 Step 1: Filling and submitting search form...
@@ -99,13 +99,13 @@ Checking if flight selection element is visible...
 Clicking Continue to proceed to booking
 ✅ Clicked Continue to proceed to booking
    ✅ Results processing completed successfully
-   ⏱️  Scenario execution phase completed in 23799ms
-   ⏱️  Total scenario time so far: 23799ms (24 seconds)
-   ⏱️  Scenario completed in 23799ms (24 seconds)
+   ⏱️  Scenario execution phase completed in 24176ms
+   ⏱️  Total scenario time so far: 24177ms (24 seconds)
+   ⏱️  Scenario completed in 24178ms (24 seconds)
 ✅ Scenario scenario_3 completed successfully
 🔄 Starting cleanup and reset for next scenario...
 🏠 Navigated to home page for fresh start
-✅ Scenario scenario_3 cleanup completed in 6876ms
+✅ Scenario scenario_3 cleanup completed in 7232ms
 
 📊 Processing scenario 3 of 4
 
@@ -114,7 +114,7 @@ Clicking Continue to proceed to booking
 🔍 Checking browser state for scenario scenario_4...
 ✅ Browser state is valid for scenario scenario_4
    ⏱️  Setting fresh timeout to 18000000ms (18000 seconds) for this scenario
-   🚀 Scenario execution started at: 2025-12-04T09:01:48.078Z
+   🚀 Scenario execution started at: 2025-12-04T09:13:09.781Z
    ⏱️  Starting scenario execution with detailed time tracking
    🎯 Executing Action: PassengerInfo
    📍 Step 1: Filling and submitting search form...
@@ -159,13 +159,13 @@ Filling child passenger 1
 ✅ Child passenger 1 form completed
 Passenger information filled successfully
    ✅ Passenger information completed successfully
-   ⏱️  Scenario execution phase completed in 42720ms
-   ⏱️  Total scenario time so far: 42720ms (43 seconds)
-   ⏱️  Scenario completed in 42721ms (43 seconds)
+   ⏱️  Scenario execution phase completed in 42728ms
+   ⏱️  Total scenario time so far: 42728ms (43 seconds)
+   ⏱️  Scenario completed in 42728ms (43 seconds)
 ✅ Scenario scenario_4 completed successfully
 🔄 Starting cleanup and reset for next scenario...
 🏠 Navigated to home page for fresh start
-✅ Scenario scenario_4 cleanup completed in 7584ms
+✅ Scenario scenario_4 cleanup completed in 7082ms
 
 📊 Processing scenario 4 of 4
 
@@ -174,7 +174,7 @@ Passenger information filled successfully
 🔍 Checking browser state for scenario scenario_5...
 ✅ Browser state is valid for scenario scenario_5
    ⏱️  Setting fresh timeout to 18000000ms (18000 seconds) for this scenario
-   🚀 Scenario execution started at: 2025-12-04T09:02:38.390Z
+   🚀 Scenario execution started at: 2025-12-04T09:13:59.606Z
    ⏱️  Starting scenario execution with detailed time tracking
    🎯 Executing Action: Booking
    📍 Step 1: Filling and submitting search form...
@@ -220,55 +220,26 @@ About to call selectFlight...
 Select a flight from the flight results
 Checking if flight selection element is visible...
 ✅ Found flight using original locator
-✅ Outbound Flight Selected using original locator
-Clicking Continue to proceed to booking
-✅ Clicked Continue to proceed to booking
-   ✅ Results processing completed successfully
-   👤 Step 3: Filling passenger information...
-Filling passenger information for 6 passengers
-Filling 2 adult passenger(s)
-Filling adult passenger 1
-Filling adult form 1
-✅ Adult passenger 1 form completed
-Filling adult passenger 2
-Filling adult form 2
-✅ Adult passenger 2 form completed
-Filling 2 child passenger(s)
-Filling child passenger 1
-✅ Child passenger 1 form completed
-Filling child passenger 2
-✅ Child passenger 2 form completed
-Filling 2 infant passenger(s)
-Filling infant passenger 1
-✅ Infant passenger 1 form completed
-Filling infant passenger 2
-✅ Infant passenger 2 form completed
-Passenger information filled successfully
-   ✅ Passenger information completed successfully
-Attempting to click Proceed to Payment button
-✅ Country set to India
-✅ Language set to English
-Proceed to Payment clicked, waiting for Confirm Payment button
-✅ Payment flow ready
-   ⏱️  Scenario execution phase completed in 104829ms
-   ⏱️  Total scenario time so far: 104829ms (105 seconds)
-   ⏱️  Scenario completed in 104829ms (105 seconds)
-✅ Scenario scenario_5 completed successfully
+🔄 Continuing to next scenario...
 🔄 Starting cleanup and reset for next scenario...
 🏠 Navigated to home page for fresh start
-✅ Scenario scenario_5 cleanup completed in 7948ms
+✅ Scenario scenario_5 cleanup completed in 8148ms
 
 📊 Test Execution Summary:
    Total Scenarios: 4
-   Passed: 4
-   Failed: 0
-   Success Rate: 100.0%
+   Passed: 3
+   Failed: 1
+   Success Rate: 75.0%
 
 📋 Detailed Results:
    ✅ scenario_2: PASSED
    ✅ scenario_3: PASSED
    ✅ scenario_4: PASSED
-   ✅ scenario_5: PASSED
+   ❌ scenario_5: FAILED
+      Error: Search results failed: TimeoutError: locator.click: Timeout 50000ms exceeded.
+Call log:
+[2m  - waiting for locator('xpath=(//div[text()="Price for 1 Adult"])[1]')[22m
+
 🏁 Comprehensive E2E test completed!
 ]]>
 </system-out>
@@ -295,17 +266,37 @@ Proceed to Payment clicked, waiting for Confirm Payment button
   syscall: [32m'open'[39m,
   path: [32m'C:\\Users\\2853064\\Documents\\Testing\\Automation\\SingleBase\\test-data\\scenarios.xlsx'[39m
 }
-Input validation failed. Expected: "12/07/1939", Actual: "12"
+Input validation failed. Expected: "18/07/1957", Actual: "18"
 Input validation failed. Expected: "Test State", Actual: ""
-Input validation failed. Expected: "04/02/2020", Actual: "04"
-Input validation failed. Expected: "12/06/1957", Actual: "12"
-Input validation failed. Expected: "Test State", Actual: ""
-Input validation failed. Expected: "23/08/1933", Actual: "23"
-Input validation failed. Expected: "Test State", Actual: ""
-Input validation failed. Expected: "27/09/2020", Actual: "27"
-Input validation failed. Expected: "13/03/2020", Actual: "13"
-Input validation failed. Expected: "04/05/2025", Actual: "04"
-Input validation failed. Expected: "04/11/2025", Actual: "04"
+Input validation failed. Expected: "03/07/2017", Actual: "03"
+Failed to select flight: locator.click: Timeout 50000ms exceeded.
+Call log:
+[2m  - waiting for locator('xpath=(//div[text()="Price for 1 Adult"])[1]')[22m
+
+❌ Unhandled error in scenario execution: Error: Search results failed: TimeoutError: locator.click: Timeout 50000ms exceeded.
+Call log:
+[2m  - waiting for locator('xpath=(//div[text()="Price for 1 Adult"])[1]')[22m
+
+    at executeSearchAndResults [90m(C:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mtests\comprehensive-e2e.spec.ts:399:11[90m)[39m
+    at executeUntilPassengerInfo [90m(C:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mtests\comprehensive-e2e.spec.ts:413:3[90m)[39m
+    at executeUntilBookingSummary [90m(C:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mtests\comprehensive-e2e.spec.ts:441:3[90m)[39m
+    at executeFullBookingFlow [90m(C:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mtests\comprehensive-e2e.spec.ts:466:3[90m)[39m
+    at executeScenario [90m(C:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mtests\comprehensive-e2e.spec.ts:310:9[90m)[39m
+    at executeScenarioWithTimeTracking [90m(C:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mtests\comprehensive-e2e.spec.ts:341:5[90m)[39m
+    at [90mC:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mtests\comprehensive-e2e.spec.ts:113:9
+    at [90mC:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mnode_modules\[4mplaywright[24m\lib\worker\workerMain.js:310:9
+    at [90mC:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mnode_modules\[4mplaywright[24m\lib\worker\testInfo.js:305:11
+    at TimeoutManager.withRunnable [90m(C:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mnode_modules\[4mplaywright[24m\lib\worker\timeoutManager.js:67:14[90m)[39m
+    at TestInfoImpl._runWithTimeout [90m(C:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mnode_modules\[4mplaywright[24m\lib\worker\testInfo.js:303:7[90m)[39m
+    at [90mC:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mnode_modules\[4mplaywright[24m\lib\worker\workerMain.js:308:7
+    at WorkerMain._runTest [90m(C:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mnode_modules\[4mplaywright[24m\lib\worker\workerMain.js:283:5[90m)[39m
+    at WorkerMain.runTestGroup [90m(C:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mnode_modules\[4mplaywright[24m\lib\worker\workerMain.js:198:11[90m)[39m
+    at process.<anonymous> [90m(C:\Users\2853064\Documents\Testing\Automation\SingleBase\[39mnode_modules\[4mplaywright[24m\lib\common\process.js:65:22[90m)[39m
+   ⏱️  Scenario failed after 78663ms (79 seconds)
+❌ Scenario scenario_5 failed: Search results failed: TimeoutError: locator.click: Timeout 50000ms exceeded.
+Call log:
+[2m  - waiting for locator('xpath=(//div[text()="Price for 1 Adult"])[1]')[22m
+
 ]]>
 </system-err>
 </testcase>
